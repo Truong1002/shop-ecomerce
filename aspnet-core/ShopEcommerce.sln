@@ -45,7 +45,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3E459F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{D7EF26A8-A88F-42C6-9840-85D8598799E9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frastructure", "frastructure", "{F50F665B-4929-4CC1-8B0B-D1F34F99F8D2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{F50F665B-4929-4CC1-8B0B-D1F34F99F8D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identity", "identity", "{78BE8CE2-C55E-4A35-BD41-2D04BD158FF4}"
 EndProject
