@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShopEcommerce.Attributes
+namespace ShopEcommerce.ProductAttributes
 {
     public enum AttributeType
     {
