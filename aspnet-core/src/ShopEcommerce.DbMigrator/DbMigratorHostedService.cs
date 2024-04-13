@@ -7,6 +7,7 @@ using ShopEcommerce.Data;
 using Serilog;
 using Volo.Abp;
 using Volo.Abp.Data;
+using ShopEcommerce.Seeding;
 
 namespace ShopEcommerce.DbMigrator;
 
@@ -28,7 +29,6 @@ public class DbMigratorHostedService : IHostedService
            options.Services.ReplaceConfiguration(_configuration);
            options.UseAutofac();
            options.Services.AddLogging(c => c.AddSerilog());
-           options.AddDataMigrationEnvironment();
         }))
         {
             await application.InitializeAsync();
@@ -37,6 +37,10 @@ public class DbMigratorHostedService : IHostedService
                 .ServiceProvider
                 .GetRequiredService<ShopEcommerceDbMigrationService>()
                 .MigrateAsync();
+            await application
+                .ServiceProvider
+                .GetRequiredService<IdentityDataSeeder>()
+                .SeedAsync("truongphamxuan724@gmail.com","Abc@123$");
 
             await application.ShutdownAsync();
 

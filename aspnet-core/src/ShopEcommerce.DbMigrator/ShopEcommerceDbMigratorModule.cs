@@ -8,7 +8,6 @@ namespace ShopEcommerce.DbMigrator;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(AbpCachingStackExchangeRedisModule),
     typeof(ShopEcommerceEntityFrameworkCoreModule),
     typeof(ShopEcommerceApplicationContractsModule)
     )]
