@@ -17,17 +17,19 @@ import { AbpOAuthModule } from '@abp/ng.oauth';
 import { ThemeLeptonXModule } from '@abp/ng.theme.lepton-x';
 import { SideMenuLayoutModule } from '@abp/ng.theme.lepton-x/layouts';
 import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
+import { AppLayoutModule } from './layout/app.layout.module';
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    AppLayoutModule,
     CoreModule.forRoot({
       environment,
       registerLocaleFn: registerLocale(),
     }),
-    AbpOAuthModule.forRoot(),
-    ThemeSharedModule.forRoot(),
+    
+    // ThemeSharedModule.forRoot(),
     
     AccountConfigModule.forRoot(),
     IdentityConfigModule.forRoot(),
@@ -35,11 +37,11 @@ import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
     SettingManagementConfigModule.forRoot(),
     
     
-    FeatureManagementModule.forRoot(),
-    InternetConnectionStatusComponent,
-    ThemeLeptonXModule.forRoot(),
-    SideMenuLayoutModule.forRoot(),
-    AccountLayoutModule.forRoot()
+    // FeatureManagementModule.forRoot(),
+    // InternetConnectionStatusComponent,
+    // ThemeLeptonXModule.forRoot(),
+    // SideMenuLayoutModule.forRoot(),
+    // AccountLayoutModule.forRoot()
   ],
   declarations: [AppComponent],
   providers: [APP_ROUTE_PROVIDER],

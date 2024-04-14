@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
   template: `
-    <abp-loader-bar></abp-loader-bar>
-    <abp-dynamic-layout></abp-dynamic-layout>
-    <abp-internet-status></abp-internet-status>
+    <router-outlet></router-outlet>
+    
   `,
 })
-export class AppComponent {}
+export class AppComponent 
+{
+  menuMode = 'static';
+
+  constructor(private primengConfig: PrimeNGConfig) {}
+
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+    document.documentElement.style.fontSize = '14px';
+  }
+
+}
