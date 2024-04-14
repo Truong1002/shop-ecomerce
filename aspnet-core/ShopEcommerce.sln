@@ -47,7 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{D7EF26
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{F50F665B-4929-4CC1-8B0B-D1F34F99F8D2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identity", "identity", "{78BE8CE2-C55E-4A35-BD41-2D04BD158FF4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "auth", "auth", "{78BE8CE2-C55E-4A35-BD41-2D04BD158FF4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopEcommerce.Admin.Application", "src\ShopEcommerce.Admin.Application\ShopEcommerce.Admin.Application.csproj", "{4587AF56-7F34-4F80-81E7-117AD082CB8D}"
 EndProject

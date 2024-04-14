@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,6 +53,7 @@ public class ShopEcommerceAdminHttpApiHostModule : AbpModule
 
         ConfigureConventionalControllers();
         ConfigureAuthentication(context, configuration);
+        ConfigureLocalization();
         ConfigureCache(configuration);
         ConfigureVirtualFileSystem(context);
         ConfigureDataProtection(context, configuration, hostingEnvironment);
@@ -104,14 +105,10 @@ public class ShopEcommerceAdminHttpApiHostModule : AbpModule
             .AddJwtBearer(options =>
             {
                 options.Authority = configuration["AuthServer:Authority"];
-                options.RequireHttpsMetadata = configuration.GetValue<bool>("AuthServer:RequireHttpsMetadata");
+                options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
                 options.Audience = "ShopEcommerce.Admin";
             });
 
-        context.Services.Configure<AbpClaimsPrincipalFactoryOptions>(options =>
-        {
-            options.IsDynamicClaimsEnabled = true;
-        });
     }
 
     private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
@@ -128,6 +125,33 @@ public class ShopEcommerceAdminHttpApiHostModule : AbpModule
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
+    }
+
+    private void ConfigureLocalization()
+    {
+        Configure<AbpLocalizationOptions>(options =>
+        {
+            options.Languages.Add(new LanguageInfo("ar", "ar", "العربية"));
+            options.Languages.Add(new LanguageInfo("cs", "cs", "Čeština"));
+            options.Languages.Add(new LanguageInfo("en", "en", "English"));
+            options.Languages.Add(new LanguageInfo("en-GB", "en-GB", "English (UK)"));
+            options.Languages.Add(new LanguageInfo("fi", "fi", "Finnish"));
+            options.Languages.Add(new LanguageInfo("fr", "fr", "Français"));
+            options.Languages.Add(new LanguageInfo("hi", "hi", "Hindi", "in"));
+            options.Languages.Add(new LanguageInfo("is", "is", "Icelandic", "is"));
+            options.Languages.Add(new LanguageInfo("it", "it", "Italiano", "it"));
+            options.Languages.Add(new LanguageInfo("ro-RO", "ro-RO", "Română"));
+            options.Languages.Add(new LanguageInfo("hu", "hu", "Magyar"));
+            options.Languages.Add(new LanguageInfo("pt-BR", "pt-BR", "Português"));
+            options.Languages.Add(new LanguageInfo("ru", "ru", "Русский"));
+            options.Languages.Add(new LanguageInfo("sk", "sk", "Slovak"));
+            options.Languages.Add(new LanguageInfo("tr", "tr", "Türkçe"));
+            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文"));
+            options.Languages.Add(new LanguageInfo("de-DE", "de-DE", "Deutsch", "de"));
+            options.Languages.Add(new LanguageInfo("es", "es", "Español", "es"));
+            options.Languages.Add(new LanguageInfo("el", "el", "Ελληνικά"));
+        });
     }
 
     private void ConfigureDataProtection(
@@ -196,8 +220,6 @@ public class ShopEcommerceAdminHttpApiHostModule : AbpModule
             app.UseMultiTenancy();
         }
 
-        app.UseUnitOfWork();
-        app.UseDynamicClaims();
         app.UseAuthorization();
 
         app.UseSwagger();
@@ -207,11 +229,12 @@ public class ShopEcommerceAdminHttpApiHostModule : AbpModule
 
             var configuration = context.GetConfiguration();
             options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
-            options.OAuthScopes("ShopEcommerce");
+            options.OAuthScopes("ShopEcommerce.Admin");
         });
 
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
+        app.UseUnitOfWork();
         app.UseConfiguredEndpoints();
     }
 }

@@ -6,21 +6,21 @@ export const environment = {
   production: false,
   application: {
     baseUrl,
-    name: 'ShopEcommerce',
+    name: 'ShopEcommerce Admin',
     logoUrl: '',
   },
   oAuthConfig: {
-    issuer: 'https://localhost:44343/',
+    issuer: 'https://localhost:5000/',
     redirectUri: baseUrl,
-    clientId: 'ShopEcommerce_App',
+    clientId: 'ShopEcommerce_Admin',
     responseType: 'code',
-    scope: 'offline_access ShopEcommerce',
+    scope: 'offline_access ShopEcommerce.Admin',
     requireHttps: true,
   },
   apis: {
     default: {
-      url: 'https://localhost:44389',
-      rootNamespace: 'ShopEcommerce',
+      url: 'https://localhost:5001',
+      rootNamespace: 'ShopEcommerce.Admin',
     },
   },
 } as Environment;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using Localization.Resources.AbpUi;
@@ -55,31 +55,15 @@ public class ShopEcommerceAuthServerModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
-        var hostingEnvironment = context.Services.GetHostingEnvironment();
-        var configuration = context.Services.GetConfiguration();
-
         PreConfigure<OpenIddictBuilder>(builder =>
         {
             builder.AddValidation(options =>
             {
-                options.AddAudiences("ShopEcommerce");
+                options.AddAudiences("ShopEcommerce", "ShopEcommerce.Admin");
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });
         });
-
-        if (!hostingEnvironment.IsDevelopment())
-        {
-            PreConfigure<AbpOpenIddictAspNetCoreOptions>(options =>
-            {
-                options.AddDevelopmentEncryptionAndSigningCertificate = false;
-            });
-
-            PreConfigure<OpenIddictServerBuilder>(serverBuilder =>
-            {
-                serverBuilder.AddProductionEncryptionAndSigningCertificate("openiddict.pfx", "259c0906-9220-46e3-a0a2-89de16e950e2");
-            });
-        }
     }
 
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -92,9 +76,28 @@ public class ShopEcommerceAuthServerModule : AbpModule
             options.Resources
                 .Get<ShopEcommerceResource>()
                 .AddBaseTypes(
-                    typeof(AbpUiResource),
-                    typeof(AccountResource)
+                    typeof(AbpUiResource)
                 );
+            options.Languages.Add(new LanguageInfo("ar", "ar", "العربية"));
+            options.Languages.Add(new LanguageInfo("cs", "cs", "Čeština"));
+            options.Languages.Add(new LanguageInfo("en", "en", "English"));
+            options.Languages.Add(new LanguageInfo("en-GB", "en-GB", "English (UK)"));
+            options.Languages.Add(new LanguageInfo("fi", "fi", "Finnish"));
+            options.Languages.Add(new LanguageInfo("fr", "fr", "Français"));
+            options.Languages.Add(new LanguageInfo("hi", "hi", "Hindi", "in"));
+            options.Languages.Add(new LanguageInfo("is", "is", "Icelandic", "is"));
+            options.Languages.Add(new LanguageInfo("it", "it", "Italiano", "it"));
+            options.Languages.Add(new LanguageInfo("hu", "hu", "Magyar"));
+            options.Languages.Add(new LanguageInfo("pt-BR", "pt-BR", "Português"));
+            options.Languages.Add(new LanguageInfo("ro-RO", "ro-RO", "Română"));
+            options.Languages.Add(new LanguageInfo("ru", "ru", "Русский"));
+            options.Languages.Add(new LanguageInfo("sk", "sk", "Slovak"));
+            options.Languages.Add(new LanguageInfo("tr", "tr", "Türkçe"));
+            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文"));
+            options.Languages.Add(new LanguageInfo("de-DE", "de-DE", "Deutsch", "de"));
+            options.Languages.Add(new LanguageInfo("es", "es", "Español", "es"));
+            options.Languages.Add(new LanguageInfo("el", "el", "Ελληνικά"));
         });
 
         Configure<AbpBundlingOptions>(options =>
