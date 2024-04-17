@@ -30,7 +30,7 @@ import { AppLayoutModule } from './layout/app.layout.module';
     }),
     
     // ThemeSharedModule.forRoot(),
-    
+    AbpOAuthModule.forRoot(),
     AccountConfigModule.forRoot(),
     IdentityConfigModule.forRoot(),
     TenantManagementConfigModule.forRoot(),
