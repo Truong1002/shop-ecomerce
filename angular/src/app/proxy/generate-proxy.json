@@ -1273,9 +1273,9 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.BaseListFilterDto",
-                      "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "typeAsString": "ShopEcommerce.Admin.Products.ProductListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Products.ProductListFilterDto",
+                      "typeSimple": "ShopEcommerce.Admin.Products.ProductListFilterDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
@@ -1468,14 +1468,26 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.BaseListFilterDto",
-                  "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                  "typeAsString": "ShopEcommerce.Admin.Products.ProductListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Products.ProductListFilterDto",
+                  "typeSimple": "ShopEcommerce.Admin.Products.ProductListFilterDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
               ],
               "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "CategoryId",
+                  "jsonName": null,
+                  "type": "System.Guid?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
                 {
                   "nameOnMethod": "input",
                   "name": "Keyword",
@@ -5122,6 +5134,27 @@
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Products.ProductListFilterDto": {
+      "baseType": "ShopEcommerce.Admin.BaseListFilterDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CategoryId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
