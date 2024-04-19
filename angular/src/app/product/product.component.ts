@@ -24,7 +24,6 @@ export class ProductComponent implements OnInit, OnDestroy {
   keyword: string = '';
   categoryId: string = '';
 
-
   constructor(private productService: ProductsService, private productCategoryService: ProductCategoriesService) {}
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
@@ -37,9 +36,10 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   loadData() {
+    this.toggleBlockUI(true);
     this.productService
       .getListFilter({
-        keyword: this.keyword, 
+        keyword: this.keyword,
         categoryId: this.categoryId,
         maxResultCount: this.maxResultCount,
         skipCount: this.skipCount,
@@ -49,12 +49,17 @@ export class ProductComponent implements OnInit, OnDestroy {
         next: (response: PagedResultDto<ProductInListDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
+          this.toggleBlockUI(false);
+
         },
-        error: () => {},
+        error: () => {
+          this.toggleBlockUI(false);
+
+        },
       });
   }
 
-  loadProductCategories() {
+  loadProductCategories(){
     this.productCategoryService.getListAll()
     .subscribe((response: ProductCategoryInListDto[])=>{
       response.forEach(element=>{
@@ -64,12 +69,21 @@ export class ProductComponent implements OnInit, OnDestroy {
         })
       });
     });
-
   }
 
   pageChanged(event: any): void {
     this.skipCount = (event.page -1) * this.maxResultCount;
     this.maxResultCount = event.rows;
     this.loadData();
+  }
+
+  private toggleBlockUI(enabled: boolean){
+    if(enabled == true){
+      this.blockedPanel = true;
+    }else{
+      setTimeout(()=>{
+        this.blockedPanel = false;
+      },1000);
+    }
   }
 }
