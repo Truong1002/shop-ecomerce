@@ -27,7 +27,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "allowedCommonJsDependencies": ["chart.js", "js-sha256"],
+            "allowedCommonJsDependencies": ["chart.js", "js-sha256", "quill", "quill-delta"],
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               {
@@ -110,9 +110,12 @@
                 "inject": true,
                 "bundleName": "ngx-datatable-material"
               },
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/quill/dist/quill.js"]
           },
           "configurations": {
             "production": {

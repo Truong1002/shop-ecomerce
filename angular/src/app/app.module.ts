@@ -18,6 +18,9 @@ import { ThemeLeptonXModule } from '@abp/ng.theme.lepton-x';
 import { SideMenuLayoutModule } from '@abp/ng.theme.lepton-x/layouts';
 import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
 import { AppLayoutModule } from './layout/app.layout.module';
+import { DialogService } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
+import { NotificationService } from './shared/services/notification.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { AppLayoutModule } from './layout/app.layout.module';
       registerLocaleFn: registerLocale(),
     }),
     
-    // ThemeSharedModule.forRoot(),
+    ThemeSharedModule.forRoot(),
     AbpOAuthModule.forRoot(),
     AccountConfigModule.forRoot(),
     IdentityConfigModule.forRoot(),
@@ -37,14 +40,14 @@ import { AppLayoutModule } from './layout/app.layout.module';
     SettingManagementConfigModule.forRoot(),
     
     
-    // FeatureManagementModule.forRoot(),
-    // InternetConnectionStatusComponent,
-    // ThemeLeptonXModule.forRoot(),
-    // SideMenuLayoutModule.forRoot(),
-    // AccountLayoutModule.forRoot()
+    FeatureManagementModule.forRoot(),
+    InternetConnectionStatusComponent,
+    ThemeLeptonXModule.forRoot(),
+    SideMenuLayoutModule.forRoot(),
+    AccountLayoutModule.forRoot()
   ],
   declarations: [AppComponent],
-  providers: [APP_ROUTE_PROVIDER],
+  providers: [APP_ROUTE_PROVIDER, DialogService,MessageService, NotificationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

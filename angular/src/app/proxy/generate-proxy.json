@@ -4824,6 +4824,18 @@
           "regex": null
         },
         {
+          "name": "SellPrice",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
           "name": "CategoryId",
           "jsonName": null,
           "type": "System.Guid",
@@ -4881,6 +4893,18 @@
       "genericArguments": null,
       "properties": [
         {
+          "name": "ManufacturerId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
           "name": "Name",
           "jsonName": null,
           "type": "System.String",
@@ -4917,6 +4941,30 @@
           "regex": null
         },
         {
+          "name": "ProductType",
+          "jsonName": null,
+          "type": "ShopEcommerce.Products.ProductType",
+          "typeSimple": "ShopEcommerce.Products.ProductType",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SKU",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
           "name": "SortOrder",
           "jsonName": null,
           "type": "System.Int32",
@@ -4929,19 +4977,7 @@
           "regex": null
         },
         {
-          "name": "CoverPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Visibility",
+          "name": "Visiblity",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
@@ -4965,10 +5001,10 @@
           "regex": null
         },
         {
-          "name": "ParentId",
+          "name": "CategoryId",
           "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
+          "type": "System.Guid",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -4981,6 +5017,42 @@
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThumbnailPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SellPrice",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

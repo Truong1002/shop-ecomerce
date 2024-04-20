@@ -1,8 +1,9 @@
+
 <p-panel header="Danh sách sản phẩm">
   <!--Filter (search panel)-->
   <div class="grid">
     <div class="col-4">
-      <button pButton type="button" icon="fa fa-plus" iconPos="left" label="Thêm mới"></button>
+      <button pButton type="button" (click)="showAddModal()" icon="fa fa-plus" iconPos="left" label="Thêm mới"></button>
     </div>
     <div class="col-8">
       <div class="formgroup-inline">
@@ -30,7 +31,7 @@
   </div>
 
   <!--Table-->
-  <p-table #pnl  [value]="items">
+  <p-table #pnl [value]="items">
     <ng-template pTemplate="header">
       <tr>
         <th>Mã</th>
