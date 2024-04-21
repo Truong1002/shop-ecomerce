@@ -23,5 +23,6 @@ namespace ShopEcommerce.Products
         public string Description { get; set; }
         public int StockQuantity { get; set; }
         public string ThumbnailPicture { get; set; }
+        public double SellPrice { get; set; }
     }
 }
