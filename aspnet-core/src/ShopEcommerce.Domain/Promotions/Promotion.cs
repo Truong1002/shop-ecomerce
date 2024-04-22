@@ -9,8 +9,8 @@ namespace ShopEcommerce.Promotions
 {
     public class Promotion : AuditedAggregateRoot<Guid>
     {
-        public string Name { get; set; }
-        public string CouponCode { get; set; }
+        public string? Name { get; set; }
+        public string? CouponCode { get; set; }
         public bool RequireUseCouponCode { get; set; }
         public DateTime ValidDate { get; set; }
         public DateTime? ExpiredDate { get; set; }

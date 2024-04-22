@@ -6,6 +6,7 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../shared/services/notification.service';
 import { ProductDetailComponent } from './product-detail.component';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -16,6 +17,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
   items: ProductInListDto[] = [];
+
+  
 
   //Paging variables
   public skipCount: number = 0;
@@ -31,7 +34,8 @@ export class ProductComponent implements OnInit, OnDestroy {
     private productService: ProductsService,
     private productCategoryService: ProductCategoriesService,
     private dialogService: DialogService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private cdr: ChangeDetectorRef 
   ) {}
 
   ngOnDestroy(): void {
@@ -66,13 +70,16 @@ export class ProductComponent implements OnInit, OnDestroy {
       });
   }
 
+
+
   loadProductCategories() {
     this.productCategoryService.getListAll().subscribe((response: ProductCategoryInListDto[]) => {
       response.forEach(element => {
         this.productCategories.push({
           value: element.id,
-          name: element.name,
+          label: element.name,
         });
+        this.cdr.detectChanges(); // Kích hoạt việc phát hiện thay đổi
       });
     });
   }

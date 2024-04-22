@@ -9,6 +9,6 @@ namespace ShopEcommerce.Products
 {
     public class Tag : Entity<string>
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

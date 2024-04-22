@@ -136,7 +136,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BatchNumber")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -183,11 +182,9 @@ namespace ShopEcommerce.Migrations
                         .HasColumnName("ConcurrencyStamp");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CoverPicture")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -371,7 +368,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnName("CreatorId");
 
                     b.Property<string>("Note")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("OrderId")
@@ -437,7 +433,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Note")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SortOrder")
@@ -470,7 +465,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnName("ConcurrencyStamp");
 
                     b.Property<string>("CoverPicture")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -499,7 +493,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("SeoMetaDescription")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -550,7 +543,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnName("CreatorId");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExtraProperties")
@@ -590,7 +582,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("SeoMetaDescription")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -607,7 +598,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ThumbnailPicture")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -688,7 +678,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Value")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -708,7 +697,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Value")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -736,7 +724,6 @@ namespace ShopEcommerce.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreationTime")

@@ -11,11 +11,11 @@ namespace ShopEcommerce.Products
     {
         public Guid ProductId { get; set; }
         public Guid? ParentId { get; set; }
-        public string Title { get; set; }
+        public string? Title { get; set; }
         public double Rating { get; set; }
 
         public DateTime? PublishedDate { get; set; }
-        public string Content { get; set; }
+        public string? Content { get; set; }
         public Guid OrderId { get; set; }
     }
 }

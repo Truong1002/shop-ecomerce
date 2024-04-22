@@ -31,7 +31,7 @@ namespace ShopEcommerce.Admin.Products
         public async Task<List<ProductInListDto>> GetListAllAsync()
         {
             var query = await Repository.GetQueryableAsync();
-            query = query.Where(x => x.IsActive == true);
+            query = query.Where(x=>x.IsActive == true);
             var data = await AsyncExecuter.ToListAsync(query);
 
             return ObjectMapper.Map<List<Product>, List<ProductInListDto>>(data);

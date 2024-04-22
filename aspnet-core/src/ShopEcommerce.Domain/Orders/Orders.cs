@@ -9,7 +9,7 @@ namespace ShopEcommerce.Orders
 {
     public class Order : FullAuditedAggregateRoot<Guid>
     {
-        public string Code { get; set; }
+        public string? Code { get; set; }
         public OrderStatus Status { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public double ShippingFee { get; set; }
@@ -18,9 +18,9 @@ namespace ShopEcommerce.Orders
         public double Subtotal { get; set; }
         public double Discount { get; set; }
         public double GrandTotal { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerPhoneNumber { get; set; }
-        public string CustomerAddress { get; set; }
+        public string? CustomerName { get; set; }
+        public string? CustomerPhoneNumber { get; set; }
+        public string? CustomerAddress { get; set; }
         public Guid? CustomerUserId { get; set; }
     }
 }

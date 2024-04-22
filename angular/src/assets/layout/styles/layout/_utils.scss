@@ -23,3 +23,8 @@
     color: var(--red-500);
     font-weight: bold;
 }
+
+//Sửa padding phần chọn danh mục trang danh sách sản phẩm
+ol, ul{
+    padding-left: 0;
+}

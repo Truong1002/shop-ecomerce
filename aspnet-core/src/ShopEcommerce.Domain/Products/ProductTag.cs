@@ -10,7 +10,7 @@ namespace ShopEcommerce.Products
     public class ProductTag : Entity
     {
         public Guid ProductId { get; set; }
-        public string TagId { get; set; }
+        public string? TagId { get; set; }
 
         public override object[] GetKeys()
         {

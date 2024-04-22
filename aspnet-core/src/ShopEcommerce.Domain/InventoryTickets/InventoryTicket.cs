@@ -9,7 +9,7 @@ namespace ShopEcommerce.InventoryTickets
 {
     public class InventoryTicket : AuditedAggregateRoot<Guid>
     {
-        public string Code { get; set; }
+        public string? Code { get; set; }
         public TicketType TicketType { get; set; }
         public bool IsApproved { get; set; }
         public Guid? ApproverId { get; set; }
