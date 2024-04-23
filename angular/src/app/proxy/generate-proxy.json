@@ -5574,7 +5574,7 @@
           "regex": null
         },
         {
-          "name": "Visiblity",
+          "name": "Visibility",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
@@ -5751,7 +5751,7 @@
           "regex": null
         },
         {
-          "name": "Visiblity",
+          "name": "Visibility",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
@@ -5940,7 +5940,7 @@
           "regex": null
         },
         {
-          "name": "Visiblity",
+          "name": "Visibility",
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",

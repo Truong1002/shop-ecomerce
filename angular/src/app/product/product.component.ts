@@ -6,7 +6,6 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../shared/services/notification.service';
 import { ProductDetailComponent } from './product-detail.component';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -17,8 +16,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
   items: ProductInListDto[] = [];
-
-  
+  public selectedItems: ProductInListDto[] = [];
 
   //Paging variables
   public skipCount: number = 0;
@@ -34,8 +32,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     private productService: ProductsService,
     private productCategoryService: ProductCategoriesService,
     private dialogService: DialogService,
-    private notificationService: NotificationService,
-    private cdr: ChangeDetectorRef 
+    private notificationService: NotificationService
   ) {}
 
   ngOnDestroy(): void {
@@ -70,8 +67,6 @@ export class ProductComponent implements OnInit, OnDestroy {
       });
   }
 
-
-
   loadProductCategories() {
     this.productCategoryService.getListAll().subscribe((response: ProductCategoryInListDto[]) => {
       response.forEach(element => {
@@ -79,7 +74,6 @@ export class ProductComponent implements OnInit, OnDestroy {
           value: element.id,
           label: element.name,
         });
-        this.cdr.detectChanges(); // Kích hoạt việc phát hiện thay đổi
       });
     });
   }
@@ -98,7 +92,31 @@ export class ProductComponent implements OnInit, OnDestroy {
     ref.onClose.subscribe((data: ProductDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess("Thêm sản phẩm thành công");
+        this.notificationService.showSuccess('Thêm sản phẩm thành công');
+        this.selectedItems = [];
+      }
+    });
+  }
+
+  showEditModal() {
+    if (this.selectedItems.length == 0) {
+      this.notificationService.showError('Bạn phải chọn một bản ghi');
+      return;
+    }
+    const id = this.selectedItems[0].id;
+    const ref = this.dialogService.open(ProductDetailComponent, {
+      data: {
+        id: id,
+      },
+      header: 'Cập nhật sản phẩm',
+      width: '70%',
+    });
+
+    ref.onClose.subscribe((data: ProductDto) => {
+      if (data) {
+        this.loadData();
+        this.selectedItems = [];
+        this.notificationService.showSuccess('Thêm sản phẩm thành công');
       }
     });
   }
