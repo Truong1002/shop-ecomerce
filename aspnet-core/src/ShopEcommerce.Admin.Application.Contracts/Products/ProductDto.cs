@@ -24,5 +24,7 @@ namespace ShopEcommerce.Admin.Products
 
         public double SellPrice { get; set; }
         public Guid Id { get; set; }
+        public string? CategoryName { get; set; }
+        public string? CategorySlug { get; set; }
     }
 }
