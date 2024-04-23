@@ -106,6 +106,10 @@
           [validationMessages]="validationMessages"
         ></app-validation-message>
       </div>
+      <div class="field col-12">
+        <label for="stockQuantity" class="block">Số Lượng </label>
+        <p-inputNumber formControlName="stockQuantity"></p-inputNumber>
+      </div>
       <div class="field-checkbox col-12 md:col-3">
         <p-checkbox formControlName="visibility" binary="true" id="visibility"></p-checkbox>
         <label for="visibility">Hiển thị</label>

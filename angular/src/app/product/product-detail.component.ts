@@ -7,6 +7,7 @@ import { ProductType, productTypeOptions } from '@proxy/shop-ecommerce/products'
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { forkJoin, Subject, takeUntil } from 'rxjs';
 import { UtilityService } from '../shared/services/utility.service';
+import { NotificationService } from '../shared/services/notification.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -31,7 +32,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private config: DynamicDialogConfig,
     private ref: DynamicDialogRef,
-    private utilService: UtilityService
+    private utilService: UtilityService,
+    private notificationService: NotificationService
   ) {}
 
   validationMessages = {
@@ -131,7 +133,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
             this.ref.close(this.form.value);
           },
-          error: () => {
+          error: (err) => {
+            this.notificationService.showError(err.error.error.message);
             this.toggleBlockUI(false);
           },
         });
@@ -144,7 +147,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
             this.toggleBlockUI(false);
             this.ref.close(this.form.value);
           },
-          error: () => {
+          error: (err) => {
+            this.notificationService.showError(err.error.error.message);
             this.toggleBlockUI(false);
           },
         });
@@ -181,6 +185,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       isActive: new FormControl(this.selectedEntity.isActive || true),
       seoMetaDescription: new FormControl(this.selectedEntity.seoMetaDescription || null),
       description: new FormControl(this.selectedEntity.description || null),
+      stockQuantity: new FormControl(this.selectedEntity.stockQuantity || null),
     });
   }
 

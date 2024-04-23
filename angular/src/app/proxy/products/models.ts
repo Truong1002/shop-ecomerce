@@ -16,6 +16,7 @@ export interface CreateUpdateProductDto {
   categoryId?: string;
   seoMetaDescription?: string;
   description?: string;
+  stockQuantity: number;
   thumbnailPicture?: string;
 }
 
@@ -32,6 +33,7 @@ export interface ProductDto {
   categoryId?: string;
   seoMetaDescription?: string;
   description?: string;
+  stockQuantity: number;
   thumbnailPicture?: string;
   sellPrice: number;
   id?: string;
