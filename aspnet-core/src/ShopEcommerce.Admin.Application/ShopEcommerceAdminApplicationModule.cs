@@ -37,7 +37,7 @@ public class ShopEcommerceAdminApplicationModule : AbpModule
             {
                 container.UseFileSystem(fileSystem =>
                 {
-                    fileSystem.BasePath = "D:\\ShopBTL\\shop-ecomerce";
+                    fileSystem.BasePath = "D:\\shop-ecomerce";
                 });
             });
         });

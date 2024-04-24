@@ -59,6 +59,8 @@
         <th>Loại</th>
         <th>Tên danh mục</th>
         <th>Thứ tự</th>
+        <th>Số lượng</th>
+        <th>Hình ảnh</th>
         <th>Hiển thị</th>
         <th>Kích hoạt</th>
       </tr>
@@ -75,6 +77,11 @@
         <td>{{ getProductTypeName(row.productType) }}</td>
         <td>{{ row.categoryName }}</td>
         <td>{{ row.sortOrder }}</td>
+        <td>{{ row.stockQuantity}}</td>
+        <td>
+          <p-image [src]="row.safeThumbnailUrl" [alt]="row.thumbnailPicture" width="100" ></p-image>
+        </td>
+       
         <td>
           <p-badge *ngIf="row.visibility == 1" severity="success" value="Hiển thị"></p-badge>
           <p-badge *ngIf="row.visibility == 0" severity="danger" value="Ẩn"></p-badge>

@@ -1,5 +1,5 @@
 import { PagedResultDto } from '@abp/ng.core';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductCategoriesService, ProductCategoryInListDto } from '@proxy/product-categories';
 import { ProductDto, ProductInListDto, ProductListFilterDto, ProductsService } from '@proxy/products';
 import { DialogService } from 'primeng/dynamicdialog';
@@ -7,6 +7,8 @@ import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../shared/services/notification.service';
 import { ProductDetailComponent } from './product-detail.component';
 import { ProductType } from '@proxy/shop-ecommerce/products';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-product',
@@ -19,10 +21,17 @@ export class ProductComponent implements OnInit, OnDestroy {
   items: ProductInListDto[] = [];
   public selectedItems: ProductInListDto[] = [];
 
+  //Image
+  public thumbnailImage;
+  selectedEntity = {} as ProductDto;
+  public thumbnailImageUrl: SafeUrl;
+  products: any[] =[];
+
   //Paging variables
   public skipCount: number = 0;
   public maxResultCount: number = 10;
   public totalCount: number;
+  
 
   //Filter
   productCategories: any[] = [];
@@ -33,7 +42,9 @@ export class ProductComponent implements OnInit, OnDestroy {
     private productService: ProductsService,
     private productCategoryService: ProductCategoriesService,
     private dialogService: DialogService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private cd: ChangeDetectorRef,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnDestroy(): void {
@@ -44,6 +55,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loadProductCategories();
     this.loadData();
+    
+   
   }
 
   loadData() {
@@ -60,6 +73,12 @@ export class ProductComponent implements OnInit, OnDestroy {
         next: (response: PagedResultDto<ProductInListDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
+            // Tải thumbnail cho từng sản phẩm
+            this.items.forEach(product => {
+              if (product.thumbnailPicture) {
+                  this.loadThumbnail(product);
+              }
+          });
           this.toggleBlockUI(false);
         },
         error: () => {
@@ -136,4 +155,27 @@ export class ProductComponent implements OnInit, OnDestroy {
       }, 1000);
     }
   }
+  
+  loadThumbnail(product: ProductInListDto) {
+    if (!product.thumbnailPicture) {
+      console.log('No thumbnail available for this product.');
+      return;
+    }
+  
+    this.productService.getThumbnailImage(product.thumbnailPicture)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: string) => {
+          const fileExt = product.thumbnailPicture.split('.').pop();
+          product.safeThumbnailUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+            `data:image/${fileExt};base64,${response}`
+          );
+        },
+        error: () => {
+          console.error(`Failed to load thumbnail for ${product.thumbnailPicture}`);
+          product.safeThumbnailUrl = undefined; // Optionally set a default image in case of error
+        }
+      });
+  }
+  
 }

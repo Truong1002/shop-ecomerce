@@ -18,6 +18,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { EditorModule } from 'primeng/editor';
 import { ShopSharedModule } from '../shared/modules/shop-shared.module';
 import { BadgeModule } from 'primeng/badge';
+import {ImageModule} from 'primeng/image';
 
 @NgModule({
   declarations: [ProductComponent, ProductDetailComponent],
@@ -38,7 +39,8 @@ import { BadgeModule } from 'primeng/badge';
     InputTextareaModule,
     EditorModule,
     ShopSharedModule,
-    BadgeModule
+    BadgeModule,
+    ImageModule
   ]
 })
 export class ProductModule {}
