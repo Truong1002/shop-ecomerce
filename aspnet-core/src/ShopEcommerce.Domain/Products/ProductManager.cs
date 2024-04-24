@@ -26,7 +26,7 @@ namespace ShopEcommerce.Products
             ProductType productType, string? sKU, int sortOrder,
             bool visibility, bool isActive, Guid categoryId,
             string? seoMetaDescription, string? description,
-            int stockQuantity, string? thumbnailPicture, double sellPrice)
+            int stockQuantity, double sellPrice)
         {
             if (await _productRepository.AnyAsync(x => x.Code == code))
                 throw new UserFriendlyException("Mã sản phẩm đã tồn tại", ShopEcommerceDomainErrorCodes.ProductCodeAlreadyExists);
@@ -35,7 +35,7 @@ namespace ShopEcommerce.Products
 
             var category =await _productCategoryRepository.GetAsync(categoryId);
             return new Product(Guid.NewGuid(), manufacturerId, name, code, slug, productType, sKU, sortOrder,
-               visibility, isActive, categoryId, seoMetaDescription, description,stockQuantity,thumbnailPicture, sellPrice, category?.Name, category?.Slug);
+               visibility, isActive, categoryId, seoMetaDescription, description,stockQuantity,null, sellPrice, category?.Name, category?.Slug);
         }
     }
 }

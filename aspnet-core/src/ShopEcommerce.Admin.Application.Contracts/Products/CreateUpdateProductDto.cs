@@ -21,6 +21,7 @@ namespace ShopEcommerce.Admin.Products
         public string? SeoMetaDescription { get; set; }
         public string? Description { get; set; }
         public int StockQuantity { get; set; }
-        public string? ThumbnailPicture { get; set; }
+        public string? ThumbnailPictureName { get; set; }
+        public string? ThumbnailPictureContent { get; set; }
     }
 }
