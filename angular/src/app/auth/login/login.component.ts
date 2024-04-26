@@ -5,7 +5,11 @@ import { Subject, takeUntil } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from 'src/app/shared/constants/keys.const';
 import { LoginRequestDto } from 'src/app/shared/models/login-request.dto';
+import { LoginResponseDto } from 'src/app/shared/models/login-response.dto';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
+import { TokenStorageService } from 'src/app/shared/services/token.service';
+
 
 @Component({
     selector: 'app-login',
@@ -27,10 +31,17 @@ export class LoginComponent implements OnDestroy {
 
     password!: string;
 
-    loginForm: FormGroup
+    loginForm: FormGroup;
+    public blockedPanel: boolean = false;
 
-    constructor(public layoutService: LayoutService, private fb:FormBuilder, private authService: AuthService,
-        private router: Router) {
+    constructor(public layoutService: LayoutService,
+        private fb:FormBuilder,
+        private authService: AuthService,
+        private router: Router,
+        private tokenService: TokenStorageService,
+        private notificationService: NotificationService
+    
+    ) {
         this.loginForm = this.fb.group({
             username: new FormControl("", Validators.required),
             password: new FormControl("", Validators.required),
@@ -39,20 +50,40 @@ export class LoginComponent implements OnDestroy {
 
      }
 
-     login(){
+     login() {
+        this.toggleBlockUI(true);
         var request: LoginRequestDto = {
-            username: this.loginForm.controls['username'].value,
-            password: this.loginForm.controls['password'].value,
-          };
-          this.authService
-            .login(request)
-            .pipe(takeUntil(this.ngUnsubscribe))
-            .subscribe(res => {
-              localStorage.setItem(ACCESS_TOKEN, res.access_token);
-              localStorage.setItem(REFRESH_TOKEN, res.refresh_token);
+          username: this.loginForm.controls['username'].value,
+          password: this.loginForm.controls['password'].value,
+        };
+        this.authService
+          .login(request)
+          .pipe(takeUntil(this.ngUnsubscribe))
+          .subscribe({
+            next: (res: LoginResponseDto) => {
+              this.tokenService.saveToken(res.access_token);
+              this.tokenService.saveRefreshToken(res.refresh_token);
+              this.toggleBlockUI(false);
               this.router.navigate(['']);
-            });
-     }
+            },
+            error: (ex) => {
+              this.notificationService.showError("Đăng nhập không đúng.")
+              this.toggleBlockUI(false);
+            },
+          });
+      }
+
+      private toggleBlockUI(enabled: boolean) {
+        if (enabled == true) {
+          this.blockedPanel = true;
+        } else {
+          setTimeout(() => {
+            this.blockedPanel = false;
+          }, 1000);
+        }
+      }
+    
+
 
      ngOnDestroy(): void {
         this.ngUnsubscribe.next();

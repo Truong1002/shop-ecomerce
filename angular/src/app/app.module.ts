@@ -25,6 +25,11 @@ import { UtilityService } from './shared/services/utility.service';
 import { ConfirmationService } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ToastModule} from 'primeng/toast';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+
+import { GlobalHttpInterceptorService } from './shared/interceptors/error-handler.interceptor';
+import { RequestInterceptor } from './shared/interceptors/request.interceptor';
 @NgModule({
   imports: [
     BrowserModule,
@@ -44,16 +49,35 @@ import {ToastModule} from 'primeng/toast';
     SettingManagementConfigModule.forRoot(),
     
     
-    FeatureManagementModule.forRoot(),
-    InternetConnectionStatusComponent,
+    // FeatureManagementModule.forRoot(),
+    // InternetConnectionStatusComponent,
     ThemeLeptonXModule.forRoot(),
     SideMenuLayoutModule.forRoot(),
-    AccountLayoutModule.forRoot(),
+    // AccountLayoutModule.forRoot(),
     ConfirmDialogModule,
     ToastModule
   ],
   declarations: [AppComponent],
-  providers: [APP_ROUTE_PROVIDER, DialogService,MessageService, NotificationService, UtilityService,ConfirmationService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalHttpInterceptorService,
+      multi: true
+    },
+    { 
+      provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi:true
+    },
+    APP_ROUTE_PROVIDER, 
+    DialogService,
+    MessageService, 
+    NotificationService, 
+    UtilityService,
+    ConfirmationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
