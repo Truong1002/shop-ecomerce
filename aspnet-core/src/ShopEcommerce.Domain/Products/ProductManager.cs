@@ -37,5 +37,21 @@ namespace ShopEcommerce.Products
             return new Product(Guid.NewGuid(), manufacturerId, name, code, slug, productType, sKU, sortOrder,
                visibility, isActive, categoryId, seoMetaDescription, description,stockQuantity,null, sellPrice, category?.Name, category?.Slug);
         }
+
+        public async Task<Product> UpdateAsync(Guid manufacturerId, string? name, string? code, string? slug,
+           ProductType productType, string? sKU, int sortOrder,
+           bool visibility, bool isActive, Guid categoryId,
+           string? seoMetaDescription, string? description,
+           int stockQuantity, double sellPrice)
+        {
+            if (await _productRepository.AnyAsync(x => x.Code == code))
+                throw new UserFriendlyException("Mã sản phẩm đã tồn tại", ShopEcommerceDomainErrorCodes.ProductCodeAlreadyExists);
+            if (await _productRepository.AnyAsync(x => x.SKU == sKU))
+                throw new UserFriendlyException("Mã SKU sản phẩm đã tồn tại", ShopEcommerceDomainErrorCodes.ProductSKUAlreadyExists);
+
+            var category = await _productCategoryRepository.GetAsync(categoryId);
+            return new Product(Guid.NewGuid(), manufacturerId, name, code, slug, productType, sKU, sortOrder,
+               visibility, isActive, categoryId, seoMetaDescription, description, stockQuantity, null, sellPrice, category?.Name, category?.Slug);
+        }
     }
 }

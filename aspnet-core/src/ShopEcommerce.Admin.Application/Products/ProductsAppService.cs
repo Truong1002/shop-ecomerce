@@ -55,6 +55,13 @@ namespace ShopEcommerce.Admin.Products
             var product = await Repository.GetAsync(id);
             if (product == null)
                 throw new BusinessException(ShopEcommerceDomainErrorCodes.ProductIsNotExists);
+            // Kiểm tra tính duy nhất của Code, nếu Code thay đổi
+            if (product.Code != input.Code && await Repository.AnyAsync(x => x.Id != id && x.Code == input.Code))
+                throw new UserFriendlyException("Mã sản phẩm đã tồn tại", ShopEcommerceDomainErrorCodes.ProductCodeAlreadyExists);
+
+            // Kiểm tra tính duy nhất của SKU, nếu SKU thay đổi
+            if (product.SKU != input.SKU && await Repository.AnyAsync(x => x.Id != id && x.SKU == input.SKU))
+                throw new UserFriendlyException("Mã SKU sản phẩm đã tồn tại", ShopEcommerceDomainErrorCodes.ProductSKUAlreadyExists);
             product.ManufacturerId = input.ManufacturerId;
             product.Name = input.Name;
             product.Code = input.Code;

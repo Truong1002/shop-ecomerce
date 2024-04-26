@@ -20,6 +20,16 @@
         iconPos="left"
         label="Sửa"
       ></button>
+      <button
+      pButton
+      type="button"
+      (click)="deleteItems()"
+      *ngIf="selectedItems.length > 0"
+      class="ml-1 p-button-danger"
+      icon="fa fa-minus"
+      iconPos="left"
+      label="xóa"
+    ></button>
     </div>
     <div class="col-8">
       <div class="formgroup-inline">
@@ -42,6 +52,17 @@
           iconPos="left"
           label="Tìm"
         ></button>
+        <div style="margin-left: 16px;">
+          <button
+          pButton
+          type="button"
+          (click)="resetForm()"
+          icon="fa fa-refresh"
+          iconPos="left"
+          label="Reset"
+        ></button>
+        </div>
+       
       </div>
     </div>
   </div>
@@ -104,7 +125,7 @@
     [rowsPerPageOptions]="[10, 20, 30, 50, 100]"
   ></p-paginator>
   <!--Block UI-->
-  <p-blockUI [blocked]="blockedPanel" [target]="pnl">
+  <p-blockUI [blocked]="blockedPanel">
     <p-progressSpinner></p-progressSpinner>
   </p-blockUI>
 </p-panel>

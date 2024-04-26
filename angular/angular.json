@@ -110,6 +110,7 @@
                 "inject": true,
                 "bundleName": "ngx-datatable-material"
               },
+              
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/quill/dist/quill.core.css",
               "node_modules/quill/dist/quill.snow.css",

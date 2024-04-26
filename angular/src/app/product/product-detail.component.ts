@@ -125,7 +125,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           this.selectedEntity = response;
           this.loadThumbnail(this.selectedEntity.thumbnailPicture);
           this.buildForm();
+          this.cd.detectChanges();
           this.toggleBlockUI(false);
+          
         },
         error: () => {
           this.toggleBlockUI(false);
@@ -198,8 +200,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       isActive: new FormControl(this.selectedEntity.isActive || true),
       seoMetaDescription: new FormControl(this.selectedEntity.seoMetaDescription || null),
       description: new FormControl(this.selectedEntity.description || null),
-      stockQuantity: new FormControl(this.selectedEntity.stockQuantity || null),
-      thumbnailPictureName:new FormControl(this.selectedEntity.description || null),
+      stockQuantity: new FormControl(this.selectedEntity.stockQuantity || 0),
+      thumbnailPictureName:new FormControl(null),
       thumbnailPictureContent: new FormControl(null)
     });
   }
@@ -246,4 +248,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       };
     }
   }
+
+
 }
