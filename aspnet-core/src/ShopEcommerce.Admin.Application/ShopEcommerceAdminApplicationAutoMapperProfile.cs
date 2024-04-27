@@ -5,6 +5,8 @@ using ShopEcommerce.Admin.Products;
 using ShopEcommerce.Products;
 using ShopEcommerce.Manufacturers;
 using ShopEcommerce.Admin.Manufacturers;
+using ShopEcommerce.ProductAttributes;
+using ShopEcommerce.Admin.ProductAttributes;
 
 namespace ShopEcommerce.Admin;
 
@@ -29,5 +31,10 @@ public class ShopEcommerceAdminApplicationAutoMapperProfile : Profile
         CreateMap<Manufacturer, ManufacturerDto>();
         CreateMap<Manufacturer, ManufacturerInListDto>();
         CreateMap<CreateUpdateManufacturerDto, Manufacturer>();
+
+        //Product attribute
+        CreateMap<ProductAttribute, ProductAttributeDto>();
+        CreateMap<ProductAttribute, ProductAttributeInListDto>();
+        CreateMap<CreateUpdateProductAttributeDto, ProductAttribute>();
     }
 }

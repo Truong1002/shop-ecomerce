@@ -40,6 +40,13 @@ export class AppTopBarComponent implements OnInit {
           this.router.navigate([LOGIN_URL]);
         },
       },
+      {
+        label: 'Đăng Nhập',
+        icon: 'pi pi-sign-in',
+        command: event => {
+          this.router.navigate([LOGIN_URL]);
+        },
+      },
     ];
   }
 }
