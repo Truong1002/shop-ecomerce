@@ -29,7 +29,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 
 import { GlobalHttpInterceptorService } from './shared/interceptors/error-handler.interceptor';
-import { RequestInterceptor } from './shared/interceptors/request.interceptor';
 @NgModule({
   imports: [
     BrowserModule,
@@ -69,9 +68,7 @@ import { RequestInterceptor } from './shared/interceptors/request.interceptor';
       useClass: GlobalHttpInterceptorService,
       multi: true
     },
-    { 
-      provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi:true
-    },
+    
     APP_ROUTE_PROVIDER, 
     DialogService,
     MessageService, 

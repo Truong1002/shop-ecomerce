@@ -12,7 +12,7 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError(ex => {
         if (ex.status == 500) {
-          this.notificationservice.showError('Hệ thống có lôi xảy ra. Vui lòng liên hệ admin');
+          this.notificationservice.showError('Hệ thống có lỗi xảy ra. Vui lòng liên hệ admin');
         }
         throw ex;
       })

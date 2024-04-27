@@ -958,7 +958,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.Manufacturers.IManufacturersAppService"
             },
             "GetListAllAsync": {
@@ -973,7 +973,7 @@
                 "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
                 "typeSimple": "[ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto]"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.Manufacturers.IManufacturersAppService"
             },
             "GetListFilterAsyncByInput": {
@@ -1034,7 +1034,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.Manufacturers.IManufacturersAppService"
             },
             "CreateAsyncByInput": {
@@ -1071,7 +1071,7 @@
                 "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
                 "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto>"
             },
             "UpdateAsyncByIdAndInput": {
@@ -1128,7 +1128,7 @@
                 "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
                 "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto>"
             },
             "DeleteAsyncById": {
@@ -1165,7 +1165,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             },
             "GetAsyncById": {
@@ -1202,7 +1202,7 @@
                 "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
                 "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
@@ -1251,7 +1251,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
@@ -1441,7 +1441,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
             },
             "GetListAllAsync": {
@@ -1456,7 +1456,7 @@
                 "type": "System.Collections.Generic.List<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
                 "typeSimple": "[ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto]"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
             },
             "GetListFilterAsyncByInput": {
@@ -1517,7 +1517,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
             },
             "CreateAsyncByInput": {
@@ -1554,7 +1554,7 @@
                 "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
                 "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto>"
             },
             "UpdateAsyncByIdAndInput": {
@@ -1611,7 +1611,7 @@
                 "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
                 "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto>"
             },
             "DeleteAsyncById": {
@@ -1648,7 +1648,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             },
             "GetAsyncById": {
@@ -1685,7 +1685,7 @@
                 "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
                 "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
@@ -1734,7 +1734,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
@@ -1805,6 +1805,14 @@
                       "defaultValue": null
                     }
                   ],
+                  "returnValue": {
+                    "type": "System.String",
+                    "typeSimple": "string"
+                  }
+                },
+                {
+                  "name": "GetSuggestNewCodeAsync",
+                  "parametersOnMethod": [],
                   "returnValue": {
                     "type": "System.String",
                     "typeSimple": "string"
@@ -1941,7 +1949,7 @@
                 "type": "ShopEcommerce.Admin.Products.ProductDto",
                 "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Products.ProductDto,ShopEcommerce.Admin.Products.CreateUpdateProductDto>"
             },
             "UpdateAsyncByIdAndInput": {
@@ -1998,7 +2006,7 @@
                 "type": "ShopEcommerce.Admin.Products.ProductDto",
                 "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Products.ProductDto,System.Guid,ShopEcommerce.Admin.Products.CreateUpdateProductDto>"
             },
             "DeleteMultipleAsyncByIds": {
@@ -2035,7 +2043,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
             },
             "GetListAllAsync": {
@@ -2050,7 +2058,7 @@
                 "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Products.ProductInListDto>",
                 "typeSimple": "[ShopEcommerce.Admin.Products.ProductInListDto]"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
             },
             "GetListFilterAsyncByInput": {
@@ -2123,7 +2131,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductInListDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductInListDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
             },
             "GetThumbnailImageAsyncByFileName": {
@@ -2160,7 +2168,22 @@
                 "type": "System.String",
                 "typeSimple": "string"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
+              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+            },
+            "GetSuggestNewCodeAsync": {
+              "uniqueName": "GetSuggestNewCodeAsync",
+              "name": "GetSuggestNewCodeAsync",
+              "httpMethod": "GET",
+              "url": "api/app/products/suggest-new-code",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": false,
               "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
             },
             "DeleteAsyncById": {
@@ -2197,7 +2220,7 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             },
             "GetAsyncById": {
@@ -2234,7 +2257,7 @@
                 "type": "ShopEcommerce.Admin.Products.ProductDto",
                 "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Products.ProductDto,ShopEcommerce.Admin.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
@@ -2283,7 +2306,7 @@
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductDto>"
               },
-              "allowAnonymous": null,
+              "allowAnonymous": false,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Products.ProductDto,ShopEcommerce.Admin.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }

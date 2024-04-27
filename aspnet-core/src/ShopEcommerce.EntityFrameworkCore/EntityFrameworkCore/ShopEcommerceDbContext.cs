@@ -15,6 +15,7 @@ using ShopEcommerce.ProductAttributes;
 using ShopEcommerce.ProductCategories;
 using ShopEcommerce.Products;
 using ShopEcommerce.Promotions;
+using ShopEcommerce.IdentitySettings;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -94,6 +95,7 @@ public class ShopEcommerceDbContext :
     public DbSet<PromotionManufacturer> PromotionManufacturers { get; set; }
     public DbSet<PromotionProduct> PromotionProducts { get; set; }
     public DbSet<PromotionUsageHistory> PromotionUsageHistories { get; set; }
+    public DbSet<IdentitySetting> IdentitySettings { get; set; }
     #endregion
 
     public ShopEcommerceDbContext(DbContextOptions<ShopEcommerceDbContext> options)
@@ -149,6 +151,7 @@ public class ShopEcommerceDbContext :
         builder.ApplyConfiguration(new PromotionManufacturerConfiguration());
         builder.ApplyConfiguration(new PromotionProductConfiguration());
         builder.ApplyConfiguration(new PromotionUsageHistoryConfiguration());
+        builder.ApplyConfiguration(new IdentitySettingConfiguration());
 
 
 
