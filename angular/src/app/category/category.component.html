@@ -37,13 +37,6 @@
           <label for="txt-keyword" class="p-sr-only">Từ khóa</label>
           <input [(ngModel)]="keyword" id="txt-keyword" pInputText type="text" placeholder="Gõ từ khóa" />
         </div>
-        <div class="field">
-          <p-dropdown
-            [options]="productCategories"
-            [(ngModel)]="categoryId"
-            placeholder="Chọn danh mục"
-          ></p-dropdown>
-        </div>
         <button
           type="button"
           pButton
@@ -75,13 +68,8 @@
           <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
         </th>
         <th>Mã</th>
-        <th>SKU</th>
         <th>Tên</th>
-        <th>Loại</th>
-        <th>Tên danh mục</th>
         <th>Thứ tự</th>
-        <th>Số lượng</th>
-        <th>Hình ảnh</th>
         <th>Hiển thị</th>
         <th>Kích hoạt</th>
       </tr>
@@ -93,16 +81,8 @@
           <p-tableCheckbox [value]="row"></p-tableCheckbox>
         </td>
         <td>{{ row.code }}</td>
-        <td>{{ row.sku }}</td>
         <td>{{ row.name }}</td>
-        <td>{{ getProductTypeName(row.productType) }}</td>
-        <td>{{ row.categoryName }}</td>
         <td>{{ row.sortOrder }}</td>
-        <td>{{ row.stockQuantity}}</td>
-        <td>
-          <p-image [src]="row.safeThumbnailUrl" [alt]="row.thumbnailPicture" width="100" ></p-image>
-        </td>
-       
         <td>
           <p-badge *ngIf="row.visibility == 1" severity="success" value="Hiển thị"></p-badge>
           <p-badge *ngIf="row.visibility == 0" severity="danger" value="Ẩn"></p-badge>
@@ -110,18 +90,6 @@
         <td>
           <p-badge *ngIf="row.isActive == 1" value="Kích hoạt" severity="success"></p-badge>
           <p-badge *ngIf="row.isActive == 0" value="Khoá" severity="danger"></p-badge>
-        </td>
-        <td>
-          <button
-          pButton
-          pRipple
-          type="button"
-          label="Thuộc tính"
-          icon="fa fa-pencil"
-          class="p-button-text"
-          (click)="manageProductAttribute(row.id)"
-        >
-        </button>
         </td>
       </tr>
     </ng-template>

@@ -1,29 +1,28 @@
 import { PagedResultDto } from '@abp/ng.core';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { ProductCategoriesService, ProductCategoryInListDto } from '@proxy/product-categories';
+import { ProductCategoriesService, ProductCategoryDto, ProductCategoryInListDto } from '@proxy/product-categories';
 import { ProductDto, ProductInListDto, ProductListFilterDto, ProductsService } from '@proxy/products';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, take, takeUntil } from 'rxjs';
 import { NotificationService } from '../shared/services/notification.service';
-import { ProductDetailComponent } from './product-detail.component';
+import { CategoryDetailComponent } from './category-detail.component';
 import { ProductType } from '@proxy/shop-ecommerce/products';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ConfirmationService } from 'primeng/api';
-import { ProductAttributeComponent } from './product-attribute.component';
 
 
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.scss'],
   
 })
-export class ProductComponent implements OnInit, OnDestroy {
+export class CategoryComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
-  items: ProductInListDto[] = [];
-  public selectedItems: ProductInListDto[] = [];
+  items: ProductCategoryInListDto[] = [];
+  public selectedItems: ProductCategoryInListDto[] = [];
 
   //Image
   public thumbnailImage;
@@ -43,7 +42,6 @@ export class ProductComponent implements OnInit, OnDestroy {
   categoryId: string = '';
 
   constructor(
-    private productService: ProductsService,
     private productCategoryService: ProductCategoriesService,
     private dialogService: DialogService,
     private notificationService: NotificationService,
@@ -58,7 +56,6 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loadProductCategories();
     this.loadData();
     
    
@@ -66,24 +63,23 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   loadData() {
     this.toggleBlockUI(true);
-    this.productService
+    this.productCategoryService
       .getListFilter({
         keyword: this.keyword,
-        categoryId: this.categoryId,
         maxResultCount: this.maxResultCount,
         skipCount: this.skipCount,
       })
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: PagedResultDto<ProductInListDto>) => {
+        next: (response: PagedResultDto<ProductCategoryInListDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
             // Tải thumbnail cho từng sản phẩm
-            this.items.forEach(product => {
-              if (product.thumbnailPicture) {
-                  this.loadThumbnail(product);
-              }
-          });
+          //   this.items.forEach(product => {
+          //     if (product.thumbnailPicture) {
+          //         this.loadThumbnail(product);
+          //     }
+          // });
           this.toggleBlockUI(false);
         },
         error: () => {
@@ -92,16 +88,6 @@ export class ProductComponent implements OnInit, OnDestroy {
       });
   }
 
-  loadProductCategories() {
-    this.productCategoryService.getListAll().subscribe((response: ProductCategoryInListDto[]) => {
-      response.forEach(element => {
-        this.productCategories.push({
-          value: element.id,
-          label: element.name,
-        });
-      });
-    });
-  }
 
 
   pageChanged(event: any): void {
@@ -110,15 +96,15 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.loadData();
   }
   showAddModal() {
-    const ref = this.dialogService.open(ProductDetailComponent, {
-      header: 'Thêm mới sản phẩm',
+    const ref = this.dialogService.open(CategoryDetailComponent, {
+      header: 'Thêm mới loại sản phẩm',
       width: '70%',
     });
 
     ref.onClose.subscribe((data: ProductDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Thêm sản phẩm thành công');
+        this.notificationService.showSuccess('Thêm loại sản phẩm thành công');
         this.selectedItems = [];
       }
     });
@@ -130,37 +116,19 @@ export class ProductComponent implements OnInit, OnDestroy {
       return;
     }
     const id = this.selectedItems[0].id;
-    const ref = this.dialogService.open(ProductDetailComponent, {
+    const ref = this.dialogService.open(CategoryDetailComponent, {
       data: {
         id: id,
       },
-      header: 'Cập nhật sản phẩm',
+      header: 'Cập nhật loại sản phẩm',
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: ProductDto) => {
+    ref.onClose.subscribe((data: ProductCategoryDto) => {
       if (data) {
         this.loadData();
         this.selectedItems = [];
-        this.notificationService.showSuccess('Cập nhật sản phẩm thành công');
-      }
-    });
-  }
-
-  manageProductAttribute(id: string) {
-    const ref = this.dialogService.open(ProductAttributeComponent, {
-      data: {
-        id: id,
-      },
-      header: 'Quản lý thuộc tính sản phẩm',
-      width: '70%',
-    });
-
-    ref.onClose.subscribe((data: ProductDto) => {
-      if (data) {
-        this.loadData();
-        this.selectedItems = [];
-        this.notificationService.showSuccess('Cập nhật thuộc tính sản phẩm thành công');
+        this.notificationService.showSuccess('Cập nhật loại sản phẩm thành công');
       }
     });
   }
@@ -184,7 +152,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   deleteItemsConfirmed(ids: string[]){
     this.toggleBlockUI(true);
-    this.productService.deleteMultiple(ids).pipe(takeUntil(this.ngUnsubscribe)).subscribe({
+    this.productCategoryService.deleteMultiple(ids).pipe(takeUntil(this.ngUnsubscribe)).subscribe({
       next: ()=>{
         this.notificationService.showSuccess("Xóa thành công");
         this.loadData();
@@ -221,26 +189,26 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.loadData();
 }
   
-  loadThumbnail(product: ProductInListDto) {
-    if (!product.thumbnailPicture) {
-      console.log('No thumbnail available for this product.');
-      return;
-    }
+  // loadThumbnail(product: ProductInListDto) {
+  //   if (!product.thumbnailPicture) {
+  //     console.log('No thumbnail available for this product.');
+  //     return;
+  //   }
   
-    this.productService.getThumbnailImage(product.thumbnailPicture)
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe({
-        next: (response: string) => {
-          const fileExt = product.thumbnailPicture.split('.').pop();
-          product.safeThumbnailUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-            `data:image/${fileExt};base64,${response}`
-          );
-        },
-        error: () => {
-          console.error(`Failed to load thumbnail for ${product.thumbnailPicture}`);
-          product.safeThumbnailUrl = undefined; // Optionally set a default image in case of error
-        }
-      });
-  }
+  //   this.productService.getThumbnailImage(product.thumbnailPicture)
+  //     .pipe(takeUntil(this.ngUnsubscribe))
+  //     .subscribe({
+  //       next: (response: string) => {
+  //         const fileExt = product.thumbnailPicture.split('.').pop();
+  //         product.safeThumbnailUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+  //           `data:image/${fileExt};base64,${response}`
+  //         );
+  //       },
+  //       error: () => {
+  //         console.error(`Failed to load thumbnail for ${product.thumbnailPicture}`);
+  //         product.safeThumbnailUrl = undefined; // Optionally set a default image in case of error
+  //       }
+  //     });
+  // }
   
 }

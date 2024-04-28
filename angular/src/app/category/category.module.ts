@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { ProductRoutingModule } from './product-routing.module';
-import { ProductComponent } from './product.component';
+import { CategoryRoutingModule } from './category-routing.module';
+import { CategoryComponent } from './category.component';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
@@ -11,7 +11,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
-import { ProductDetailComponent } from './product-detail.component';
+import { CategoryDetailComponent } from './category-detail.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -20,15 +20,13 @@ import { ShopSharedModule } from '../shared/modules/shop-shared.module';
 import { BadgeModule } from 'primeng/badge';
 import {ImageModule} from 'primeng/image';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import { ProductAttributeComponent } from './product-attribute.component';
-import { CalendarModule } from 'primeng/calendar';
 
 
 @NgModule({
-  declarations: [ProductComponent, ProductDetailComponent, ProductAttributeComponent],
+  declarations: [CategoryComponent, CategoryDetailComponent],
   imports: [
     SharedModule,
-    ProductRoutingModule,
+    CategoryRoutingModule,
     PanelModule,
     TableModule,
     PaginatorModule,
@@ -45,8 +43,7 @@ import { CalendarModule } from 'primeng/calendar';
     ShopSharedModule,
     BadgeModule,
     ImageModule,
-    ConfirmDialogModule,
-    CalendarModule
+    ConfirmDialogModule
   ]
 })
-export class ProductModule {}
+export class CategoryModule {}

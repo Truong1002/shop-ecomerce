@@ -23,6 +23,12 @@ const routes: Routes = [
   },
 
   {
+    path: 'category',
+    loadChildren: () => import('./category/category.module').then(m => m.CategoryModule),
+    component: AppLayoutComponent
+  },
+
+  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
