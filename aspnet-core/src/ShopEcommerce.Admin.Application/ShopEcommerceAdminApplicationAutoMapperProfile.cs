@@ -7,6 +7,9 @@ using ShopEcommerce.Manufacturers;
 using ShopEcommerce.Admin.Manufacturers;
 using ShopEcommerce.ProductAttributes;
 using ShopEcommerce.Admin.ProductAttributes;
+using Volo.Abp.Identity;
+using ShopEcommerce.Admin.Roles;
+using ShopEcommerce.Roles;
 
 namespace ShopEcommerce.Admin;
 
@@ -36,5 +39,20 @@ public class ShopEcommerceAdminApplicationAutoMapperProfile : Profile
         CreateMap<ProductAttribute, ProductAttributeDto>();
         CreateMap<ProductAttribute, ProductAttributeInListDto>();
         CreateMap<CreateUpdateProductAttributeDto, ProductAttribute>();
+
+        //Roles
+        CreateMap<IdentityRole, RoleDto>().ForMember(x => x.Description,
+            map => map.MapFrom(x => x.ExtraProperties.ContainsKey(RoleConsts.DescriptionFieldName)
+            ?
+            x.ExtraProperties[RoleConsts.DescriptionFieldName]
+            :
+            null));
+        CreateMap<IdentityRole, RoleInListDto>().ForMember(x => x.Description,
+            map => map.MapFrom(x => x.ExtraProperties.ContainsKey(RoleConsts.DescriptionFieldName)
+            ?
+            x.ExtraProperties[RoleConsts.DescriptionFieldName]
+            :
+            null));
+        CreateMap<CreateUpdateRoleDto, IdentityRole>();
     }
 }

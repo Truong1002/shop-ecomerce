@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using ShopEcommerce.ProductCategories;
+using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
@@ -51,5 +52,33 @@ namespace ShopEcommerce.Admin.ProductCategories
 
             return new PagedResultDto<ProductCategoryInListDto>(totalCount, ObjectMapper.Map<List<ProductCategory>, List<ProductCategoryInListDto>>(data));
         }
+
+        public async override Task<ProductCategoryDto> CreateAsync(CreateUpdateProductCategoryDto input)
+        {
+            await CheckDuplicateCodeAsync(input.Code);
+
+            // Gọi phương thức Create của lớp cơ sở để tạo danh mục sản phẩm
+            var productCategory = await base.CreateAsync(input);
+            return productCategory;
+        }
+
+        public override async Task<ProductCategoryDto> UpdateAsync(Guid id, CreateUpdateProductCategoryDto input)
+        {
+            await CheckDuplicateCodeAsync(input.Code, id);
+
+            // Gọi phương thức Update của lớp cơ sở để cập nhật danh mục sản phẩm
+            var productCategory = await base.UpdateAsync(id, input);
+            return productCategory;
+        }
+
+        private async Task CheckDuplicateCodeAsync(string code, Guid? expectedId = null)
+        {
+            var existingCategory = await Repository.FirstOrDefaultAsync(c => c.Code == code);
+            if (existingCategory != null && existingCategory.Id != expectedId)
+            {
+                throw new UserFriendlyException("Mã code sản phẩm đã tồn tại", ShopEcommerceDomainErrorCodes.CategoryCodeAlreadyExists);
+            }
+        }
+
     }
 }

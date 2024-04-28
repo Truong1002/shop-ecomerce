@@ -3,13 +3,17 @@
 public static class ShopEcommerceDomainErrorCodes
 {
     /* You can add your business exception error codes here, as constants */
-    public const string ProductNameAlreadyExists = "TeduEcommerce:ProductNameAlreadyExists";
-    public const string ProductCodeAlreadyExists = "TeduEcommerce:ProductCodeAlreadyExists";
+    public const string ProductNameAlreadyExists = "ShopEcommerce:ProductNameAlreadyExists";
+    public const string ProductCodeAlreadyExists = "ShopEcommerce:ProductCodeAlreadyExists";
 
-    public const string ProductSKUAlreadyExists = "TeduEcommerce:ProductSKUAlreadyExists";
-    public const string ProductIsNotExists = "TeduEcommerce:ProductIsNotExists";
-    public const string ProductAttributeIdIsNotExists = "TeduEcommerce:ProductAttributeIdIsNotExists";
+    public const string ProductSKUAlreadyExists = "ShopEcommerce:ProductSKUAlreadyExists";
+    public const string ProductIsNotExists = "ShopEcommerce:ProductIsNotExists";
+    public const string ProductAttributeIdIsNotExists = "ShopEcommerce:ProductAttributeIdIsNotExists";
 
-    public const string ProductAttributeValueIsNotValid = "TeduEcommerce:ProductAttributeValueIsNotValid";
+    public const string ProductAttributeValueIsNotValid = "ShopEcommerce:ProductAttributeValueIsNotValid";
+
+    public const string RoleNameAlreadyExists = "ShopEcommerce:RoleNameAlreadyExists";
+    public const string CategoryCodeAlreadyExists = "ShopEcommerce:CategoryCodeAlreadyExists";
+
 
 }
