@@ -4,5 +4,6 @@ import * as ProductCategories from './product-categories';
 import * as Products from './products';
 import * as Roles from './roles';
 import * as ShopEcommerce from './shop-ecommerce';
+import * as Volo from './volo';
 export * from './models';
-export { Manufacturers, ProductAttributes, ProductCategories, Products, Roles, ShopEcommerce };
+export { Manufacturers, ProductAttributes, ProductCategories, Products, Roles, ShopEcommerce, Volo };
