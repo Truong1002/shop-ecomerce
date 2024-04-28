@@ -25,6 +25,14 @@ export class AppMenuComponent implements OnInit {
           { label: 'Danh sách loại sản phẩm', icon: 'pi pi-fw pi-circle', routerLink: ['/category'] },
         ],
       },
+
+      {
+        label: 'Hệ thống',
+        items: [
+          { label: 'Danh sách quyền', icon: 'pi pi-fw pi-circle', routerLink: ['/role'] },
+          { label: 'Danh sách người dùng', icon: 'pi pi-fw pi-circle', routerLink: ['/user'] },
+        ],
+      },
       
     ];
   }

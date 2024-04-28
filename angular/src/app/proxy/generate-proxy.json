@@ -3155,6 +3155,489 @@
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Products.ProductDto,ShopEcommerce.Admin.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
+        },
+        "ShopEcommerce.Admin.Roles.RolesAppService": {
+          "controllerName": "Roles",
+          "controllerGroupName": "Roles",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "ShopEcommerce.Admin.Roles.RolesAppService",
+          "interfaces": [
+            {
+              "type": "ShopEcommerce.Admin.Roles.IRolesAppService",
+              "name": "IRolesAppService",
+              "methods": [
+                {
+                  "name": "GetListFilterAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleInListDto>"
+                  }
+                },
+                {
+                  "name": "GetListAllAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Roles.RoleInListDto>",
+                    "typeSimple": "[ShopEcommerce.Admin.Roles.RoleInListDto]"
+                  }
+                },
+                {
+                  "name": "DeleteMultipleAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "ids",
+                      "typeAsString": "System.Collections.Generic.IEnumerable`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib",
+                      "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                      "typeSimple": "[string]",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "ShopEcommerce.Admin.Roles.RoleDto",
+                    "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                  }
+                },
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Volo.Abp.Application.Dtos.PagedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                      "type": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                      "typeSimple": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleDto>"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                      "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "ShopEcommerce.Admin.Roles.RoleDto",
+                    "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                      "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "ShopEcommerce.Admin.Roles.RoleDto",
+                    "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "DeleteMultipleAsyncByIds": {
+              "uniqueName": "DeleteMultipleAsyncByIds",
+              "name": "DeleteMultipleAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/roles/multiple",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "ids",
+                  "typeAsString": "System.Collections.Generic.IEnumerable`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib",
+                  "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "ids",
+                  "name": "ids",
+                  "jsonName": null,
+                  "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "ShopEcommerce.Admin.Roles.IRolesAppService"
+            },
+            "GetListAllAsync": {
+              "uniqueName": "GetListAllAsync",
+              "name": "GetListAllAsync",
+              "httpMethod": "GET",
+              "url": "api/app/roles/all",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Roles.RoleInListDto>",
+                "typeSimple": "[ShopEcommerce.Admin.Roles.RoleInListDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "ShopEcommerce.Admin.Roles.IRolesAppService"
+            },
+            "GetListFilterAsyncByInput": {
+              "uniqueName": "GetListFilterAsyncByInput",
+              "name": "GetListFilterAsync",
+              "httpMethod": "GET",
+              "url": "api/app/roles/filter",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.BaseListFilterDto",
+                  "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Keyword",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleInListDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "ShopEcommerce.Admin.Roles.IRolesAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/roles",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "ShopEcommerce.Admin.Roles.RoleDto",
+                "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Roles.RoleDto,ShopEcommerce.Admin.Roles.CreateUpdateRoleDto>"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/roles/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "ShopEcommerce.Admin.Roles.RoleDto",
+                "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Roles.RoleDto,System.Guid,ShopEcommerce.Admin.Roles.CreateUpdateRoleDto>"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/roles/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/roles/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "ShopEcommerce.Admin.Roles.RoleDto",
+                "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Roles.RoleDto,ShopEcommerce.Admin.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/roles",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Application.Dtos.PagedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                  "type": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                  "typeSimple": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Roles.RoleDto,ShopEcommerce.Admin.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+            }
+          }
         }
       }
     },
@@ -7059,8 +7542,8 @@
         {
           "name": "TextId",
           "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
+          "type": "System.Guid?",
+          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -7071,8 +7554,8 @@
         {
           "name": "VarcharId",
           "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
+          "type": "System.Guid?",
+          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -7697,6 +8180,105 @@
           "jsonName": null,
           "type": "System.Guid?",
           "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Roles.RoleDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Roles.RoleInListDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
