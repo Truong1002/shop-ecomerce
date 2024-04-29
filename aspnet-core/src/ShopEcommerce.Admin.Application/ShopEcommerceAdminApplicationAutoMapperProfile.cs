@@ -1,15 +1,16 @@
 ﻿using AutoMapper;
 using ShopEcommerce.ProductCategories;
-using ShopEcommerce.Admin.ProductCategories;
-using ShopEcommerce.Admin.Products;
 using ShopEcommerce.Products;
 using ShopEcommerce.Manufacturers;
-using ShopEcommerce.Admin.Manufacturers;
 using ShopEcommerce.ProductAttributes;
 using ShopEcommerce.Admin.ProductAttributes;
 using Volo.Abp.Identity;
-using ShopEcommerce.Admin.Roles;
 using ShopEcommerce.Roles;
+using ShopEcommerce.Admin.Catalog.Manufacturers;
+using ShopEcommerce.Admin.Catalog.ProductCategories;
+using ShopEcommerce.Admin.Catalog.Products;
+using ShopEcommerce.Admin.System.Roles;
+using ShopEcommerce.Admin.System.Users;
 
 namespace ShopEcommerce.Admin;
 
@@ -54,5 +55,8 @@ public class ShopEcommerceAdminApplicationAutoMapperProfile : Profile
             :
             null));
         CreateMap<CreateUpdateRoleDto, IdentityRole>();
+        //User
+        CreateMap<IdentityUser, UserDto>();
+        CreateMap<IdentityUser, UserInListDto>();
     }
 }

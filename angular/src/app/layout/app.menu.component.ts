@@ -20,20 +20,20 @@ export class AppMenuComponent implements OnInit {
       {
         label: 'Sản phẩm',
         items: [
-          { label: 'Danh sách sản phẩm', icon: 'pi pi-fw pi-circle', routerLink: ['/product'] },
-          { label: 'Danh sách thuộc tính', icon: 'pi pi-fw pi-circle', routerLink: ['/attribute'] },
-          { label: 'Danh sách loại sản phẩm', icon: 'pi pi-fw pi-circle', routerLink: ['/category'] },
+          { label: 'Danh sách sản phẩm', icon: 'pi pi-fw pi-circle', routerLink: ['/catalog/product'] },
+          { label: 'Danh sách thuộc tính', icon: 'pi pi-fw pi-circle', routerLink: ['/catalog/attribute'] },
+          { label: 'Danh sách loại sản phẩm', icon: 'pi pi-fw pi-circle', routerLink: ['/catalog/category'] },
+
         ],
       },
-
       {
         label: 'Hệ thống',
         items: [
-          { label: 'Danh sách quyền', icon: 'pi pi-fw pi-circle', routerLink: ['/role'] },
-          { label: 'Danh sách người dùng', icon: 'pi pi-fw pi-circle', routerLink: ['/user'] },
+          { label: 'Danh sách quyền', icon: 'pi pi-fw pi-circle', routerLink: ['/system/role'] },
+          { label: 'Danh sách người dùng', icon: 'pi pi-fw pi-circle', routerLink: ['/system/user'] },
+
         ],
-      },
-      
+      }
     ];
   }
 }

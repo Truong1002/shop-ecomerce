@@ -773,16 +773,16 @@
       "rootPath": "app",
       "remoteServiceName": "Default",
       "controllers": {
-        "ShopEcommerce.Admin.Manufacturers.ManufacturersAppService": {
+        "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturersAppService": {
           "controllerName": "Manufacturers",
           "controllerGroupName": "Manufacturers",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "ShopEcommerce.Admin.Manufacturers.ManufacturersAppService",
+          "type": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturersAppService",
           "interfaces": [
             {
-              "type": "ShopEcommerce.Admin.Manufacturers.IManufacturersAppService",
+              "type": "ShopEcommerce.Admin.Catalog.Manufacturers.IManufacturersAppService",
               "name": "IManufacturersAppService",
               "methods": [
                 {
@@ -798,16 +798,16 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
-                    "typeSimple": "[ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto]"
+                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>",
+                    "typeSimple": "[ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto]"
                   }
                 },
                 {
@@ -840,8 +840,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
-                    "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
+                    "type": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
                   }
                 },
                 {
@@ -857,8 +857,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto>"
                   }
                 },
                 {
@@ -866,16 +866,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                      "typeSimple": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
-                    "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
+                    "type": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
                   }
                 },
                 {
@@ -891,16 +891,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                      "typeSimple": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
-                    "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
+                    "type": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
                   }
                 },
                 {
@@ -959,7 +959,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Manufacturers.IManufacturersAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Manufacturers.IManufacturersAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -970,11 +970,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
-                "typeSimple": "[ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto]"
+                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>",
+                "typeSimple": "[ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Manufacturers.IManufacturersAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Manufacturers.IManufacturersAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -1031,11 +1031,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Manufacturers.IManufacturersAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Manufacturers.IManufacturersAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
@@ -1046,9 +1046,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                  "typeSimple": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -1058,8 +1058,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                  "typeSimple": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                  "type": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -1068,11 +1068,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
-                "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
+                "type": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -1091,9 +1091,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                  "typeSimple": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -1115,8 +1115,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
-                  "typeSimple": "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto",
+                  "type": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -1125,11 +1125,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
-                "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
+                "type": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,System.Guid,ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto>"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -1199,11 +1199,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto",
-                "typeSimple": "ShopEcommerce.Admin.Manufacturers.ManufacturerDto"
+                "type": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -1248,21 +1248,21 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Manufacturers.ManufacturerDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         },
-        "ShopEcommerce.Admin.ProductAttributes.ProductAttributesAppService": {
+        "ShopEcommerce.Admin.Catalog.ProductAttributes.ProductAttributesAppService": {
           "controllerName": "ProductAttributes",
           "controllerGroupName": "ProductAttributes",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "ShopEcommerce.Admin.ProductAttributes.ProductAttributesAppService",
+          "type": "ShopEcommerce.Admin.Catalog.ProductAttributes.ProductAttributesAppService",
           "interfaces": [
             {
               "type": "ShopEcommerce.Admin.ProductAttributes.IProductAttributesAppService",
@@ -1739,16 +1739,16 @@
             }
           }
         },
-        "ShopEcommerce.Admin.ProductCategories.ProductCategoriesAppService": {
+        "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoriesAppService": {
           "controllerName": "ProductCategories",
           "controllerGroupName": "ProductCategories",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoriesAppService",
+          "type": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoriesAppService",
           "interfaces": [
             {
-              "type": "ShopEcommerce.Admin.ProductCategories.IProductCategoriesAppService",
+              "type": "ShopEcommerce.Admin.Catalog.ProductCategories.IProductCategoriesAppService",
               "name": "IProductCategoriesAppService",
               "methods": [
                 {
@@ -1764,16 +1764,16 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
-                    "typeSimple": "[ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto]"
+                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>",
+                    "typeSimple": "[ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto]"
                   }
                 },
                 {
@@ -1806,8 +1806,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                    "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                    "type": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
                   }
                 },
                 {
@@ -1823,8 +1823,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto>"
                   }
                 },
                 {
@@ -1832,16 +1832,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                      "typeSimple": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                    "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                    "type": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
                   }
                 },
                 {
@@ -1857,16 +1857,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                      "typeSimple": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                    "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                    "type": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
                   }
                 },
                 {
@@ -1925,7 +1925,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.ProductCategories.IProductCategoriesAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -1936,11 +1936,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
-                "typeSimple": "[ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto]"
+                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>",
+                "typeSimple": "[ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.ProductCategories.IProductCategoriesAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -1997,11 +1997,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.ProductCategories.IProductCategoriesAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.ProductCategories.IProductCategoriesAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
@@ -2012,9 +2012,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                  "typeSimple": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2024,8 +2024,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                  "typeSimple": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                  "type": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2034,11 +2034,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                "type": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -2057,9 +2057,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                  "typeSimple": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2081,8 +2081,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
-                  "typeSimple": "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto",
+                  "type": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2091,11 +2091,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                "type": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,System.Guid,ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto>"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -2165,11 +2165,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto",
-                "typeSimple": "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto"
+                "type": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -2214,24 +2214,24 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         },
-        "ShopEcommerce.Admin.Products.ProductsAppService": {
+        "ShopEcommerce.Admin.Catalog.Products.ProductsAppService": {
           "controllerName": "Products",
           "controllerGroupName": "Products",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "ShopEcommerce.Admin.Products.ProductsAppService",
+          "type": "ShopEcommerce.Admin.Catalog.Products.ProductsAppService",
           "interfaces": [
             {
-              "type": "ShopEcommerce.Admin.Products.IProductsAppService",
+              "type": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService",
               "name": "IProductsAppService",
               "methods": [
                 {
@@ -2239,24 +2239,24 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Products.ProductListFilterDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Products.ProductListFilterDto",
-                      "typeSimple": "ShopEcommerce.Admin.Products.ProductListFilterDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.Products.ProductListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.Products.ProductListFilterDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.Products.ProductListFilterDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.ProductInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.ProductInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Products.ProductInListDto>",
-                    "typeSimple": "[ShopEcommerce.Admin.Products.ProductInListDto]"
+                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Catalog.Products.ProductInListDto>",
+                    "typeSimple": "[ShopEcommerce.Admin.Catalog.Products.ProductInListDto]"
                   }
                 },
                 {
@@ -2306,16 +2306,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                      "typeSimple": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto",
-                    "typeSimple": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto"
+                    "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto"
                   }
                 },
                 {
@@ -2331,16 +2331,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                      "typeSimple": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto",
-                    "typeSimple": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto"
+                    "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto"
                   }
                 },
                 {
@@ -2381,8 +2381,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>",
-                    "typeSimple": "[ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto]"
+                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>",
+                    "typeSimple": "[ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto]"
                   }
                 },
                 {
@@ -2390,16 +2390,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto",
-                      "typeSimple": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>"
                   }
                 },
                 {
@@ -2415,8 +2415,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Products.ProductDto",
-                    "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
+                    "type": "ShopEcommerce.Admin.Catalog.Products.ProductDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.Products.ProductDto"
                   }
                 },
                 {
@@ -2432,8 +2432,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.ProductDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.ProductDto>"
                   }
                 },
                 {
@@ -2441,16 +2441,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Products.CreateUpdateProductDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
-                      "typeSimple": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Products.ProductDto",
-                    "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
+                    "type": "ShopEcommerce.Admin.Catalog.Products.ProductDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.Products.ProductDto"
                   }
                 },
                 {
@@ -2466,16 +2466,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Products.CreateUpdateProductDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
-                      "typeSimple": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
+                      "typeAsString": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                      "typeSimple": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Products.ProductDto",
-                    "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
+                    "type": "ShopEcommerce.Admin.Catalog.Products.ProductDto",
+                    "typeSimple": "ShopEcommerce.Admin.Catalog.Products.ProductDto"
                   }
                 },
                 {
@@ -2508,9 +2508,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Products.CreateUpdateProductDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2520,8 +2520,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2530,11 +2530,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Products.ProductDto",
-                "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
+                "type": "ShopEcommerce.Admin.Catalog.Products.ProductDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.Products.ProductDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Products.ProductDto,ShopEcommerce.Admin.Products.CreateUpdateProductDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Catalog.Products.ProductDto,ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -2553,9 +2553,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Products.CreateUpdateProductDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2577,8 +2577,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.CreateUpdateProductDto",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2587,11 +2587,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Products.ProductDto",
-                "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
+                "type": "ShopEcommerce.Admin.Catalog.Products.ProductDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.Products.ProductDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Products.ProductDto,System.Guid,ShopEcommerce.Admin.Products.CreateUpdateProductDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Catalog.Products.ProductDto,System.Guid,ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto>"
             },
             "DeleteMultipleAsyncByIds": {
               "uniqueName": "DeleteMultipleAsyncByIds",
@@ -2628,7 +2628,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -2639,11 +2639,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Products.ProductInListDto>",
-                "typeSimple": "[ShopEcommerce.Admin.Products.ProductInListDto]"
+                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Catalog.Products.ProductInListDto>",
+                "typeSimple": "[ShopEcommerce.Admin.Catalog.Products.ProductInListDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -2654,9 +2654,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Products.ProductListFilterDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Products.ProductListFilterDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.ProductListFilterDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.Products.ProductListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.ProductListFilterDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.ProductListFilterDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2712,11 +2712,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.ProductInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.ProductInListDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetThumbnailImageAsyncByFileName": {
               "uniqueName": "GetThumbnailImageAsyncByFileName",
@@ -2753,7 +2753,7 @@
                 "typeSimple": "string"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetSuggestNewCodeAsync": {
               "uniqueName": "GetSuggestNewCodeAsync",
@@ -2768,7 +2768,7 @@
                 "typeSimple": "string"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "AddProductAttributeAsyncByInput": {
               "uniqueName": "AddProductAttributeAsyncByInput",
@@ -2779,9 +2779,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2791,8 +2791,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2801,11 +2801,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto",
-                "typeSimple": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto"
+                "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "UpdateProductAttributeAsyncByIdAndInput": {
               "uniqueName": "UpdateProductAttributeAsyncByIdAndInput",
@@ -2824,9 +2824,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -2848,8 +2848,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -2858,11 +2858,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto",
-                "typeSimple": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto"
+                "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "RemoveProductAttributeAsyncByAttributeIdAndId": {
               "uniqueName": "RemoveProductAttributeAsyncByAttributeIdAndId",
@@ -2919,7 +2919,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetListProductAttributeAllAsyncByProductId": {
               "uniqueName": "GetListProductAttributeAllAsyncByProductId",
@@ -2952,11 +2952,11 @@
                 }
               ],
               "returnValue": {
-                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>",
-                "typeSimple": "[ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto]"
+                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>",
+                "typeSimple": "[ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto]"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "GetListProductAttributesAsyncByInput": {
               "uniqueName": "GetListProductAttributesAsyncByInput",
@@ -2967,9 +2967,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto",
-                  "typeSimple": "ShopEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto",
+                  "typeAsString": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto",
+                  "typeSimple": "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3025,11 +3025,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "ShopEcommerce.Admin.Products.IProductsAppService"
+              "implementFrom": "ShopEcommerce.Admin.Catalog.Products.IProductsAppService"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -3099,11 +3099,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Products.ProductDto",
-                "typeSimple": "ShopEcommerce.Admin.Products.ProductDto"
+                "type": "ShopEcommerce.Admin.Catalog.Products.ProductDto",
+                "typeSimple": "ShopEcommerce.Admin.Catalog.Products.ProductDto"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Products.ProductDto,ShopEcommerce.Admin.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Catalog.Products.ProductDto,ShopEcommerce.Admin.Catalog.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -3148,24 +3148,24 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Products.ProductDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.ProductDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Catalog.Products.ProductDto>"
               },
               "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Products.ProductDto,ShopEcommerce.Admin.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Catalog.Products.ProductDto,ShopEcommerce.Admin.Catalog.Products.ProductDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         },
-        "ShopEcommerce.Admin.Roles.RolesAppService": {
+        "ShopEcommerce.Admin.System.Roles.RolesAppService": {
           "controllerName": "Roles",
           "controllerGroupName": "Roles",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "ShopEcommerce.Admin.Roles.RolesAppService",
+          "type": "ShopEcommerce.Admin.System.Roles.RolesAppService",
           "interfaces": [
             {
-              "type": "ShopEcommerce.Admin.Roles.IRolesAppService",
+              "type": "ShopEcommerce.Admin.System.Roles.IRolesAppService",
               "name": "IRolesAppService",
               "methods": [
                 {
@@ -3181,16 +3181,16 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleInListDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleInListDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Roles.RoleInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Roles.RoleInListDto>"
                   }
                 },
                 {
                   "name": "GetListAllAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Roles.RoleInListDto>",
-                    "typeSimple": "[ShopEcommerce.Admin.Roles.RoleInListDto]"
+                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.System.Roles.RoleInListDto>",
+                    "typeSimple": "[ShopEcommerce.Admin.System.Roles.RoleInListDto]"
                   }
                 },
                 {
@@ -3281,8 +3281,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Roles.RoleDto",
-                    "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                    "type": "ShopEcommerce.Admin.System.Roles.RoleDto",
+                    "typeSimple": "ShopEcommerce.Admin.System.Roles.RoleDto"
                   }
                 },
                 {
@@ -3298,8 +3298,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Roles.RoleDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Roles.RoleDto>"
                   }
                 },
                 {
@@ -3307,16 +3307,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                      "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                      "typeAsString": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                      "typeSimple": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Roles.RoleDto",
-                    "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                    "type": "ShopEcommerce.Admin.System.Roles.RoleDto",
+                    "typeSimple": "ShopEcommerce.Admin.System.Roles.RoleDto"
                   }
                 },
                 {
@@ -3332,16 +3332,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
-                      "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                      "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                      "typeAsString": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                      "typeSimple": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "ShopEcommerce.Admin.Roles.RoleDto",
-                    "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                    "type": "ShopEcommerce.Admin.System.Roles.RoleDto",
+                    "typeSimple": "ShopEcommerce.Admin.System.Roles.RoleDto"
                   }
                 },
                 {
@@ -3400,7 +3400,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Roles.IRolesAppService"
+              "implementFrom": "ShopEcommerce.Admin.System.Roles.IRolesAppService"
             },
             "GetListAllAsync": {
               "uniqueName": "GetListAllAsync",
@@ -3411,11 +3411,11 @@
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Roles.RoleInListDto>",
-                "typeSimple": "[ShopEcommerce.Admin.Roles.RoleInListDto]"
+                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.System.Roles.RoleInListDto>",
+                "typeSimple": "[ShopEcommerce.Admin.System.Roles.RoleInListDto]"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Roles.IRolesAppService"
+              "implementFrom": "ShopEcommerce.Admin.System.Roles.IRolesAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -3472,11 +3472,11 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleInListDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleInListDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Roles.RoleInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Roles.RoleInListDto>"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Roles.IRolesAppService"
+              "implementFrom": "ShopEcommerce.Admin.System.Roles.IRolesAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
@@ -3487,9 +3487,9 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                  "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "typeAsString": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3499,8 +3499,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                  "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "type": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3509,11 +3509,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Roles.RoleDto",
-                "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                "type": "ShopEcommerce.Admin.System.Roles.RoleDto",
+                "typeSimple": "ShopEcommerce.Admin.System.Roles.RoleDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.Roles.RoleDto,ShopEcommerce.Admin.Roles.CreateUpdateRoleDto>"
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.System.Roles.RoleDto,ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto>"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
@@ -3532,9 +3532,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
-                  "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                  "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "typeAsString": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -3556,8 +3556,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
-                  "typeSimple": "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto",
+                  "type": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
+                  "typeSimple": "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -3566,11 +3566,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Roles.RoleDto",
-                "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                "type": "ShopEcommerce.Admin.System.Roles.RoleDto",
+                "typeSimple": "ShopEcommerce.Admin.System.Roles.RoleDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.Roles.RoleDto,System.Guid,ShopEcommerce.Admin.Roles.CreateUpdateRoleDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.System.Roles.RoleDto,System.Guid,ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto>"
             },
             "GetPermissionsAsyncByProviderNameAndProviderKey": {
               "uniqueName": "GetPermissionsAsyncByProviderNameAndProviderKey",
@@ -3627,7 +3627,7 @@
                 "typeSimple": "Volo.Abp.PermissionManagement.GetPermissionListResultDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Roles.IRolesAppService"
+              "implementFrom": "ShopEcommerce.Admin.System.Roles.IRolesAppService"
             },
             "UpdatePermissionsAsyncByProviderNameAndProviderKeyAndInput": {
               "uniqueName": "UpdatePermissionsAsyncByProviderNameAndProviderKeyAndInput",
@@ -3704,7 +3704,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Roles.IRolesAppService"
+              "implementFrom": "ShopEcommerce.Admin.System.Roles.IRolesAppService"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -3774,11 +3774,11 @@
                 }
               ],
               "returnValue": {
-                "type": "ShopEcommerce.Admin.Roles.RoleDto",
-                "typeSimple": "ShopEcommerce.Admin.Roles.RoleDto"
+                "type": "ShopEcommerce.Admin.System.Roles.RoleDto",
+                "typeSimple": "ShopEcommerce.Admin.System.Roles.RoleDto"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Roles.RoleDto,ShopEcommerce.Admin.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.System.Roles.RoleDto,ShopEcommerce.Admin.System.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -3823,11 +3823,525 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Roles.RoleDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Roles.RoleDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Roles.RoleDto>"
               },
               "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.Roles.RoleDto,ShopEcommerce.Admin.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.System.Roles.RoleDto,ShopEcommerce.Admin.System.Roles.RoleDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+            }
+          }
+        },
+        "ShopEcommerce.Admin.Users.UsersAppService": {
+          "controllerName": "Users",
+          "controllerGroupName": "Users",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "ShopEcommerce.Admin.Users.UsersAppService",
+          "interfaces": [
+            {
+              "type": "ShopEcommerce.Admin.System.Users.IUsersAppService",
+              "name": "IUsersAppService",
+              "methods": [
+                {
+                  "name": "DeleteMultipleAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "ids",
+                      "typeAsString": "System.Collections.Generic.IEnumerable`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib",
+                      "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                      "typeSimple": "[string]",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetListWithFilterAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Users.UserInListDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Users.UserInListDto>"
+                  }
+                },
+                {
+                  "name": "GetListAllAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "filterKeyword",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.System.Users.UserInListDto>",
+                    "typeSimple": "[ShopEcommerce.Admin.System.Users.UserInListDto]"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "ShopEcommerce.Admin.System.Users.UserDto",
+                    "typeSimple": "ShopEcommerce.Admin.System.Users.UserDto"
+                  }
+                },
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Volo.Abp.Application.Dtos.PagedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                      "type": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                      "typeSimple": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Users.UserDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Users.UserDto>"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "ShopEcommerce.Admin.System.Users.CreateUserDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.System.Users.CreateUserDto",
+                      "typeSimple": "ShopEcommerce.Admin.System.Users.CreateUserDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "ShopEcommerce.Admin.System.Users.UserDto",
+                    "typeSimple": "ShopEcommerce.Admin.System.Users.UserDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "ShopEcommerce.Admin.System.Users.UpdateUserDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.System.Users.UpdateUserDto",
+                      "typeSimple": "ShopEcommerce.Admin.System.Users.UpdateUserDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "ShopEcommerce.Admin.System.Users.UserDto",
+                    "typeSimple": "ShopEcommerce.Admin.System.Users.UserDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "DeleteMultipleAsyncByIds": {
+              "uniqueName": "DeleteMultipleAsyncByIds",
+              "name": "DeleteMultipleAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/users/multiple",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "ids",
+                  "typeAsString": "System.Collections.Generic.IEnumerable`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib",
+                  "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "ids",
+                  "name": "ids",
+                  "jsonName": null,
+                  "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "ShopEcommerce.Admin.System.Users.IUsersAppService"
+            },
+            "GetListAllAsyncByFilterKeyword": {
+              "uniqueName": "GetListAllAsyncByFilterKeyword",
+              "name": "GetListAllAsync",
+              "httpMethod": "GET",
+              "url": "api/app/users/all",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "filterKeyword",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "filterKeyword",
+                  "name": "filterKeyword",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<ShopEcommerce.Admin.System.Users.UserInListDto>",
+                "typeSimple": "[ShopEcommerce.Admin.System.Users.UserInListDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "ShopEcommerce.Admin.System.Users.IUsersAppService"
+            },
+            "GetListWithFilterAsyncByInput": {
+              "uniqueName": "GetListWithFilterAsyncByInput",
+              "name": "GetListWithFilterAsync",
+              "httpMethod": "GET",
+              "url": "api/app/users/with-filter",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.BaseListFilterDto",
+                  "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Keyword",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Users.UserInListDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Users.UserInListDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "ShopEcommerce.Admin.System.Users.IUsersAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/users",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "ShopEcommerce.Admin.System.Users.CreateUserDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.System.Users.CreateUserDto",
+                  "typeSimple": "ShopEcommerce.Admin.System.Users.CreateUserDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "ShopEcommerce.Admin.System.Users.CreateUserDto",
+                  "typeSimple": "ShopEcommerce.Admin.System.Users.CreateUserDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "ShopEcommerce.Admin.System.Users.UserDto",
+                "typeSimple": "ShopEcommerce.Admin.System.Users.UserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<ShopEcommerce.Admin.System.Users.UserDto,ShopEcommerce.Admin.System.Users.CreateUserDto>"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "ShopEcommerce.Admin.System.Users.UpdateUserDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.System.Users.UpdateUserDto",
+                  "typeSimple": "ShopEcommerce.Admin.System.Users.UpdateUserDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "ShopEcommerce.Admin.System.Users.UpdateUserDto",
+                  "typeSimple": "ShopEcommerce.Admin.System.Users.UpdateUserDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "ShopEcommerce.Admin.System.Users.UserDto",
+                "typeSimple": "ShopEcommerce.Admin.System.Users.UserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<ShopEcommerce.Admin.System.Users.UserDto,System.Guid,ShopEcommerce.Admin.System.Users.UpdateUserDto>"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "ShopEcommerce.Admin.System.Users.UserDto",
+                "typeSimple": "ShopEcommerce.Admin.System.Users.UserDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.System.Users.UserDto,ShopEcommerce.Admin.System.Users.UserDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/users/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/app/users",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Application.Dtos.PagedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                  "type": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                  "typeSimple": "Volo.Abp.Application.Dtos.PagedResultRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Users.UserDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.System.Users.UserDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<ShopEcommerce.Admin.System.Users.UserDto,ShopEcommerce.Admin.System.Users.UserDto,System.Guid,Volo.Abp.Application.Dtos.PagedResultRequestDto>"
             }
           }
         }
@@ -6461,7 +6975,7 @@
         }
       ]
     },
-    "ShopEcommerce.Admin.Manufacturers.CreateUpdateManufacturerDto": {
+    "ShopEcommerce.Admin.Catalog.Manufacturers.CreateUpdateManufacturerDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -6554,7 +7068,7 @@
         }
       ]
     },
-    "ShopEcommerce.Admin.Manufacturers.ManufacturerDto": {
+    "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -6659,7 +7173,7 @@
         }
       ]
     },
-    "ShopEcommerce.Admin.Manufacturers.ManufacturerInListDto": {
+    "ShopEcommerce.Admin.Catalog.Manufacturers.ManufacturerInListDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -6743,6 +7257,1272 @@
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.ProductCategories.CreateUpdateProductCategoryDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Slug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SortOrder",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CoverPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ParentId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SeoMetaDescription",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Slug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SortOrder",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CoverPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ParentId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SeoMetaDescription",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.ProductCategories.ProductCategoryInListDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SortOrder",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CoverPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.Products.Attributes.AddUpdateProductAttributeDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ProductId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "AttributeId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DateTimeValue",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DecimalValue",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IntValue",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "VarcharValue",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TextValue",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeListFilterDto": {
+      "baseType": "ShopEcommerce.Admin.BaseListFilterDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ProductId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.Products.Attributes.ProductAttributeValueDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ProductId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "AttributeId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DataType",
+          "jsonName": null,
+          "type": "ShopEcommerce.ProductAttributes.AttributeType",
+          "typeSimple": "ShopEcommerce.ProductAttributes.AttributeType",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Label",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DateTimeValue",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DecimalValue",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IntValue",
+          "jsonName": null,
+          "type": "System.Int32?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TextValue",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "VarcharValue",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DateTimeId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "DecimalId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IntId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TextId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "VarcharId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.Products.CreateUpdateProductDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ManufacturerId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Slug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ProductType",
+          "jsonName": null,
+          "type": "ShopEcommerce.Products.ProductType",
+          "typeSimple": "ShopEcommerce.Products.ProductType",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SKU",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SortOrder",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SellPrice",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SeoMetaDescription",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "StockQuantity",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThumbnailPictureName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThumbnailPictureContent",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.Products.ProductDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ManufacturerId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Slug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ProductType",
+          "jsonName": null,
+          "type": "ShopEcommerce.Products.ProductType",
+          "typeSimple": "ShopEcommerce.Products.ProductType",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SKU",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SortOrder",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SeoMetaDescription",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "StockQuantity",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThumbnailPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SellPrice",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Id",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategorySlug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.Products.ProductInListDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ManufacturerId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Code",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Slug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ProductType",
+          "jsonName": null,
+          "type": "ShopEcommerce.Products.ProductType",
+          "typeSimple": "ShopEcommerce.Products.ProductType",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SKU",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SortOrder",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Visibility",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "StockQuantity",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThumbnailPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategorySlug",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Catalog.Products.ProductListFilterDto": {
+      "baseType": "ShopEcommerce.Admin.BaseListFilterDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "CategoryId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -7115,1273 +8895,7 @@
         }
       ]
     },
-    "ShopEcommerce.Admin.ProductCategories.CreateUpdateProductCategoryDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Name",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Code",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Slug",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SortOrder",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CoverPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Visibility",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsActive",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ParentId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SeoMetaDescription",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.ProductCategories.ProductCategoryDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Name",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Code",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Slug",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SortOrder",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CoverPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Visibility",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsActive",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ParentId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SeoMetaDescription",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Id",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.ProductCategories.ProductCategoryInListDto": {
-      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Name",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Code",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SortOrder",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CoverPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Visibility",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsActive",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.Products.Attributes.AddUpdateProductAttributeDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "ProductId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "AttributeId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DateTimeValue",
-          "jsonName": null,
-          "type": "System.DateTime?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DecimalValue",
-          "jsonName": null,
-          "type": "System.Decimal?",
-          "typeSimple": "number?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IntValue",
-          "jsonName": null,
-          "type": "System.Int32?",
-          "typeSimple": "number?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "VarcharValue",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "TextValue",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.Products.Attributes.ProductAttributeListFilterDto": {
-      "baseType": "ShopEcommerce.Admin.BaseListFilterDto",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "ProductId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.Products.Attributes.ProductAttributeValueDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Id",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ProductId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "AttributeId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Code",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DataType",
-          "jsonName": null,
-          "type": "ShopEcommerce.ProductAttributes.AttributeType",
-          "typeSimple": "ShopEcommerce.ProductAttributes.AttributeType",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Label",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DateTimeValue",
-          "jsonName": null,
-          "type": "System.DateTime?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DecimalValue",
-          "jsonName": null,
-          "type": "System.Decimal?",
-          "typeSimple": "number?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IntValue",
-          "jsonName": null,
-          "type": "System.Int32?",
-          "typeSimple": "number?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "TextValue",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "VarcharValue",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DateTimeId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DecimalId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IntId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "TextId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "VarcharId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.Products.CreateUpdateProductDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "ManufacturerId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Name",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Code",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Slug",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ProductType",
-          "jsonName": null,
-          "type": "ShopEcommerce.Products.ProductType",
-          "typeSimple": "ShopEcommerce.Products.ProductType",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SKU",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SortOrder",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Visibility",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsActive",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SellPrice",
-          "jsonName": null,
-          "type": "System.Double",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CategoryId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SeoMetaDescription",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Description",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "StockQuantity",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ThumbnailPictureName",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ThumbnailPictureContent",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.Products.ProductDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "ManufacturerId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Name",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Code",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Slug",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ProductType",
-          "jsonName": null,
-          "type": "ShopEcommerce.Products.ProductType",
-          "typeSimple": "ShopEcommerce.Products.ProductType",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SKU",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SortOrder",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Visibility",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsActive",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CategoryId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SeoMetaDescription",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Description",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "StockQuantity",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ThumbnailPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SellPrice",
-          "jsonName": null,
-          "type": "System.Double",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Id",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CategoryName",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CategorySlug",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.Products.ProductInListDto": {
-      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "ManufacturerId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Name",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Code",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Slug",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ProductType",
-          "jsonName": null,
-          "type": "ShopEcommerce.Products.ProductType",
-          "typeSimple": "ShopEcommerce.Products.ProductType",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SKU",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "SortOrder",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Visibility",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsActive",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CategoryId",
-          "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "StockQuantity",
-          "jsonName": null,
-          "type": "System.Int32",
-          "typeSimple": "number",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ThumbnailPicture",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CategoryName",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "CategorySlug",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.Products.ProductListFilterDto": {
-      "baseType": "ShopEcommerce.Admin.BaseListFilterDto",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "CategoryId",
-          "jsonName": null,
-          "type": "System.Guid?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "ShopEcommerce.Admin.Roles.CreateUpdateRoleDto": {
+    "ShopEcommerce.Admin.System.Roles.CreateUpdateRoleDto": {
       "baseType": null,
       "isEnum": false,
       "enumNames": null,
@@ -8414,7 +8928,7 @@
         }
       ]
     },
-    "ShopEcommerce.Admin.Roles.RoleDto": {
+    "ShopEcommerce.Admin.System.Roles.RoleDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -8447,7 +8961,7 @@
         }
       ]
     },
-    "ShopEcommerce.Admin.Roles.RoleInListDto": {
+    "ShopEcommerce.Admin.System.Roles.RoleInListDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -8468,6 +8982,306 @@
         },
         {
           "name": "Description",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.System.Users.CreateUserDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Surname",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "UserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Password",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.System.Users.UpdateUserDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Surname",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.System.Users.UserDto": {
+      "baseType": "Volo.Abp.Application.Dtos.AuditedEntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "UserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Surname",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Roles",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsActive",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.System.Users.UserInListDto": {
+      "baseType": "Volo.Abp.Application.Dtos.AuditedEntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Surname",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Email",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "UserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PhoneNumber",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
@@ -8925,6 +9739,76 @@
           "type": "System.String",
           "typeSimple": "string",
           "isRequired": true,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Application.Dtos.AuditedEntityDto<T0>": {
+      "baseType": "Volo.Abp.Application.Dtos.CreationAuditedEntityDto<TPrimaryKey>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
+      "properties": [
+        {
+          "name": "LastModificationTime",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LastModifierId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Application.Dtos.CreationAuditedEntityDto<T0>": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<TPrimaryKey>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
+      "properties": [
+        {
+          "name": "CreationTime",
+          "jsonName": null,
+          "type": "System.DateTime",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CreatorId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
           "minLength": null,
           "maxLength": null,
           "minimum": null,
