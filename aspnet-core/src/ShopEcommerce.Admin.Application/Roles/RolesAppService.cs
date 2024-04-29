@@ -131,7 +131,8 @@ namespace ShopEcommerce.Admin.Roles
                 var permissions = group.GetPermissionsWithChildren()
                     .Where(x => x.IsEnabled)
                     .Where(x => !x.Providers.Any() || x.Providers.Contains(providerName))
-                    .Where(x => x.MultiTenancySide.HasFlag(multiTenancySide));
+                    .Where(x => x.MultiTenancySide.HasFlag(multiTenancySide))
+                     .Where(x => x.Name.StartsWith("AbpIdentity") || x.Name.StartsWith("ShopEcomAdmin"));
 
                 foreach (var permission in permissions)
                 {
