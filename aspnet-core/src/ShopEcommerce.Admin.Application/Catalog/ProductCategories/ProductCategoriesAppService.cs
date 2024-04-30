@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using ShopEcommerce.Admin.Permissions;
 using ShopEcommerce.ProductCategories;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
@@ -12,7 +13,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace ShopEcommerce.Admin.Catalog.ProductCategories
 {
-    [Authorize]
+    [Authorize(ShopEcommercePermissions.Category.Default, Policy = "AdminOnly")]
     public class ProductCategoriesAppService : CrudAppService<
         ProductCategory,
         ProductCategoryDto,
@@ -24,14 +25,21 @@ namespace ShopEcommerce.Admin.Catalog.ProductCategories
         public ProductCategoriesAppService(IRepository<ProductCategory, Guid> repository)
             : base(repository)
         {
+            GetPolicyName = ShopEcommercePermissions.Category.Default;
+            GetListPolicyName = ShopEcommercePermissions.Category.Default;
+            CreatePolicyName = ShopEcommercePermissions.Category.Create;
+            UpdatePolicyName = ShopEcommercePermissions.Category.Update;
+            DeletePolicyName = ShopEcommercePermissions.Category.Delete;
         }
 
+        [Authorize(ShopEcommercePermissions.Category.Delete)]
         public async Task DeleteMultipleAsync(IEnumerable<Guid> ids)
         {
             await Repository.DeleteManyAsync(ids);
             await UnitOfWorkManager.Current.SaveChangesAsync();
         }
 
+        [Authorize(ShopEcommercePermissions.Category.Default)]
         public async Task<List<ProductCategoryInListDto>> GetListAllAsync()
         {
             var query = await Repository.GetQueryableAsync();
@@ -42,6 +50,7 @@ namespace ShopEcommerce.Admin.Catalog.ProductCategories
 
         }
 
+        [Authorize(ShopEcommercePermissions.Category.Default)]
         public async Task<PagedResultDto<ProductCategoryInListDto>> GetListFilterAsync(BaseListFilterDto input)
         {
             var query = await Repository.GetQueryableAsync();
@@ -52,7 +61,7 @@ namespace ShopEcommerce.Admin.Catalog.ProductCategories
 
             return new PagedResultDto<ProductCategoryInListDto>(totalCount, ObjectMapper.Map<List<ProductCategory>, List<ProductCategoryInListDto>>(data));
         }
-
+        [Authorize(ShopEcommercePermissions.Category.Create)]
         public async override Task<ProductCategoryDto> CreateAsync(CreateUpdateProductCategoryDto input)
         {
             await CheckDuplicateCodeAsync(input.Code);
@@ -62,6 +71,7 @@ namespace ShopEcommerce.Admin.Catalog.ProductCategories
             return productCategory;
         }
 
+        [Authorize(ShopEcommercePermissions.Category.Update)]
         public override async Task<ProductCategoryDto> UpdateAsync(Guid id, CreateUpdateProductCategoryDto input)
         {
             await CheckDuplicateCodeAsync(input.Code, id);

@@ -26,6 +26,8 @@ import { AttributeComponent } from './attribute/attribute.component';
 import { AttributeDetailComponent } from './attribute/attribute-detail.component';
 import { CategoryComponent } from './category/category.component';
 import { CategoryDetailComponent } from './category/category-detail.component';
+import { ManufacturerComponent } from './manufacturer/manufacturer.component';
+import { ManufacturerDetailComponent } from './manufacturer/manufacturer-detail.component';
 @NgModule({
   declarations: [
     ProductComponent,
@@ -34,7 +36,9 @@ import { CategoryDetailComponent } from './category/category-detail.component';
     AttributeComponent,
     AttributeDetailComponent,
     CategoryComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    ManufacturerComponent,
+    ManufacturerDetailComponent
   ],
   imports: [
     SharedModule,

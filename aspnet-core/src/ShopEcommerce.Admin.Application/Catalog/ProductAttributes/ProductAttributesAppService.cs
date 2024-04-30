@@ -8,10 +8,11 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using ShopEcommerce.Admin.ProductAttributes;
+using ShopEcommerce.Admin.Permissions;
 
 namespace ShopEcommerce.Admin.Catalog.ProductAttributes
 {
-    [Authorize]
+    [Authorize(ShopEcommercePermissions.Attribute.Default, Policy = "AdminOnly")]
     public class ProductAttributesAppService : CrudAppService<
         ProductAttribute,
         ProductAttributeDto,
@@ -23,14 +24,20 @@ namespace ShopEcommerce.Admin.Catalog.ProductAttributes
         public ProductAttributesAppService(IRepository<ProductAttribute, Guid> repository)
             : base(repository)
         {
+            GetPolicyName = ShopEcommercePermissions.Attribute.Default;
+            GetListPolicyName = ShopEcommercePermissions.Attribute.Default;
+            CreatePolicyName = ShopEcommercePermissions.Attribute.Create;
+            UpdatePolicyName = ShopEcommercePermissions.Attribute.Update;
+            DeletePolicyName = ShopEcommercePermissions.Attribute.Delete;
         }
 
+        [Authorize(ShopEcommercePermissions.Attribute.Delete)]
         public async Task DeleteMultipleAsync(IEnumerable<Guid> ids)
         {
             await Repository.DeleteManyAsync(ids);
             await UnitOfWorkManager.Current.SaveChangesAsync();
         }
-
+        [Authorize(ShopEcommercePermissions.Attribute.Default)]
         public async Task<List<ProductAttributeInListDto>> GetListAllAsync()
         {
             var query = await Repository.GetQueryableAsync();
@@ -40,7 +47,7 @@ namespace ShopEcommerce.Admin.Catalog.ProductAttributes
             return ObjectMapper.Map<List<ProductAttribute>, List<ProductAttributeInListDto>>(data);
 
         }
-
+        [Authorize(ShopEcommercePermissions.Attribute.Default)]
         public async Task<PagedResultDto<ProductAttributeInListDto>> GetListFilterAsync(BaseListFilterDto input)
         {
             var query = await Repository.GetQueryableAsync();

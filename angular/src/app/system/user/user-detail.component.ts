@@ -6,6 +6,7 @@ import { UsersService } from '@proxy/users';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { forkJoin, Subject, takeUntil } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { UtilityService } from 'src/app/shared/services/utility.service';
 @Component({
   templateUrl: 'user-detail.component.html',
@@ -34,7 +35,8 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     private userService: UsersService,
     public authService: AuthService,
     private utilService: UtilityService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private notificationService: NotificationService,
   ) {}
   ngOnDestroy(): void {
     if (this.ref) {
@@ -128,8 +130,9 @@ export class UserDetailComponent implements OnInit, OnDestroy {
             this.ref.close(this.form.value);
             this.toggleBlockUI(false);
           },
-          error: () => {
+          error: (err) => {
             this.toggleBlockUI(false);
+            this.notificationService.showError(err.error.error.message);
           },
         });
     } else {
@@ -142,8 +145,9 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
             this.ref.close(this.form.value);
           },
-          error: () => {
+          error: (err) => {
             this.toggleBlockUI(false);
+            this.notificationService.showError(err.error.error.message);
           },
         });
     }

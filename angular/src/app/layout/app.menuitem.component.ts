@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { MenuService } from './app.menu.service';
 import { LayoutService } from './service/app.layout.service';
+import { PermissionService } from '@abp/ng.core';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
@@ -65,7 +66,12 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string = "";
 
-    constructor(public layoutService: LayoutService, private cd: ChangeDetectorRef, public router: Router, private menuService: MenuService) {
+    constructor(public layoutService: LayoutService,
+         private cd: ChangeDetectorRef,
+          public router: Router,
+           private menuService: MenuService,
+           private permissionService: PermissionService
+        ) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(value => {
             Promise.resolve(null).then(() => {
                 if (value.routeEvent) {
@@ -93,7 +99,10 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.key = this.parentKey ? this.parentKey + '-' + this.index : String(this.index);
-
+        this.permissionService.getGrantedPolicy$(this.item.permission)
+    .subscribe((result: boolean) => {
+      this.item.visible = result;
+    });
         if (this.item.routerLink) {
             this.updateActiveStateFromRoute();
         }

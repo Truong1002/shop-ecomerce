@@ -8,14 +8,14 @@ import { UtilityService } from '../../shared/services/utility.service';
 import { NotificationService } from '../../shared/services/notification.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProductDto } from '@proxy/catalog/products';
-import { ProductCategoriesService, ProductCategoryDto } from '@proxy/catalog/product-categories';
-import { ManufacturersService } from '@proxy/catalog/manufacturers';
+import { ProductCategoriesService } from '@proxy/catalog/product-categories';
+import { ManufacturerDto, ManufacturersService } from '@proxy/catalog/manufacturers';
 
 @Component({
-  selector: 'app-category-detail',
-  templateUrl: './category-detail.component.html',
+  selector: 'app-manufacturer-detail',
+  templateUrl: './manufacturer-detail.component.html',
 })
-export class CategoryDetailComponent implements OnInit, OnDestroy {
+export class ManufacturerDetailComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   blockedPanel: boolean = false;
   btnDisabled = false;
@@ -26,10 +26,9 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
   productCategories: any[] = [];
   manufacturers: any[] = [];
   productTypes: any[] = [];
-  selectedEntity = {} as ProductCategoryDto;
+  selectedEntity = {} as ManufacturerDto;
 
   constructor(
-    private productCategoryService: ProductCategoriesService,
     private manufacturerService: ManufacturersService,
     private fb: FormBuilder,
     private config: DynamicDialogConfig,
@@ -47,7 +46,6 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
       { type: 'maxlength', message: 'Bạn không được nhập quá 255 kí tự' },
     ],
     slug: [{ type: 'required', message: 'Bạn phải URL duy nhất' }],
-    sortOrder: [{ type: 'required', message: 'Bạn phải nhập thứ tự' }],
   };
 
   ngOnDestroy(): void {
@@ -81,7 +79,7 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
 
   loadFormDetails(id: string) {
     this.toggleBlockUI(true);
-    this.productCategoryService
+    this.manufacturerService
       .get(id)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
@@ -102,7 +100,7 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
     this.toggleBlockUI(true);
 
     if (this.utilService.isEmpty(this.config.data?.id) == true) {
-      this.productCategoryService
+      this.manufacturerService
         .create(this.form.value)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe({
@@ -117,7 +115,7 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
           },
         });
     } else {
-      this.productCategoryService
+      this.manufacturerService
         .update(this.config.data?.id, this.form.value)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe({
@@ -150,10 +148,9 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
       ),
       code: new FormControl(this.selectedEntity.code || null, Validators.required),
       slug: new FormControl(this.selectedEntity.slug || null, Validators.required),
-      sortOrder: new FormControl(this.selectedEntity.sortOrder || null, Validators.required),
       visibility: new FormControl(this.selectedEntity.visibility || true),
       isActive: new FormControl(this.selectedEntity.isActive || true),
-      seoMetaDescription: new FormControl(this.selectedEntity.seoMetaDescription || null),
+      country: new FormControl(this.selectedEntity.country || null, Validators.required),
     });
   }
 

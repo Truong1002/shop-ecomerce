@@ -6,21 +6,7 @@ public static class ShopEcommercePermissions
     public const string CatalogGroupName = "ShopEcomAdminCatalog";
 
     //Add your own permission names. Example:
-    public static class Role
-    {
-        public const string Default = SystemGroupName + ".Role";
-        public const string Create = Default + ".Create";
-        public const string Update = Default + ".Update";
-        public const string Delete = Default + ".Delete";
-    }
-
-    public static class User
-    {
-        public const string Default = SystemGroupName + ".User";
-        public const string Create = Default + ".Create";
-        public const string Update = Default + ".Update";
-        public const string Delete = Default + ".Delete";
-    }
+    
 
     public static class Product
     {
@@ -43,6 +29,14 @@ public static class ShopEcommercePermissions
     public static class Category
     {
         public const string Default = CatalogGroupName + ".Category";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Delete = Default + ".Delete";
+    }
+
+    public static class Manufacturer
+    {
+        public const string Default = CatalogGroupName + ".Manufacturer";
         public const string Create = Default + ".Create";
         public const string Update = Default + ".Update";
         public const string Delete = Default + ".Delete";

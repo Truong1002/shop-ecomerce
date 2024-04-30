@@ -11,6 +11,12 @@ public class ShopEcommercePermissionDefinitionProvider : PermissionDefinitionPro
         //Catalog
         var catalogGroup = context.AddGroup(ShopEcommercePermissions.CatalogGroupName, L("Permission:Catalog"));
 
+        //Manufacture
+        var manufacturerPermission = catalogGroup.AddPermission(ShopEcommercePermissions.Manufacturer.Default, L("Permission:Catalog.Manufacturer"));
+        manufacturerPermission.AddChild(ShopEcommercePermissions.Manufacturer.Create, L("Permission:Catalog.Manufacturer.Create"));
+        manufacturerPermission.AddChild(ShopEcommercePermissions.Manufacturer.Update, L("Permission:Catalog.Manufacturer.Update"));
+        manufacturerPermission.AddChild(ShopEcommercePermissions.Manufacturer.Delete, L("Permission:Catalog.Manufacturer.Delete"));
+
         //Add product
         var productPermission = catalogGroup.AddPermission(ShopEcommercePermissions.Product.Default, L("Permission:Catalog.Product"));
         productPermission.AddChild(ShopEcommercePermissions.Product.Create, L("Permission:Catalog.Product.Create"));

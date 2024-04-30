@@ -14,6 +14,6 @@ public static class ShopEcommerceDomainErrorCodes
 
     public const string RoleNameAlreadyExists = "ShopEcommerce:RoleNameAlreadyExists";
     public const string CategoryCodeAlreadyExists = "ShopEcommerce:CategoryCodeAlreadyExists";
-
-
+    public const string AccountAlreadyExists = "ShopEcommerce:AccountAlreadyExists";
+    public const string EmailAlreadyExists = "ShopEcommerce:EmailAlreadyExists";
 }
