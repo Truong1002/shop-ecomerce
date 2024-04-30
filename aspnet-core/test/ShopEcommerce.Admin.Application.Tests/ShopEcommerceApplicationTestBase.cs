@@ -2,7 +2,7 @@
 
 namespace ShopEcommerce.Admin;
 
-public abstract class ShopEcommerceApplicationTestBase<TStartupModule> : ShopEcommerceTestBase<TStartupModule>
+public abstract class ShopEcommerceApplicationTestBase<TStartupModule> : ShopEcommerceTestBase<ShopEcommerceApplicationTestModule>
     where TStartupModule : IAbpModule
 {
 

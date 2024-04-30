@@ -14,7 +14,7 @@ using Volo.Abp.Uow;
 namespace ShopEcommerce.EntityFrameworkCore;
 
 [DependsOn(
-    typeof(ShopEcommerceApplicationTestModule),
+    typeof(ShopEcommerceTestBaseModule),
     typeof(ShopEcommerceEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCoreSqliteModule)
     )]

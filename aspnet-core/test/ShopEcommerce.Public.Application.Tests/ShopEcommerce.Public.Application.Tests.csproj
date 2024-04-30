@@ -5,13 +5,12 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>ShopEcommerce.Admin</RootNamespace>
+    <RootNamespace>ShopEcommerce.Public</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ShopEcommerce.Admin.Application\ShopEcommerce.Admin.Application.csproj" />
+    <ProjectReference Include="..\..\src\ShopEcommerce.Public.Application\ShopEcommerce.Public.Application.csproj" />
     <ProjectReference Include="..\ShopEcommerce.Domain.Tests\ShopEcommerce.Domain.Tests.csproj" />
-    <ProjectReference Include="..\ShopEcommerce.TestBase\ShopEcommerce.TestBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>

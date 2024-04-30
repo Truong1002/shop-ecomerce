@@ -1,4 +1,4 @@
-using ShopEcommerce.Samples;
+/*using ShopEcommerce.Samples;
 using Xunit;
 
 namespace ShopEcommerce.EntityFrameworkCore.Applications;
@@ -8,3 +8,4 @@ public class EfCoreSampleAppServiceTests : SampleAppServiceTests<ShopEcommerceEn
 {
 
 }
+*/
