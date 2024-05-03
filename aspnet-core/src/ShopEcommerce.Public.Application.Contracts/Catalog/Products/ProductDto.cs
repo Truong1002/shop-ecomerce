@@ -27,5 +27,6 @@ namespace ShopEcommerce.Public.Products
 
         public string? CategoryName { get; set; }
         public string? CategorySlug { get; set; }
+        public string? ThumbnailPictureBase64 { get; set; }
     }
 }

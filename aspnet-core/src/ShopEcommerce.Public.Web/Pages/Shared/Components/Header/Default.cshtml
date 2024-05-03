@@ -1,5 +1,6 @@
 ﻿﻿@using ShopEcommerce.Public.ProductCategories;
 @model List<ProductCategoryInListDto>
+
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
@@ -51,9 +52,9 @@
                 <div class="header-logo"><a class="d-flex" href="index.html"><img alt="Ecom" src="/assets/imgs/template/logo.svg"></a></div>
                 <div class="header-search">
                     <div class="box-header-search">
-                        <form class="form-search" method="post" action="#">
+                        <form class="form-search" method="get" action="/products/search">
                             <div class="box-category">
-                                <select class="select-active select2-hidden-accessible">
+                                <select name="categoryId" class="select-active select2-hidden-accessible">
                                     <option>All categories</option>
                                     @foreach (var item in Model)
                                     {
@@ -61,9 +62,10 @@
                                     }
                                 </select>
                             </div>
-                            <div class="box-keysearch">
-                                <input class="form-control font-xs" type="text" value="" placeholder="Search for items">
-                            </div>
+                            
+                                <input class="form-control font-xs" type="text" name="keyword" placeholder="Search for items">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            
                         </form>
                     </div>
                 </div>
@@ -74,7 +76,7 @@
                                 <a class="active" href="/">Home</a>
                             </li>
                             <li class="has-children">
-                                <a href="shop-grid.html">Product</a>
+                                <a href="/">Product</a>
                                 <ul class="sub-menu two-col">
                                     @foreach (var item in Model)
                                     {
@@ -149,8 +151,8 @@
                         </div>
                     }
                     <div class="d-inline-block box-dropdown-cart">
-                        <span class="font-lg icon-list icon-cart"><span>Cart</span><span class="number-item font-xs">2</span></span>
-                        <div class="dropdown-cart">
+                        <span class="icon-list icon-cart"><span>Cart</span><span class="font-xs"></span></span>
+                      @*   <div class="dropdown-cart">
                             <div class="item-cart mb-20">
                                 <div class="cart-image"><img src="/assets/imgs/page/homepage1/imgsp5.png" alt="Ecom"></div>
                                 <div class="cart-info">
@@ -176,7 +178,8 @@
                                     <div class="col-6"><a class="btn btn-buy w-auto" href="shop-checkout.html">Checkout</a></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> *@
+                        <vc:cart-dropdown></vc:cart-dropdown>
                     </div><a class="font-lg icon-list icon-compare" href="shop-compare.html"><span>Compare</span></a>
                 </div>
             </div>

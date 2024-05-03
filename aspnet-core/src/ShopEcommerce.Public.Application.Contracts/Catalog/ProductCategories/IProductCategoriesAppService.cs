@@ -16,5 +16,6 @@ namespace ShopEcommerce.Public.ProductCategories
         Task<List<ProductCategoryInListDto>> GetListAllAsync();
 
         Task<ProductCategoryDto> GetByCodeAsync(string code);
+        Task<ProductCategoryDto> GetBySlugAsync(string slug);
     }
 }

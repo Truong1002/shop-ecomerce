@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using ShopEcommerce.Manufacturers;
+using ShopEcommerce.Orders;
 using ShopEcommerce.ProductAttributes;
 using ShopEcommerce.ProductCategories;
 using ShopEcommerce.Products;
 using ShopEcommerce.Public.Manufacturers;
+using ShopEcommerce.Public.Orders;
 using ShopEcommerce.Public.ProductAttributes;
 using ShopEcommerce.Public.ProductCategories;
 using ShopEcommerce.Public.Products;
@@ -28,5 +30,8 @@ public class ShopEcommercePublicApplicationAutoMapperProfile : Profile
         //Product attribute
         CreateMap<ProductAttribute, ProductAttributeDto>();
         CreateMap<ProductAttribute, ProductAttributeInListDto>();
+
+        //Order
+        CreateMap<Order, OrderDto>();
     }
 }

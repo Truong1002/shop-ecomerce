@@ -31,6 +31,13 @@ namespace ShopEcommerce.Public.ProductCategories
 
             return ObjectMapper.Map<ProductCategory, ProductCategoryDto>(category);
         }
+
+        public async Task<ProductCategoryDto> GetBySlugAsync(string slug)
+        {
+            var productCategory = await _productCategoryRepository.GetAsync(x => x.Slug == slug);
+            return ObjectMapper.Map<ProductCategory, ProductCategoryDto>(productCategory);
+        }
+
         public async Task<List<ProductCategoryInListDto>> GetListAllAsync()
         {
             var query = await Repository.GetQueryableAsync();

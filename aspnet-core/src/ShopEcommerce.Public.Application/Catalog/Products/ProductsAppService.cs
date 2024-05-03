@@ -71,6 +71,7 @@ namespace ShopEcommerce.Public.Products
             var products = await Repository.GetQueryableAsync();  // Đảm bảo Repository này là của Product
             var manufacturers = await _manufacturerRepository.GetQueryableAsync();  // Giả sử bạn có truy cập đến Repository của Manufacturer
 
+            // Thiết lập truy vấn ban đầu với join
             var query = from product in products
                         join manufacturer in manufacturers on product.ManufacturerId equals manufacturer.Id
                         select new
@@ -79,24 +80,38 @@ namespace ShopEcommerce.Public.Products
                             manufacturer.Name
                         };
 
+            // Áp dụng các bộ lọc
             query = query
                 .WhereIf(!string.IsNullOrWhiteSpace(input.Keyword), x => x.product.Name.Contains(input.Keyword))
                 .WhereIf(input.CategoryId.HasValue, x => x.product.CategoryId == input.CategoryId);
 
-            var totalCount = await AsyncExecuter.LongCountAsync(query);
-
+            // Đếm tổng số bản ghi sau khi lọc nhưng trước khi phân trang
+            var totalCount = await AsyncExecuter.LongCountAsync(query);        
+    
+            // Áp dụng phân trang
             var data = await AsyncExecuter.ToListAsync(
-                query.OrderBy(x => x.product.CreationTime)  // Hoặc một tiêu chí sắp xếp phù hợp khác
+                query.OrderBy(x => x.product.CreationTime)
                      .Skip((input.CurrentPage - 1) * input.PageSize)
                      .Take(input.PageSize));
 
+            // Chuyển đổi dữ liệu thô thành DTO
             var resultData = data.Select(x => new ProductInListDto
             {
-                // Ánh xạ các thuộc tính cần thiết
+                Id = x.product.Id,
                 Name = x.product.Name,
-                ManufacturerName = x.Name
+                ManufacturerName = x.Name,
+                Code = x.product.Code,
+                Slug = x.product.Slug,
+                ProductType = x.product.ProductType,
+                SKU = x.product.SKU,
+                ThumbnailPicture = x.product.ThumbnailPicture,
+                SellPrice = x.product.SellPrice,
+                CategoryName = x.product.CategoryName,
+                CategorySlug = x.product.CategorySlug,
+                CategoryId = x.product.CategoryId,
             }).ToList();
 
+            // Trả về kết quả cuối cùng với thông tin phân trang
             return new PagedResult<ProductInListDto>(
                 resultData,
                 totalCount,
@@ -268,5 +283,10 @@ namespace ShopEcommerce.Public.Products
             return data;
         }
 
+        public async Task<ProductDto> GetBySlugAsync(string slug)
+        {
+            var product = await _productRepository.GetAsync(x => x.Slug == slug);
+            return ObjectMapper.Map<Product, ProductDto>(product);
+        }
     }
 }
