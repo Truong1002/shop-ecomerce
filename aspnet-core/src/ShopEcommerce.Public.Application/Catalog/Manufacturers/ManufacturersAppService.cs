@@ -50,5 +50,11 @@ namespace ShopEcommerce.Public.Manufacturers
                 input.PageSize
             );
         }
+
+        public async Task<ManufacturerDto> GetManufacturerByIdAsync(Guid id)
+        {
+            var manufacturer = await Repository.FindAsync(id);
+            return ObjectMapper.Map<Manufacturer, ManufacturerDto>(manufacturer);
+        }
     }
 }

@@ -14,5 +14,6 @@ namespace ShopEcommerce.Public.Manufacturers
     {
         Task<PagedResult<ManufacturerInListDto>> GetListFilterAsync(BaseListFilterDto input);
         Task<List<ManufacturerInListDto>> GetListAllAsync();
+        Task<ManufacturerDto> GetManufacturerByIdAsync(Guid id);
     }
 }
