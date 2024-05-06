@@ -50,6 +50,8 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
 
             
             var cartItems = new List<OrderItemDto>();
+            double total = 0; // Initialize total amount
+            string productDetails = ""; // Initialize product details string
             foreach (var item in GetCartItems())
             {
                 cartItems.Add(new OrderItemDto()
@@ -58,6 +60,8 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
                     ProductId = item.Product.Id,
                     Quantity = item.Quantity
                 });
+                total += item.Product.SellPrice * item.Quantity;
+                productDetails += $"{item.Product.Name} (Số lượng: {item.Quantity} x {item.Product.SellPrice.ToString("N0")})\n";
             }
             Guid? currentUserId = User.Identity.IsAuthenticated ? User.GetUserId() : null;
             if(currentUserId == null)
@@ -80,13 +84,16 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
                 if (User.Identity.IsAuthenticated)
                 {
                     var email = User.GetSpecificClaim(ClaimTypes.Email);
+                    var totalAsString = total.ToString("N0");
                     var emailBody = await _templateRenderer.RenderAsync(
                         EmailTemplates.CreateOrderEmail,
                         new
                         {
-                            message = "Create order success"
+                            message = $"{productDetails}\nTổng tiền là: {totalAsString}",
                         });
                     await _emailSender.SendAsync(email, "Tạo đơn hàng thành công", emailBody);
+                    HttpContext.Session.Remove(ShopEcommerceConsts.Cart);
+
                 }
                 CreateStatus = true;
             }
