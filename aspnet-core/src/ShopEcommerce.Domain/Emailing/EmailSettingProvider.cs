@@ -21,7 +21,7 @@ namespace ShopEcommerce.Emailing
             var passSetting = context.GetOrNull("Abp.Mailing.Smtp.Password");
             if (passSetting != null)
             {
-                string debug = encryptionService.Encrypt(passSetting,"da657adc03f002e42e40aceee0a7bc16-86220e6a-885f0543");
+                string debug = encryptionService.Encrypt(passSetting,"");
             }
 
         }
