@@ -73,6 +73,25 @@ namespace ShopEcommerce.Public.Orders
             return ObjectMapper.Map<Order, OrderDto>(result);
         }
 
+        public async Task<List<OrderDto>> GetCustomerOrdersAsync(Guid customerUserId)
+        {
+            // Truy vấn đơn hàng dựa theo CustomerUserId
+            var orders = await Repository.GetListAsync(order => order.CustomerUserId == customerUserId);
+
+            // Chuyển đổi danh sách kết quả thành OrderDto
+            return orders.Select(order => new OrderDto
+            {
+                Id = order.Id,
+                Code = order.Code,
+                CustomerAddress = order.CustomerAddress,
+                CustomerName = order.CustomerName,
+                CustomerPhoneNumber = order.CustomerPhoneNumber,
+                OrderDate = order.CreationTime,
+                Status = order.Status,
+                Total = order.Total
+            }).ToList();
+        }
+
 
     }
 }

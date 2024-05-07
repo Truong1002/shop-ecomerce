@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
@@ -11,6 +12,6 @@ namespace ShopEcommerce.Public.Orders
         Guid,
         PagedResultRequestDto, CreateOrderDto, CreateOrderDto>
     {
-
+        Task<List<OrderDto>> GetCustomerOrdersAsync(Guid customerUserId);
     }
 }

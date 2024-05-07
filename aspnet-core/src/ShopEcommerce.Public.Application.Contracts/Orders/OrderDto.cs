@@ -21,5 +21,6 @@ namespace ShopEcommerce.Public.Orders
         public string? CustomerPhoneNumber { get; set; }
         public string? CustomerAddress { get; set; }
         public Guid? CustomerUserId { get; set; }
+        public DateTime OrderDate { get; set; }
     }
 }

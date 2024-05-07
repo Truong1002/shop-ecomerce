@@ -81,7 +81,7 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
 
             if (order != null)
             {
-                if (User.Identity.IsAuthenticated)
+                /*if (User.Identity.IsAuthenticated)
                 {
                     var email = User.GetSpecificClaim(ClaimTypes.Email);
                     var totalAsString = total.ToString("N0");
@@ -94,7 +94,7 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
                     await _emailSender.SendAsync(email, "Tạo đơn hàng thành công", emailBody);
                     HttpContext.Session.Remove(ShopEcommerceConsts.Cart);
 
-                }
+                }*/
                 CreateStatus = true;
             }
                 

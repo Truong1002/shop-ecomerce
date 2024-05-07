@@ -1,3 +1,4 @@
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ShopEcommerce.Public.Products;  // Make sure this using directive is correct
 using System;
@@ -15,16 +16,17 @@ namespace ShopEcommerce.Public.Web.Pages.Products
             _productAppService = productAppService;
         }
 
-        public async Task OnGetAsync(string keyword, Guid? categoryId)
+        public async Task OnGetAsync([FromQuery] string keyword, [FromQuery] Guid? categoryId, [FromQuery] int page = 1, [FromQuery] int pageSize = 2)
         {
             var input = new ProductListFilterDto
             {
                 Keyword = keyword,
                 CategoryId = categoryId,
-                CurrentPage = 1,
-                PageSize = 10
+                CurrentPage = page,
+                PageSize = pageSize
             };
 
+            // Gọi dịch vụ để lấy danh sách sản phẩm với bộ lọc
             Products = await _productAppService.GetListFilterAsync(input);
         }
     }

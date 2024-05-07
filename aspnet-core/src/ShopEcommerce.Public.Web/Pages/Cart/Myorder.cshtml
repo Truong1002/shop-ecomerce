@@ -1,0 +1,62 @@
+﻿@page "/my-order.html"
+@model ShopEcommerce.Public.Web.Pages.Cart.MyorderModel
+
+<div class="section-box">
+    <div class="breadcrumbs-div">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a class="font-xs color-gray-1000" href="/">Home</a></li>
+                <li><a class="font-xs color-gray-500">Đơn hàng của bạn</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="section-box shop-template mt-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 order-first order-lg-last">
+                <div class="banner-ads-top mb-30"><a href="shop-single-product-3.html"><img src="/assets/imgs/page/shop/banner.png" alt="Ecom"></a></div>
+                <div class="box-filters mt-0 pb-5 border-bottom">
+                   
+                </div>
+                <div class="row mt-20">
+
+                    @if (Model.Orders == null || !Model.Orders.Any())
+                    {
+                    <p>Bạn chưa có đơn hàng nào.</p>
+                    }
+                    else
+                    {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID Đơn Hàng</th>
+                                <th>Ngày Đặt</th>
+                                <th>Trạng Thái</th>
+                                <th>Tổng Cộng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model.Orders)
+                            {
+                                <tr>
+                                    <td>@order.Id</td>
+                                    <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@order.Status.ToString()</td>
+                                    <td>@order.Total.ToString("N0")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ShopEcommerce.Public.ProductCategories;
 using ShopEcommerce.Public.Products;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ShopEcommerce.Public.Web.Pages.Products
 {
@@ -24,13 +25,8 @@ namespace ShopEcommerce.Public.Web.Pages.Products
             _productsAppService = productsAppService;
         }
 
-        public async Task OnGetAsync(string code, int page)
-        {
-            if(page< 1)
-            {
-                page = 1;
-            }
-           
+        public async Task OnGetAsync([FromRoute]string code, [FromQuery] int page = 1)
+        {          
             Category = await _productCategoriesAppService.GetByCodeAsync(code);
             if (Category != null)
             {

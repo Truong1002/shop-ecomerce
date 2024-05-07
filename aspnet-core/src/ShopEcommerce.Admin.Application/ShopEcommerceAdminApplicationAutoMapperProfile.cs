@@ -11,6 +11,8 @@ using ShopEcommerce.Admin.Catalog.ProductCategories;
 using ShopEcommerce.Admin.Catalog.Products;
 using ShopEcommerce.Admin.System.Roles;
 using ShopEcommerce.Admin.System.Users;
+using ShopEcommerce.Orders;
+using ShopEcommerce.Admin.Orders;
 
 namespace ShopEcommerce.Admin;
 
@@ -58,5 +60,8 @@ public class ShopEcommerceAdminApplicationAutoMapperProfile : Profile
         //User
         CreateMap<IdentityUser, UserDto>();
         CreateMap<IdentityUser, UserInListDto>();
+
+        //Order
+        CreateMap<Order, OrderDto>();
     }
 }
