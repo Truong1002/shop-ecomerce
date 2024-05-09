@@ -1,5 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ShopEcommerce.Orders;
 using ShopEcommerce.Public.Orders;
 using ShopEcommerce.Public.Web.Extensions;
 using System;
@@ -32,6 +33,20 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
                 // Handle the case where the user is not authenticated or the ID is invalid
                 Orders = new List<OrderDto>();
             }
+        }
+
+        public async Task<IActionResult> OnPostCancelOrderAsync(Guid OrderId)
+        {
+            // Cập nhật trạng thái đơn hàng thành "Cancelled"
+            var order = await _ordersAppService.GetAsync(OrderId);
+            if (order.Status == OrderStatus.New)
+            {
+                order.Status = OrderStatus.Canceled;
+                await _ordersAppService.UpdateAsync(OrderId, order);
+            }
+
+            // Refresh orders to update the page
+            return RedirectToPage();
         }
     }
 }

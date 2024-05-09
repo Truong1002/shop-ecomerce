@@ -18,7 +18,10 @@
     "Permission:Catalog.Manufacturer": "Nhà sản xuất",
     "Permission:Catalog.Manufacturer.Create": "Tạo mới nhà sản xuất",
     "Permission:Catalog.Manufacturer.Update": "Cập nhật nhà sản xuất",
-    "Permission:Catalog.Manufacturer.Delete": "Xóa nhà sản xuất"
-
+    "Permission:Catalog.Manufacturer.Delete": "Xóa nhà sản xuất",
+    "Permission:Order": "Đơn hàng",
+    "Permission:Order.Create": "Tạo đơn hàng",
+    "Permission:Order.Update": "Cập nhật đơn hàng",
+    "Permission:Order.Delete": "Xóa đơn hàng"
   }
 }

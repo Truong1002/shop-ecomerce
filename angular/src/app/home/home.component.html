@@ -61,8 +61,8 @@
   </div>
   <div class="summary" style="margin-bottom: 20px;">
     <h2>Thông Tin Tổng Quát</h2>
-    <p>Tổng số lượng bán được: {{ totalQuantitySold | number }}</p>
-    <p>Tổng tiền thu được: {{ totalRevenue | number:'1.0-0' }}</p>
+    <p><b>Tổng số lượng đã được đặt: {{ totalQuantitySold | number }}</b></p>
+    <p><b>Tổng tiền thu được: {{ totalRevenue | number:'1.0-0' }}</b></p>
   </div>
   <!--Table-->
   <p-table #pnl [value]="items" selectionMode="multiple">

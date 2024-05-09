@@ -16,6 +16,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace ShopEcommerce.Admin.Orders
 {
+    [Authorize(ShopEcommercePermissions.Order.Default, Policy = "AdminOnly")]
     public class OrdersAppService : CrudAppService<
         Order,
         OrderDto,
@@ -42,24 +43,34 @@ namespace ShopEcommerce.Admin.Orders
             _productRepository = productRepository;
             _manufacturerRepository = manufacturerRepository;
             _orderCodeGenerator = orderCodeGenerator;
+
+            GetPolicyName = ShopEcommercePermissions.Order.Default;
+            GetListPolicyName = ShopEcommercePermissions.Order.Default;
+            CreatePolicyName = ShopEcommercePermissions.Order.Create;
+            UpdatePolicyName = ShopEcommercePermissions.Order.Update;
+            DeletePolicyName = ShopEcommercePermissions.Order.Delete;
         }
 
+        [Authorize(ShopEcommercePermissions.Order.Delete)]
         public async Task DeleteMultipleAsync(IEnumerable<Guid> ids)
         {
             await Repository.DeleteManyAsync(ids);
             await UnitOfWorkManager.Current.SaveChangesAsync();
         }
 
+        [Authorize(ShopEcommercePermissions.Order.Default)]
         public async Task<List<OrderDto>> GetAllOrdersAsync()
         {
             var orders = await Repository.GetListAsync();
             return ObjectMapper.Map<List<Order>, List<OrderDto>>(orders);
         }
 
+        [Authorize(ShopEcommercePermissions.Order.Default)]
         public async Task<PagedResultDto<OrderDto>> GetListFilterAsync(BaseListFilterDto input)
         {
             var query = await Repository.GetQueryableAsync();
             query = query.WhereIf(!string.IsNullOrWhiteSpace(input.Keyword), x => x.CustomerName.Contains(input.Keyword));
+            query = query.OrderByDescending(x => x.CreationTime);
 
             var totalCount = await AsyncExecuter.LongCountAsync(query);
             var data = await AsyncExecuter.ToListAsync(query.Skip(input.SkipCount).Take(input.MaxResultCount));
@@ -67,6 +78,7 @@ namespace ShopEcommerce.Admin.Orders
             return new PagedResultDto<OrderDto>(totalCount, ObjectMapper.Map<List<Order>, List<OrderDto>>(data));
         }
 
+        [Authorize(ShopEcommercePermissions.Order.Create)]
         public async override Task<OrderDto> CreateAsync(CreateOrderDto input)
         {
             // Thực hiện logic tạo đơn hàng ở đây
@@ -81,6 +93,7 @@ namespace ShopEcommerce.Admin.Orders
             return ObjectMapper.Map<Order, OrderDto>(createdOrder);
         }
 
+        [Authorize(ShopEcommercePermissions.Order.Update)]
         public override async Task<OrderDto> UpdateAsync(Guid id, CreateOrderDto input)
         {
             // Thực hiện logic cập nhật đơn hàng ở đây
@@ -95,6 +108,7 @@ namespace ShopEcommerce.Admin.Orders
             return ObjectMapper.Map<Order, OrderDto>(updatedOrder);
         }
 
+        [Authorize(ShopEcommercePermissions.Order.Default)]
         public async Task ConfirmOrderAsync(Guid orderId)
         {
             var order = await Repository.GetAsync(orderId);
@@ -109,6 +123,7 @@ namespace ShopEcommerce.Admin.Orders
         }
 
 
+        [Authorize(ShopEcommercePermissions.Order.Default)]
         public async Task<PagedResultDto<ProductSalesDto>> GetProductSalesStatisticsAsync(BaseListFilterDto input)
         {
             var orderItems = await _orderItemRepository.GetListAsync();
@@ -153,7 +168,9 @@ namespace ShopEcommerce.Admin.Orders
             return new PagedResultDto<ProductSalesDto>(totalCount, productSales);
         }
 
+
        
+
 
 
     }

@@ -59,6 +59,7 @@ export interface ProductInListDto extends EntityDto<string> {
   categoryName?: string;
   categorySlug?: string;
   safeThumbnailUrl?:SafeUrl;
+
 }
 
 export interface ProductListFilterDto extends BaseListFilterDto {

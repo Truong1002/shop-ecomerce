@@ -10,7 +10,7 @@ public class ShopEcommercePermissionDefinitionProvider : PermissionDefinitionPro
     {
         //Catalog
         var catalogGroup = context.AddGroup(ShopEcommercePermissions.CatalogGroupName, L("Permission:Catalog"));
-
+        var orderGroup = context.AddGroup(ShopEcommercePermissions.OrderGroupName, L("Permission:Order"));
         //Manufacture
         var manufacturerPermission = catalogGroup.AddPermission(ShopEcommercePermissions.Manufacturer.Default, L("Permission:Catalog.Manufacturer"));
         manufacturerPermission.AddChild(ShopEcommercePermissions.Manufacturer.Create, L("Permission:Catalog.Manufacturer.Create"));
@@ -35,6 +35,11 @@ public class ShopEcommercePermissionDefinitionProvider : PermissionDefinitionPro
         categoryPermission.AddChild(ShopEcommercePermissions.Category.Update, L("Permission:Catalog.Category.Update"));
         categoryPermission.AddChild(ShopEcommercePermissions.Category.Delete, L("Permission:Catalog.Category.Delete"));
 
+        //Add Order
+        var orderPermission = orderGroup.AddPermission(ShopEcommercePermissions.Order.Default, L("Permission:Order"));
+        orderPermission.AddChild(ShopEcommercePermissions.Order.Create, L("Permission:Order.Create"));
+        orderPermission.AddChild(ShopEcommercePermissions.Order.Update, L("Permission:Order.Update"));
+        orderPermission.AddChild(ShopEcommercePermissions.Order.Delete, L("Permission:Order.Delete"));
     }
 
     private static LocalizableString L(string name)

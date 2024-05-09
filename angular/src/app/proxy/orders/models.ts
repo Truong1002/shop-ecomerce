@@ -2,7 +2,6 @@ import type { AuditedEntityDto, EntityDto } from '@abp/ng.core';
 import type { OrderStatus } from '../shop-ecommerce/orders/order-status.enum';
 import type { PaymentMethod } from '../shop-ecommerce/orders/payment-method.enum';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-
 export interface CreateOrderDto {
   customerName?: string;
   customerPhoneNumber?: string;

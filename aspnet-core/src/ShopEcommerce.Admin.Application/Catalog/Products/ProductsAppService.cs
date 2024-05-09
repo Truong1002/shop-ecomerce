@@ -17,7 +17,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace ShopEcommerce.Admin.Catalog.Products
 {
-    [Authorize(ShopEcommercePermissions.Product.Default, Policy = "AdminOnly")]
+    
     public class ProductsAppService : CrudAppService<
         Product,
         ProductDto,

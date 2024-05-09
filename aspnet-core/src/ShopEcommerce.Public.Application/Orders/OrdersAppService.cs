@@ -92,6 +92,33 @@ namespace ShopEcommerce.Public.Orders
             }).ToList();
         }
 
+        public async Task<OrderDto> UpdateAsync(Guid id, OrderDto input)
+        {
+            var existingOrder = await Repository.GetAsync(id);
+            if (existingOrder == null)
+            {
+                throw new KeyNotFoundException("Không tìm thấy đơn hàng với ID đã cho.");
+            }
+
+            // Cập nhật thuộc tính đơn hàng
+            existingOrder.CustomerAddress = input.CustomerAddress;
+            existingOrder.CustomerName = input.CustomerName;
+            existingOrder.CustomerPhoneNumber = input.CustomerPhoneNumber;
+            existingOrder.Status = input.Status;
+            existingOrder.PaymentMethod = input.PaymentMethod;
+            existingOrder.ShippingFee = input.ShippingFee;
+            existingOrder.Tax = input.Tax;
+            existingOrder.Total = input.Total;
+            existingOrder.Subtotal = input.Subtotal;
+            existingOrder.Discount = input.Discount;
+            existingOrder.GrandTotal = input.GrandTotal;
+
+            // Lưu thay đổi
+            await Repository.UpdateAsync(existingOrder);
+
+            return ObjectMapper.Map<Order, OrderDto>(existingOrder);
+        }
+
 
     }
 }

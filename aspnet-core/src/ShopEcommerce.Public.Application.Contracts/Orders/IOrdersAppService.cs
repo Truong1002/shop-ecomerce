@@ -13,5 +13,6 @@ namespace ShopEcommerce.Public.Orders
         PagedResultRequestDto, CreateOrderDto, CreateOrderDto>
     {
         Task<List<OrderDto>> GetCustomerOrdersAsync(Guid customerUserId);
+        Task<OrderDto> UpdateAsync(Guid id, OrderDto input);
     }
 }
