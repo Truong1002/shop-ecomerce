@@ -2,6 +2,7 @@ import type { ProductType } from '../../shop-ecommerce/products/product-type.enu
 import type { EntityDto } from '@abp/ng.core';
 import type { BaseListFilterDto } from '../../models';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 export interface CreateUpdateProductDto {
   manufacturerId?: string;
   name?: string;

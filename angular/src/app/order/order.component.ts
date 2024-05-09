@@ -6,6 +6,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../shared/services/notification.service';
 import { OrderDto, OrdersService } from '@proxy/orders';
 import { OrderStatus, PaymentMethod } from '@proxy/shop-ecommerce/orders';
+import { OrderDetailComponent } from './order-detail.component';
 
 
 @Component({
@@ -70,6 +71,20 @@ export class OrderComponent implements OnInit, OnDestroy {
     this.loadData();
   }
 
+  showAddModal() {
+    const ref = this.dialogService.open(OrderDetailComponent, {
+      header: 'Thêm mới đơn hàng',
+      width: '70%',
+    });
+
+    ref.onClose.subscribe((data: OrderDto) => {
+      if (data) {
+        this.loadData();
+        this.notificationService.showSuccess('Thêm thuộc tính thành công');
+        this.selectedItems = [];
+      }
+    });
+  }
   showEditModal() {
     // Logic for editing an order
   }

@@ -1,4 +1,4 @@
-import type { CreateOrderDto, OrderDto } from './models';
+import type { CreateOrderDto, OrderDto, ProductSalesDto } from './models';
 import { RestService, Rest } from '@abp/ng.core';
 import type { PagedResultDto, PagedResultRequestDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
@@ -74,6 +74,15 @@ export class OrdersService {
     this.restService.request<any, PagedResultDto<OrderDto>>({
       method: 'GET',
       url: '/api/app/orders/filter',
+      params: { keyword: input.keyword, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
+    },
+    { apiName: this.apiName,...config });
+  
+
+  getProductSalesStatistics = (input: BaseListFilterDto, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, PagedResultDto<ProductSalesDto>>({
+      method: 'GET',
+      url: '/api/app/orders/product-sales-statistics',
       params: { keyword: input.keyword, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
     },
     { apiName: this.apiName,...config });

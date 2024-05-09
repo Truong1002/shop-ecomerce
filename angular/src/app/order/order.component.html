@@ -60,6 +60,7 @@
           <th>Tên khách hàng</th>
           <th>Số điện thoại</th>
           <th>Địa chỉ</th>
+          <th>Ngày đặt</th>
           <th>Trạng thái</th>
           
         </tr>
@@ -74,9 +75,12 @@
           <td>{{ row.customerName }}</td>
           <td>{{ row.customerPhoneNumber }}</td>
           <td>{{ row.customerAddress }}</td>
-          <td [ngClass]="{'confirm-status': row.status === 2}">{{ getOrderStatusName(row.status) }}</td>
+          <td>{{ row.creationTime | date: 'dd-MM-yyyy hh:mm' }}</td>
+          <td [ngClass]="{'confirm-status': row.status === 2, 'red-status': row.status === 6}">
+            {{ getOrderStatusName(row.status) }}
+          </td>
           <td>
-            <button pButton type="button" (click)="confirmOrder(row)" label="Xác nhận"></button>
+            <button *ngIf="row.status === 1" pButton type="button" (click)="confirmOrder(row)" label="Xác nhận"></button>
           </td>
           
         </tr>

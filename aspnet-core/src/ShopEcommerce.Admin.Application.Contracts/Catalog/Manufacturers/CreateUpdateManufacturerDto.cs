@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ShopEcommerce.Admin.Catalog.Manufacturers
+﻿namespace ShopEcommerce.Admin.Catalog.Manufacturers
 {
     public class CreateUpdateManufacturerDto
     {

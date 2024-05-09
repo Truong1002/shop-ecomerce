@@ -19,8 +19,9 @@ import { ShopSharedModule } from '../shared/modules/shop-shared.module';
 import {BadgeModule} from 'primeng/badge';
 import {ImageModule} from 'primeng/image';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { OrderDetailComponent } from './order-detail.component';
 @NgModule({
-  declarations: [OrderComponent],
+  declarations: [OrderComponent,OrderDetailComponent], 
   imports: [
     SharedModule,
     OrderRoutingModule,

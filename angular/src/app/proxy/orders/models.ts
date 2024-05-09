@@ -1,6 +1,7 @@
-import type { EntityDto } from '@abp/ng.core';
+import type { AuditedEntityDto, EntityDto } from '@abp/ng.core';
 import type { OrderStatus } from '../shop-ecommerce/orders/order-status.enum';
 import type { PaymentMethod } from '../shop-ecommerce/orders/payment-method.enum';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 export interface CreateOrderDto {
   customerName?: string;
@@ -10,7 +11,7 @@ export interface CreateOrderDto {
   items: OrderItemDto[];
 }
 
-export interface OrderDto extends EntityDto<string> {
+export interface OrderDto extends AuditedEntityDto<string> {
   code?: string;
   status: OrderStatus;
   paymentMethod: PaymentMethod;
@@ -32,4 +33,14 @@ export interface OrderItemDto extends EntityDto {
   sku?: string;
   quantity: number;
   price: number;
+}
+
+export interface ProductSalesDto extends EntityDto<string> {
+  productId?: string;
+  productName?: string;
+  quantitySold: number;
+  totalRevenue: number;
+  manufacturerName?: string;
+  thumbnailPicture?: string;
+  safeThumbnailUrl?:SafeUrl;
 }

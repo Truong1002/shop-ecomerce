@@ -3169,6 +3169,82 @@
               "name": "IOrdersAppService",
               "methods": [
                 {
+                  "name": "GetAllOrdersAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.List<ShopEcommerce.Admin.Orders.OrderDto>",
+                    "typeSimple": "[ShopEcommerce.Admin.Orders.OrderDto]"
+                  }
+                },
+                {
+                  "name": "GetListFilterAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Orders.OrderDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Orders.OrderDto>"
+                  }
+                },
+                {
+                  "name": "ConfirmOrderAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "orderId",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "DeleteMultipleAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "ids",
+                      "typeAsString": "System.Collections.Generic.IEnumerable`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib",
+                      "type": "System.Collections.Generic.IEnumerable<System.Guid>",
+                      "typeSimple": "[string]",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetProductSalesStatisticsAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                      "type": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Orders.ProductSalesDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Orders.ProductSalesDto>"
+                  }
+                },
+                {
                   "name": "GetAsync",
                   "parametersOnMethod": [
                     {
@@ -3300,7 +3376,7 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Orders.OrdersAppService"
+              "implementFrom": "ShopEcommerce.Admin.Orders.IOrdersAppService"
             },
             "GetAllOrdersAsync": {
               "uniqueName": "GetAllOrdersAsync",
@@ -3315,7 +3391,7 @@
                 "typeSimple": "[ShopEcommerce.Admin.Orders.OrderDto]"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Orders.OrdersAppService"
+              "implementFrom": "ShopEcommerce.Admin.Orders.IOrdersAppService"
             },
             "GetListFilterAsyncByInput": {
               "uniqueName": "GetListFilterAsyncByInput",
@@ -3376,7 +3452,7 @@
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Orders.OrderDto>"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Orders.OrdersAppService"
+              "implementFrom": "ShopEcommerce.Admin.Orders.IOrdersAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
@@ -3507,7 +3583,68 @@
                 "typeSimple": "System.Void"
               },
               "allowAnonymous": null,
-              "implementFrom": "ShopEcommerce.Admin.Orders.OrdersAppService"
+              "implementFrom": "ShopEcommerce.Admin.Orders.IOrdersAppService"
+            },
+            "GetProductSalesStatisticsAsyncByInput": {
+              "uniqueName": "GetProductSalesStatisticsAsyncByInput",
+              "name": "GetProductSalesStatisticsAsync",
+              "httpMethod": "GET",
+              "url": "api/app/orders/product-sales-statistics",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "ShopEcommerce.Admin.BaseListFilterDto, ShopEcommerce.Admin.Application.Contracts",
+                  "type": "ShopEcommerce.Admin.BaseListFilterDto",
+                  "typeSimple": "ShopEcommerce.Admin.BaseListFilterDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Keyword",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Orders.ProductSalesDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<ShopEcommerce.Admin.Orders.ProductSalesDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "ShopEcommerce.Admin.Orders.IOrdersAppService"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -9244,7 +9381,7 @@
       ]
     },
     "ShopEcommerce.Admin.Orders.OrderDto": {
-      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "baseType": "Volo.Abp.Application.Dtos.AuditedEntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,
@@ -9468,6 +9605,87 @@
           "jsonName": null,
           "type": "System.Double",
           "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "ShopEcommerce.Admin.Orders.ProductSalesDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ProductId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ProductName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "QuantitySold",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TotalRevenue",
+          "jsonName": null,
+          "type": "System.Double",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ManufacturerName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ThumbnailPicture",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

@@ -6,7 +6,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace ShopEcommerce.Admin.Orders
 {
-    public class OrderDto : EntityDto<Guid>
+    public class OrderDto : AuditedEntityDto<Guid>
     {
         public string? Code { get; set; }
         public OrderStatus Status { get; set; }
