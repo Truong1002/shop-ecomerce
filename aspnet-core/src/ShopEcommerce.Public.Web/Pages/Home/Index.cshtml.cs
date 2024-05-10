@@ -38,7 +38,7 @@ public class IndexModel : PublicPageModel
                 category.Children = rootCategories.Where(x => x.ParentId == category.Id).ToList();
             }
 
-            var topSellerProducts = await _productsAppService.GetListTopSellerAsync(10);
+            var topSellerProducts = await _productsAppService.GetListTopSellerAsync(2);
             return new HomeCacheItem()
             {
                 TopSellerProducts = topSellerProducts,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ShopEcommerce.Manufacturers;
+using ShopEcommerce.Orders;
 using ShopEcommerce.ProductAttributes;
 using ShopEcommerce.ProductCategories;
 using ShopEcommerce.Products;
@@ -29,6 +30,7 @@ namespace ShopEcommerce.Public.Products
         private readonly IRepository<ProductAttributeText> _productAttributeTextRepository;
         private readonly IRepository<Manufacturer, Guid> _manufacturerRepository;
         private readonly IRepository<Product, Guid> _productRepository;
+        private readonly IRepository<OrderItem> _orderItemRepository;
 
 
         public ProductsAppService(IRepository<Product, Guid> repository,
@@ -41,7 +43,8 @@ namespace ShopEcommerce.Public.Products
               IRepository<ProductAttributeVarchar> productAttributeVarcharRepository,
               IRepository<ProductAttributeText> productAttributeTextRepository,
               IRepository<Manufacturer, Guid> manufacturerRepository,
-              IRepository<Product, Guid> productRepository
+              IRepository<Product, Guid> productRepository,
+              IRepository<OrderItem> orderItemRepository
               )
             : base(repository)
         {
@@ -54,6 +57,7 @@ namespace ShopEcommerce.Public.Products
             _productAttributeTextRepository = productAttributeTextRepository;
             _productRepository = productRepository;
             _manufacturerRepository = manufacturerRepository;
+            _orderItemRepository = orderItemRepository;
         }
 
         public async Task<List<ProductInListDto>> GetListAllAsync()
@@ -252,36 +256,72 @@ namespace ShopEcommerce.Public.Products
             );
         }
 
+        /* public async Task<List<ProductInListDto>> GetListTopSellerAsync(int numberOfRecords)
+         {
+             var products = await _productRepository.GetQueryableAsync();
+             var manufacturers = await _manufacturerRepository.GetQueryableAsync();
+
+             // Sử dụng join để lấy thông tin Manufacturer
+             var query = from product in products
+                         join manufacturer in manufacturers
+                         on product.ManufacturerId equals manufacturer.Id
+                         where product.IsActive
+                         orderby product.CreationTime descending
+                         select new ProductInListDto
+                         {
+                             Id = product.Id,
+                             Name = product.Name,
+                             ManufacturerName = manufacturer.Name, // Tên nhà sản xuất
+                             Code = product.Code,
+                             Slug = product.Slug,
+                             SKU = product.SKU,
+                             ThumbnailPicture = product.ThumbnailPicture,
+                             SellPrice = product.SellPrice,
+                             CategoryName = product.CategoryName,
+                             CategorySlug = product.CategorySlug,
+                             ProductType = product.ProductType,
+
+                         };
+
+             var data = await AsyncExecuter.ToListAsync(query.Take(numberOfRecords));
+             return data;
+         }*/
         public async Task<List<ProductInListDto>> GetListTopSellerAsync(int numberOfRecords)
         {
             var products = await _productRepository.GetQueryableAsync();
             var manufacturers = await _manufacturerRepository.GetQueryableAsync();
+            var orderItems = await _orderItemRepository.GetQueryableAsync(); // Giả định rằng bạn đã có _orderItemRepository
 
-            // Sử dụng join để lấy thông tin Manufacturer
+            // Truy vấn để lấy thông tin sản phẩm, nhà sản xuất và tổng số lượng bán
             var query = from product in products
                         join manufacturer in manufacturers
                         on product.ManufacturerId equals manufacturer.Id
+                        join orderItem in orderItems
+                        on product.Id equals orderItem.ProductId into productOrders
+                        from order in productOrders.DefaultIfEmpty()
                         where product.IsActive
-                        orderby product.CreationTime descending
+                        group new { product, manufacturer, order } by new { product.Id, product.Name, ManufacturerName = manufacturer.Name, product.Code, product.Slug, product.SKU, product.ThumbnailPicture, product.SellPrice, product.CategoryName, product.CategorySlug, product.ProductType } into grouped
+                        orderby grouped.Sum(x => x.order != null ? x.order.Quantity : 0) descending
                         select new ProductInListDto
                         {
-                            Id = product.Id,
-                            Name = product.Name,
-                            ManufacturerName = manufacturer.Name, // Tên nhà sản xuất
-                            Code = product.Code,
-                            Slug = product.Slug,
-                            SKU = product.SKU,
-                            ThumbnailPicture = product.ThumbnailPicture,
-                            SellPrice = product.SellPrice,
-                            CategoryName = product.CategoryName,
-                            CategorySlug = product.CategorySlug,
-                            ProductType = product.ProductType,
-
+                            Id = grouped.Key.Id,
+                            Name = grouped.Key.Name,
+                            ManufacturerName = grouped.Key.ManufacturerName, // Sửa ở đây
+                            Code = grouped.Key.Code,
+                            Slug = grouped.Key.Slug,
+                            SKU = grouped.Key.SKU,
+                            ThumbnailPicture = grouped.Key.ThumbnailPicture,
+                            SellPrice = grouped.Key.SellPrice,
+                            CategoryName = grouped.Key.CategoryName,
+                            CategorySlug = grouped.Key.CategorySlug,
+                            ProductType = grouped.Key.ProductType,
+                            
                         };
 
             var data = await AsyncExecuter.ToListAsync(query.Take(numberOfRecords));
             return data;
         }
+
 
         public async Task<ProductDto> GetBySlugAsync(string slug)
         {
