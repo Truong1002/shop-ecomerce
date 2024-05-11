@@ -1,11 +1,11 @@
-﻿﻿@using ShopEcommerce.Public.ProductCategories;
-@model List<ProductCategoryInListDto>
+﻿﻿@using ShopEcommerce.Public.Web.Models
+@model HeaderCacheItem
 
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
             <div class="text-center">
-                <img class="mb-10" src="/assets/imgs/template/favicon.svg" alt="Ecom">
+                <img class="mb-10" src="/assets/imgs/template/quehuong.png" alt="Ecom" width="50" height="50">
                 <div class="preloader-dots"></div>
             </div>
         </div>
@@ -16,22 +16,28 @@
     <div class="container">
         <div class="main-header">
             <div class="header-left">
-                <div class="header-logo"><a class="d-flex" href="/"><img alt="Ecom" src="/assets/imgs/template/logo.svg"></a></div>
-                <div class="header-search">
+                <div class="header-logo" style="display: flex; align-items: center;">
+                    <a href="/" style="display: flex; align-items: center; text-decoration: none;">
+                        <img alt="Ecom" src="/assets/imgs/template/quehuong.png" width="50" height="50" style="margin-right: 10px;">
+                        <span style="color: #008000; font-size: 20px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); font-family: 'Arial', sans-serif;">Nem Quê</span>
+                    </a>
+                </div>
+
+                <div style="margin-left:20px" class="header-search">
                     <div class="box-header-search">
                         <form class="form-search" method="get" action="/products/search">
                             <div class="box-category">
                                 <select name="categoryId" class="select-active select2-hidden-accessible">
-                                    <option>All categories</option>
-                                    @foreach (var item in Model)
+                                    <option>Loại sản phẩm</option>
+                                    @foreach (var item in Model.Categories)
                                     {
                                         <option value="@item.Id">@item.Name</option>
                                     }
                                 </select>
                             </div>
                             
-                                <input class="form-control font-xs" type="text" name="keyword" placeholder="Search for items">
-                                <button type="submit" class="btn btn-primary">Search</button>
+                                <input class="form-control font-xs" type="text" name="keyword" placeholder="Tìm kiếm sản phẩm">
+                                <button type="submit" class="btn btn-primary">Tìm</button>
                             
                         </form>
                     </div>
@@ -40,49 +46,28 @@
                     <nav class="nav-main-menu d-none d-xl-block">
                         <ul class="main-menu">
                             <li>
-                                <a class="active" href="/">Home</a>
+                                <a class="active" href="/">Trang chủ</a>
                             </li>
                             <li class="has-children">
-                                <a href="/">Product</a>
+                                <a href="/">Loại sản phẩm</a>
                                 <ul class="sub-menu two-col">
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.Categories)
                                     {
                                         <li><a href="/products/@(item.Code).html">@item.Name</a></li>
                                     }
                                 </ul>
                             </li>
                             <li class="has-children">
-                                <a href="shop-vendor-list.html">Vendors</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop-vendor-list.html">Vendors Listing</a></li>
-                                    <li><a href="shop-vendor-single.html">Vendor Single</a></li>
+                                <a href="/">Nhà sản xuất</a>
+                                <ul class="sub-menu two-col">
+                                    @foreach (var item in Model.Manufacturers)
+                                    {
+                                        <li><a href="/manufacturer/@(item.Code).html">@item.Name</a></li>
+                                    }
                                 </ul>
                             </li>
-                            <li class="has-children">
-                                <a href="#">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="page-about-us.html">About Us</a></li>
-                                    <li><a href="page-contact.html">Contact Us</a></li>
-                                    <li><a href="page-careers.html">Careers</a></li>
-                                    <li><a href="page-term.html">Term and Condition</a></li>
-                                    <li><a href="page-register.html">Register</a></li>
-                                    <li><a href="page-login.html">Login</a></li>
-                                    <li><a href="page-404.html">Error 404</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-children">
-                                <a href="blog.html">Blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog.html">Blog - No Sidebar</a></li>
-                                    <li><a href="blog-2.html">Blog - Right Sidebar</a></li>
-                                    <li><a href="blog-list.html">Blog List</a></li>
-                                    <li><a href="blog-big.html">Blog category big</a></li>
-                                    <li><a href="blog-single.html">Blog Single - Left sidebar</a></li>
-                                    <li><a href="blog-single-2.html">Blog Single - Right sidebar</a></li>
-                                    <li><a href="blog-single-3.html">Blog Single - No sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="page-contact.html">Contact Us</a></li>
+                            
+                            
                         </ul>
                     </nav>
                     <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span class="burger-icon-mid"></span><span class="burger-icon-bottom"></span></div>
@@ -91,34 +76,31 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <div class="d-inline-block box-dropdown-cart">
-                            <span class="font-lg icon-list icon-account"><span>Account</span></span>
+                            <span class="font-lg icon-list icon-account"><span>Tài khoản</span></span>
                             <div class="dropdown-account">
                                 <ul>
-                                    <li><a href="/account.html">My Account</a></li>
-                                    <li><a href="page-account.html">Order Tracking</a></li>
-                                    <li><a href="page-account.html">My Orders</a></li>
-                                    <li><a href="page-account.html">My Wishlist</a></li>
-                                    <li><a href="page-account.html">Setting</a></li>
-                                    <li><a href="/logout.html">Sign out</a></li>
+                                    <li><a href="/account.html">Tài khoản của bạn</a></li>
+                                    <li><a href="/my-order.html">Đơn hàng của bạn</a></li>                                  
+                                    <li><a href="/logout.html">Đăng xuất</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <a class="font-lg icon-list icon-wishlist" href="shop-wishlist.html"><span>Wishlist</span><span class="number-item font-xs">5</span></a>
+                       
                     }
                     else
                     {
                         <div class="d-inline-block box-dropdown-cart">
-                            <span class="font-lg icon-list icon-account"><span>Login/Register</span></span>
+                            <span class="font-lg icon-list icon-account"><span>Đăng nhập/Đăng kí</span></span>
                             <div class="dropdown-account">
                                 <ul>
-                                    <li><a href="/login.html">Login</a></li>
-                                    <li><a href="/register.html">Register</a></li>
+                                    <li><a href="/login.html">Đăng nhập</a></li>
+                                    <li><a href="/register.html">Đăng kí</a></li>
                                 </ul>
                             </div>
                         </div>
                     }
                     <div class="d-inline-block box-dropdown-cart">
-                        <span class="icon-list icon-cart"><span>Cart</span><span class="font-xs"></span></span>
+                        <span class="icon-list icon-cart"><span>Giỏ hàng</span><span class="font-xs"></span></span>
                       @*   <div class="dropdown-cart">
                             <div class="item-cart mb-20">
                                 <div class="cart-image"><img src="/assets/imgs/page/homepage1/imgsp5.png" alt="Ecom"></div>
@@ -147,7 +129,7 @@
                             </div>
                         </div> *@
                         <vc:cart-dropdown></vc:cart-dropdown>
-                    </div><a class="font-lg icon-list icon-compare" href="shop-compare.html"><span>Compare</span></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -274,189 +256,7 @@
         </div>
     </div>
 </div>
-<div class="sidebar-left">
-    <a class="btn btn-open" href="#"></a>
-    <ul class="menu-icons hidden">
-        <li><a href="javascript:void(0)"><img src="/assets/imgs/template/monitor.svg" alt="Ecom"></a></li>
-        <li><a href="javascript:void(0)"><img src="/assets/imgs/template/mobile.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/game.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/clock.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/airpod.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/airpods.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/mouse.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/music-play.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/bluetooth.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/clound.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/electricity.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/cpu.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/devices.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/driver.svg" alt="Ecom"></a></li>
-        <li><a href="#"><img src="/assets/imgs/template/lamp.svg" alt="Ecom"></a></li>
-    </ul>
-    <ul class="menu-texts menu-close">
-        <li class="has-children">
-            <a href="shop-grid-2.html"><span class="img-link"><img src="/assets/imgs/template/monitor.svg" alt="Ecom"></span><span class="text-link">Computers &amp; Accessories</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Computer Accessories</a></li>
-                <li><a href="shop-grid.html">Computer Cases</a></li>
-                <li><a href="shop-grid.html">Laptop</a></li>
-                <li><a href="shop-grid.html">HDD</a></li>
-                <li><a href="shop-grid.html">RAM</a></li>
-                <li><a href="shop-grid.html">Headphone</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="#"><span class="img-link"><img src="/assets/imgs/template/mobile.svg" alt="Ecom"></span><span class="text-link">Cell Phones</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Phone Accessories</a></li>
-                <li><a href="shop-grid.html">Phone Cases</a></li>
-                <li><a href="shop-grid.html">Postpaid Phones</a></li>
-                <li><a href="shop-grid.html">Unlocked Phones</a></li>
-                <li><a href="shop-grid.html">Prepaid Phones</a></li>
-                <li><a href="shop-grid.html">Prepaid Plans</a></li>
-                <li><a href="shop-grid.html">Refurbished Phones</a></li>
-                <li><a href="shop-grid.html">Straight Talk</a></li>
-                <li><a href="shop-grid.html">iPhone</a></li>
-                <li><a href="shop-grid.html">Samsung Galaxy</a></li>
-                <li><a href="shop-grid.html">Samsung Galaxy</a></li>
-                <li><a href="shop-grid.html">Samsung Galaxy</a></li>
-                <li><a href="shop-grid.html">Samsung Galaxy</a></li>
-                <li><a href="shop-grid.html">Samsung Galaxy</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/game.svg" alt="Ecom"></span><span class="text-link">Gaming Gatgets</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Wireless Routers</a></li>
-                <li><a href="shop-grid.html">Cool New Gadgets</a></li>
-                <li><a href="shop-grid.html">Tech and Gadgets</a></li>
-                <li><a href="shop-grid.html">Geek Gifts and Gadgets</a></li>
-                <li><a href="shop-grid.html">Xbox Accessories</a></li>
-                <li><a href="shop-grid.html">PlayStation Accessories</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/clock.svg" alt="Ecom"></span><span class="text-link">Smart watches</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Smart Watches</a></li>
-                <li><a href="shop-grid.html">Fashion Smart Watches</a></li>
-                <li><a href="shop-grid.html">Smart Bracelets</a></li>
-                <li><a href="shop-grid.html">Pocket Watches</a></li>
-                <li><a href="shop-grid.html">Smart Rings</a></li>
-                <li><a href="shop-grid.html">Other Watches</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/airpods.svg" alt="Ecom"></span><span class="text-link">Wired Headphone</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">On-Ear Headphones</a></li>
-                <li><a href="shop-grid.html">Earbud & In-Ear</a></li>
-                <li><a href="shop-grid.html">DJ Headphones</a></li>
-                <li><a href="shop-grid.html">PC Accessories</a></li>
-                <li><a href="shop-grid.html">PC Game Headsets</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/mouse.svg" alt="Ecom"></span><span class="text-link">Mouse &amp; Keyboard</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Logitech</a></li>
-                <li><a href="shop-grid.html">Redragon</a></li>
-                <li><a href="shop-grid.html">Amazon Basics</a></li>
-                <li><a href="shop-grid.html">Microsoft</a></li>
-                <li><a href="shop-grid.html">MageGee</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/music-play.svg" alt="Ecom"></span><span class="text-link">Headphone</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Car Audio Systems</a></li>
-                <li><a href="shop-grid.html">Cellphones</a></li>
-                <li><a href="shop-grid.html">Desktops</a></li>
-                <li><a href="shop-grid.html">Gaming Consoles</a></li>
-                <li><a href="shop-grid.html">Telephones</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/bluetooth.svg" alt="Ecom"></span><span class="text-link">Bluetooth devices</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Player Accessories</a></li>
-                <li><a href="shop-grid.html">Computer Accessories</a></li>
-                <li><a href="shop-grid.html">Speakers & Audio</a></li>
-                <li><a href="shop-grid.html">Computer Networking</a></li>
-                <li><a href="shop-grid.html">Movies & Films</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/clound.svg" alt="Ecom"></span><span class="text-link">Cloud Software</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Android</a></li>
-                <li><a href="shop-grid.html">Linux & Unix</a></li>
-                <li><a href="shop-grid.html">Macintosh</a></li>
-                <li><a href="shop-grid.html">Windows</a></li>
-                <li><a href="shop-grid.html">iPhone & iOS</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/electricity.svg" alt="Ecom"></span><span class="text-link">Electric accessories</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Antenna Toppers</a></li>
-                <li><a href="shop-grid.html">Automotive Body Armor</a></li>
-                <li><a href="shop-grid.html">Power Inverter</a></li>
-                <li><a href="shop-grid.html">Gas Tank Doors</a></li>
-                <li><a href="shop-grid.html">Hood Scoops & Vents</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/cpu.svg" alt="Ecom"></span><span class="text-link">Mainboard &amp; CPU</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Computer CPU Processors</a></li>
-                <li><a href="shop-grid.html">Internal Fans & Cooling</a></li>
-                <li><a href="shop-grid.html">Graphics Cards</a></li>
-                <li><a href="shop-grid.html">Network I/O Port Cards</a></li>
-                <li><a href="shop-grid.html">Internal Memory Card</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/devices.svg" alt="Ecom"></span><span class="text-link">Desktop PC</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Graphic PC</a></li>
-                <li><a href="shop-grid.html">Office PC</a></li>
-                <li><a href="shop-grid.html">Gaming PC</a></li>
-                <li><a href="shop-grid.html">Server</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/driver.svg" alt="Ecom"></span><span class="text-link">Speaker</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">JBL</a></li>
-                <li><a href="shop-grid.html">Anker</a></li>
-                <li><a href="shop-grid.html">Pyle</a></li>
-                <li><a href="shop-grid.html">Bose</a></li>
-                <li><a href="shop-grid.html">Logitech</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/airpod.svg" alt="Ecom"></span><span class="text-link">Bluetooth Headphone</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">On-Ear Headphones</a></li>
-                <li><a href="shop-grid.html">In-Ear Headphones</a></li>
-                <li><a href="shop-grid.html">Earbud</a></li>
-                <li><a href="shop-grid.html">Over-Ear Headphones</a></li>
-                <li><a href="shop-grid.html">Other</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="shop-grid.html"><span class="img-link"><img src="/assets/imgs/template/lamp.svg" alt="Ecom"></span><span class="text-link">Computer Decor</span></a>
-            <ul class="sub-menu">
-                <li><a href="shop-grid.html">Copyholders</a></li>
-                <li><a href="shop-grid.html">Office Bookends</a></li>
-                <li><a href="shop-grid.html">Business Card Holders</a></li>
-                <li><a href="shop-grid.html">Lap Desks</a></li>
-                <li><a href="shop-grid.html">Mouse Pads</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
+
 <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar">
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-content-area">
@@ -471,7 +271,7 @@
                             <li class="has-children">
                                 <a href="shop-grid.html">Products</a>
                                 <ul class="sub-menu">
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.Categories)
                                     {
                                         <li><a href="/products/@(item.Code).html">@item.Name</a></li>
                                     }

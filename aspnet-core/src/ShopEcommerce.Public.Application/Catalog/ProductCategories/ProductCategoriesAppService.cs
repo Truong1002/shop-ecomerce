@@ -40,12 +40,20 @@ namespace ShopEcommerce.Public.ProductCategories
 
         public async Task<List<ProductCategoryInListDto>> GetListAllAsync()
         {
+            // Lấy truy vấn từ Repository
             var query = await Repository.GetQueryableAsync();
+
+            // Lọc các mục có trạng thái IsActive là true
             query = query.Where(x => x.IsActive == true);
-            var data = await AsyncExecuter.ToListAsync(query);
 
+            // Sắp xếp theo SortOrder (tăng dần)
+            var sortedQuery = query.OrderBy(x => x.SortOrder);
+
+            // Lấy dữ liệu đã sắp xếp
+            var data = await AsyncExecuter.ToListAsync(sortedQuery);
+
+            // Chuyển đổi dữ liệu sang danh sách DTO
             return ObjectMapper.Map<List<ProductCategory>, List<ProductCategoryInListDto>>(data);
-
         }
         public async Task<PagedResult<ProductCategoryInListDto>> GetListFilterAsync(BaseListFilterDto input)
         {

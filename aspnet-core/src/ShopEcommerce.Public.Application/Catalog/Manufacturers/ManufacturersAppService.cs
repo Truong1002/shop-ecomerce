@@ -7,6 +7,8 @@ using ShopEcommerce.Manufacturers;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using ShopEcommerce.ProductCategories;
+using Volo.Abp.ObjectMapping;
 
 namespace ShopEcommerce.Public.Manufacturers
 {
@@ -16,9 +18,11 @@ namespace ShopEcommerce.Public.Manufacturers
         Guid,
         PagedResultRequestDto>, IManufacturersAppService
     {
+        private readonly IRepository<Manufacturer, Guid> _manufacturerRepository;
         public ManufacturersAppService(IRepository<Manufacturer, Guid> repository)
             : base(repository)
         {
+            _manufacturerRepository = repository;
         }
 
 
@@ -54,6 +58,13 @@ namespace ShopEcommerce.Public.Manufacturers
         public async Task<ManufacturerDto> GetManufacturerByIdAsync(Guid id)
         {
             var manufacturer = await Repository.FindAsync(id);
+            return ObjectMapper.Map<Manufacturer, ManufacturerDto>(manufacturer);
+        }
+
+        public async Task<ManufacturerDto> GetByCodeAsync(string code)
+        {
+            var manufacturer = await _manufacturerRepository.GetAsync(x => x.Code == code);
+
             return ObjectMapper.Map<Manufacturer, ManufacturerDto>(manufacturer);
         }
     }

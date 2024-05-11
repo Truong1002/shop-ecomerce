@@ -19,6 +19,7 @@ namespace ShopEcommerce.Admin.Catalog.Products
         public bool IsActive { get; set; }
         public Guid CategoryId { get; set; }
         public int StockQuantity { get; set; }
+        public double SellPrice { get; set; }
         public string? ThumbnailPicture { get; set; }
         public string? CategoryName { get; set; }
         public string? CategorySlug { get; set; }

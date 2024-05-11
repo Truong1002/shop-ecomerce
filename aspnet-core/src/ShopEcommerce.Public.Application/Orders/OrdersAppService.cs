@@ -75,11 +75,14 @@ namespace ShopEcommerce.Public.Orders
 
         public async Task<List<OrderDto>> GetCustomerOrdersAsync(Guid customerUserId)
         {
-            // Truy vấn đơn hàng dựa theo CustomerUserId
+            // Query orders based on CustomerUserId and sort by CreationTime descending
             var orders = await Repository.GetListAsync(order => order.CustomerUserId == customerUserId);
 
-            // Chuyển đổi danh sách kết quả thành OrderDto
-            return orders.Select(order => new OrderDto
+            // Sort orders by CreationTime descending (latest first)
+            var sortedOrders = orders.OrderByDescending(order => order.CreationTime);
+
+            // Transform the sorted list into OrderDto
+            return sortedOrders.Select(order => new OrderDto
             {
                 Id = order.Id,
                 Code = order.Code,

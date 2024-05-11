@@ -23,5 +23,8 @@ namespace ShopEcommerce.Public.Products
         public string? CategoryName { get; set; }
         public string? CategorySlug { get; set; }
         public string? ManufacturerName { get; set; }
+        public string? ManufacturerCode { get; set; }
+
+
     }
 }

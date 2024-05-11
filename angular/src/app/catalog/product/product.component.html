@@ -77,10 +77,9 @@
         <th>Mã</th>
         <th>SKU</th>
         <th>Tên</th>
-        <th>Loại</th>
+        <th>Giá</th>
         <th>Tên danh mục</th>
         <th>Thứ tự</th>
-        <th>Số lượng</th>
         <th>Hình ảnh</th>
         <th>Hiển thị</th>
         <th>Kích hoạt</th>
@@ -95,10 +94,9 @@
         <td>{{ row.code }}</td>
         <td>{{ row.sku }}</td>
         <td>{{ row.name }}</td>
-        <td>{{ getProductTypeName(row.productType) }}</td>
+        <td>{{ row.sellPrice}}</td>
         <td>{{ row.categoryName }}</td>
         <td>{{ row.sortOrder }}</td>
-        <td>{{ row.stockQuantity}}</td>
         <td>
           <p-image [src]="row.safeThumbnailUrl" [alt]="row.thumbnailPicture" width="100" ></p-image>
         </td>

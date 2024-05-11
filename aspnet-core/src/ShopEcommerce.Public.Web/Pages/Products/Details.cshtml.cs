@@ -26,10 +26,12 @@ namespace ShopEcommerce.Public.Web.Pages.Products
         
          public ProductCategoryDto Category { get; set; }
         public ProductDto Product { get; set; }
+
    
         public List<ProductAttributeValueDto> ProductAttributes { get; set; } // Thêm thuộc tính này
 
         public string ManufacturerName { get; set; }
+        public string ManufacturerCode { get; set; }
 
 
         public async Task OnGetAsync(string categorySlug, string slug)
@@ -39,6 +41,7 @@ namespace ShopEcommerce.Public.Web.Pages.Products
             ProductAttributes = await _productsAppService.GetListProductAttributeAllAsync(Product.Id);
             var manufacturer = await _manufacturerService.GetManufacturerByIdAsync(Product.ManufacturerId);
             ManufacturerName = manufacturer.Name;
+            ManufacturerCode = manufacturer.Code;
         }
     }
 }

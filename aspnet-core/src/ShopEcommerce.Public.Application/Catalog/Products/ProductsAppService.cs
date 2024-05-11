@@ -81,13 +81,15 @@ namespace ShopEcommerce.Public.Products
                         select new
                         {
                             product,
-                            manufacturer.Name
+                            manufacturer.Name,
+                            manufacturer.Code
                         };
 
             // Áp dụng các bộ lọc
             query = query
                 .WhereIf(!string.IsNullOrWhiteSpace(input.Keyword), x => x.product.Name.Contains(input.Keyword))
-                .WhereIf(input.CategoryId.HasValue, x => x.product.CategoryId == input.CategoryId);
+                .WhereIf(input.CategoryId.HasValue, x => x.product.CategoryId == input.CategoryId)
+                .WhereIf(input.ManufacturerId.HasValue, x => x.product.ManufacturerId == input.ManufacturerId);
 
             // Đếm tổng số bản ghi sau khi lọc nhưng trước khi phân trang
             var totalCount = await AsyncExecuter.LongCountAsync(query);        
@@ -113,6 +115,7 @@ namespace ShopEcommerce.Public.Products
                 CategoryName = x.product.CategoryName,
                 CategorySlug = x.product.CategorySlug,
                 CategoryId = x.product.CategoryId,
+                ManufacturerCode=x.Code
             }).ToList();
 
             // Trả về kết quả cuối cùng với thông tin phân trang
@@ -300,7 +303,7 @@ namespace ShopEcommerce.Public.Products
                         on product.Id equals orderItem.ProductId into productOrders
                         from order in productOrders.DefaultIfEmpty()
                         where product.IsActive
-                        group new { product, manufacturer, order } by new { product.Id, product.Name, ManufacturerName = manufacturer.Name, product.Code, product.Slug, product.SKU, product.ThumbnailPicture, product.SellPrice, product.CategoryName, product.CategorySlug, product.ProductType } into grouped
+                        group new { product, manufacturer, order } by new { product.Id, product.Name, ManufacturerName = manufacturer.Name, product.Code, product.Slug, product.SKU, product.ThumbnailPicture, product.SellPrice, product.CategoryName, product.CategorySlug, product.ProductType, ManufacturerCode=manufacturer.Code } into grouped
                         orderby grouped.Sum(x => x.order != null ? x.order.Quantity : 0) descending
                         select new ProductInListDto
                         {
@@ -315,6 +318,7 @@ namespace ShopEcommerce.Public.Products
                             CategoryName = grouped.Key.CategoryName,
                             CategorySlug = grouped.Key.CategorySlug,
                             ProductType = grouped.Key.ProductType,
+                            ManufacturerCode = grouped.Key.ManufacturerCode,
                             
                         };
 

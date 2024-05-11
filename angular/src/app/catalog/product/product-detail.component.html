@@ -106,10 +106,10 @@
           [validationMessages]="validationMessages"
         ></app-validation-message>
       </div>
-      <div class="field col-12">
+      <!-- <div class="field col-12">
         <label for="stockQuantity" class="block">Số Lượng </label>
         <p-inputNumber formControlName="stockQuantity"></p-inputNumber>
-      </div>
+      </div> -->
 
       <div class="field col-12 md:col-6">
         <label for="thumbnailImage" class="block">Hình ảnh</label>
@@ -135,12 +135,11 @@
 
       <div class="field col-12">
         <label for="seoMetaDescription" class="block">Mô tả SEO</label>
-        <textarea
+        <p-editor
           id="seoMetaDescription"
-          pInputTextarea
-          class="w-full"
-          formControlName="seoMetaDescription"
-        ></textarea>
+         
+          formControlName="seoMetaDescription" [style]="{ height: '320px' }"
+        ></p-editor>
       </div>
       <div class="field col-12">
         <label for="description" class="block">Mô tả</label>

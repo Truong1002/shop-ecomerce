@@ -215,7 +215,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       isActive: new FormControl(this.selectedEntity.isActive || true),
       seoMetaDescription: new FormControl(this.selectedEntity.seoMetaDescription || null),
       description: new FormControl(this.selectedEntity.description || null),
-      stockQuantity: new FormControl(this.selectedEntity.stockQuantity || 0),
+      // stockQuantity: new FormControl(this.selectedEntity.stockQuantity || 0),
       thumbnailPictureName:new FormControl(null),
       thumbnailPictureContent: new FormControl(null)
     });

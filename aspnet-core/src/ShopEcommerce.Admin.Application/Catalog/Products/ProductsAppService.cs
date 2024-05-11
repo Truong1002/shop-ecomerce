@@ -171,7 +171,7 @@ namespace ShopEcommerce.Admin.Catalog.Products
 
             var totalCount = await AsyncExecuter.LongCountAsync(query);
             var data = await AsyncExecuter.ToListAsync(
-                query.OrderByDescending(x => x.CreationTime)
+                query.OrderBy(x => x.SortOrder)
                 .Skip(input.SkipCount)
                 .Take(input.MaxResultCount)
                 );

@@ -11,14 +11,19 @@
     <meta name="keywords" content="index, page">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/template/favicon.svg">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <link href="/assets/css/style.css?v=3.0.0" rel="stylesheet">
     @RenderSection("styles", required: false)
-    <title>TEDU Ecommerce</title>
+    <title>Nem Quê</title>
 </head>
 <body>
     <vc:header></vc:header>
     <main class="main">
         @RenderBody()
+        <df-messenger intent="WELCOME"
+                      chat-title="Bottest"
+                      agent-id="09497db6-f011-4c1e-9594-050855d9b8fc"
+                      language-code="vi"></df-messenger>
     </main>
     <vc:footer></vc:footer>
     <script src="/assets/js/vendors/modernizr-3.6.0.min.js"></script>
