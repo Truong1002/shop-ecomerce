@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ShopEcommerce.Orders;
 using ShopEcommerce.Products;
+using ShopEcommerce.Public.Promotions;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
@@ -20,20 +21,36 @@ namespace ShopEcommerce.Public.Orders
         private readonly IRepository<OrderItem> _orderItemRepository;
         private readonly OrderCodeGenerator _orderCodeGenerator;
         private readonly IRepository<Product, Guid> _productRepository;
+        private readonly IPromotionAppService _promotionAppService;
         public OrdersAppService(IRepository<Order, Guid> repository,
             OrderCodeGenerator orderCodeGenerator,
             IRepository<OrderItem> orderItemRepository,
-            IRepository<Product, Guid> productRepository)
+            IRepository<Product, Guid> productRepository,
+            IPromotionAppService promotionAppService)
             : base(repository)
         {
             _orderItemRepository = orderItemRepository;
             _orderCodeGenerator = orderCodeGenerator;
             _productRepository = productRepository;
+            _promotionAppService = promotionAppService;
+            
         }
 
         public override async Task<OrderDto> CreateAsync(CreateOrderDto input)
         {
             var subTotal = input.Items.Sum(x => x.Quantity * x.Price);
+
+            var discount = 0.0;
+            if (!string.IsNullOrEmpty(input.CouponCode))
+            {
+                var promotion = await _promotionAppService.GetByCouponCodeAsync(input.CouponCode);
+                if (promotion != null && promotion.IsActive)
+                {
+                    // Giảm giá bằng % của tổng đơn hàng
+                    discount = input.Discount;
+                }
+            }
+            var grandTotal = subTotal - discount;
             var orderId = Guid.NewGuid();
             var order = new Order(orderId)
             {
@@ -45,8 +62,8 @@ namespace ShopEcommerce.Public.Orders
                 CustomerUserId = input.CustomerUserId,
                 Tax = 0,
                 Subtotal = subTotal,
-                GrandTotal = subTotal,
-                Discount = 0,
+                GrandTotal = grandTotal,
+                Discount = discount,
                 PaymentMethod = PaymentMethod.COD,
                 Total = subTotal,
                 Status = OrderStatus.New

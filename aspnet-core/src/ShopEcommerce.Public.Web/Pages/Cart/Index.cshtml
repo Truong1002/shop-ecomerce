@@ -24,11 +24,11 @@
                             <div class="wishlist-cb">
                                 <input class="cb-layout cb-all" type="checkbox">
                             </div>
-                            <div class="wishlist-product"><span class="font-md-bold color-brand-3">Product</span></div>
-                            <div class="wishlist-price"><span class="font-md-bold color-brand-3">Unit Price</span></div>
-                            <div class="wishlist-status"><span class="font-md-bold color-brand-3">Quantity</span></div>
-                            <div class="wishlist-action"><span class="font-md-bold color-brand-3">Subtotal</span></div>
-                            <div class="wishlist-remove"><span class="font-md-bold color-brand-3">Remove</span></div>
+                            <div class="wishlist-product"><span class="font-md-bold color-brand-3">Sản phẩm</span></div>
+                            <div class="wishlist-price"><span class="font-md-bold color-brand-3">Giá sản phẩm</span></div>
+                            <div class="wishlist-status"><span class="font-md-bold color-brand-3">Số lượng</span></div>
+                            <div class="wishlist-action"><span class="font-md-bold color-brand-3">Tổng </span></div>
+                            <div class="wishlist-remove"><span class="font-md-bold color-brand-3">Xóa</span></div>
                         </div>
                     </div>
                     <form method="post">
@@ -55,7 +55,7 @@
                                                     <input hidden asp-for="@Model.CartItems[i].Product.Id" class="form-control" />
 
                                                 </a>
-                                                <div class="rating"><img src="assets/imgs/template/icons/star.svg" alt="Ecom"><img src="assets/imgs/template/icons/star.svg" alt="Ecom"><img src="assets/imgs/template/icons/star.svg" alt="Ecom"><img src="assets/imgs/template/icons/star.svg" alt="Ecom"><img src="assets/imgs/template/icons/star.svg" alt="Ecom"><span class="font-xs color-gray-500"> (65)</span></div>
+                                             
                                             </div>
                                         </div>
                                     </div>
@@ -69,8 +69,11 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @{
+                                        var totalPrice = Model.CartItems[i].Product.SellPrice * Model.CartItems[i].Quantity;
+                                    }
                                     <div class="wishlist-action">
-                                        <h4 class="color-brand-3">@Model.CartItems.Sum(x => x.Product.SellPrice * x.Quantity)</h4>
+                                        <h4 class="color-brand-3">@totalPrice </h4>
                                     </div>
                                     @* <div class="wishlist-remove"><a class="btn btn-delete" href="#"></a></div> *@
                                     <div class="wishlist-remove">

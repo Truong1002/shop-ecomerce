@@ -16,4 +16,5 @@ public static class ShopEcommerceDomainErrorCodes
     public const string CategoryCodeAlreadyExists = "ShopEcommerce:CategoryCodeAlreadyExists";
     public const string AccountAlreadyExists = "ShopEcommerce:AccountAlreadyExists";
     public const string EmailAlreadyExists = "ShopEcommerce:EmailAlreadyExists";
+    public const string PromotionCouponCodeAlreadyExists = "ShopEcommerce: PromotionCodeAlreadyExist";
 }

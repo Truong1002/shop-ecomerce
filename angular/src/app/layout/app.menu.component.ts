@@ -81,6 +81,18 @@ export class AppMenuComponent implements OnInit {
           },
         ],
       },
+      {
+        label: 'Phiếu giảm giá',
+        items: [
+          { 
+            label: 'Danh sách đơn hàng',
+            icon: 'pi pi-fw pi-circle',
+            routerLink: ['/promotion'], 
+           
+          }, 
+          
+          ],
+      },
     ];
   }
 }

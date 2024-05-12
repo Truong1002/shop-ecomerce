@@ -4,11 +4,13 @@ using ShopEcommerce.Orders;
 using ShopEcommerce.ProductAttributes;
 using ShopEcommerce.ProductCategories;
 using ShopEcommerce.Products;
+using ShopEcommerce.Promotions;
 using ShopEcommerce.Public.Manufacturers;
 using ShopEcommerce.Public.Orders;
 using ShopEcommerce.Public.ProductAttributes;
 using ShopEcommerce.Public.ProductCategories;
 using ShopEcommerce.Public.Products;
+using ShopEcommerce.Public.Promotions;
 
 namespace ShopEcommerce.Public;
 
@@ -33,5 +35,8 @@ public class ShopEcommercePublicApplicationAutoMapperProfile : Profile
 
         //Order
         CreateMap<Order, OrderDto>();
+        //Promotion
+        CreateMap<Promotion, PromotionDto>();
+        CreateMap<CreatePromotionDto, Promotion>();
     }
 }

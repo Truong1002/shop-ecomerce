@@ -28,6 +28,11 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
+  {
+    path: 'promotion',
+    loadChildren: () => import('./promotion/promotion.module').then(m => m.PromotionModule),
+    component: AppLayoutComponent
+  },
 
  
   // {

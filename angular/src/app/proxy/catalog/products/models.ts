@@ -2,7 +2,6 @@ import type { ProductType } from '../../shop-ecommerce/products/product-type.enu
 import type { EntityDto } from '@abp/ng.core';
 import type { BaseListFilterDto } from '../../models';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-
 export interface CreateUpdateProductDto {
   manufacturerId?: string;
   name?: string;
@@ -55,11 +54,11 @@ export interface ProductInListDto extends EntityDto<string> {
   isActive: boolean;
   categoryId?: string;
   stockQuantity: number;
+  sellPrice: number;
   thumbnailPicture?: string;
   categoryName?: string;
   categorySlug?: string;
   safeThumbnailUrl?:SafeUrl;
-
 }
 
 export interface ProductListFilterDto extends BaseListFilterDto {

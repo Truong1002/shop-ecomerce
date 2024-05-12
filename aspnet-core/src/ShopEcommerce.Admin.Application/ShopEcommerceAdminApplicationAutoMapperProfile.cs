@@ -13,6 +13,8 @@ using ShopEcommerce.Admin.System.Roles;
 using ShopEcommerce.Admin.System.Users;
 using ShopEcommerce.Orders;
 using ShopEcommerce.Admin.Orders;
+using ShopEcommerce.Promotions;
+using ShopEcommerce.Admin.Promotions;
 
 namespace ShopEcommerce.Admin;
 
@@ -63,5 +65,10 @@ public class ShopEcommerceAdminApplicationAutoMapperProfile : Profile
 
         //Order
         CreateMap<Order, OrderDto>();
+
+        //Promotion
+        CreateMap<Promotion, PromotionDto>();
+        CreateMap<CreatePromotionDto, Promotion>();
+
     }
 }
