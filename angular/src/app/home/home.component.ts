@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService, PagedResultDto } from '@abp/ng.core';
-import { OrdersService, ProductSalesDto } from '@proxy/orders';
+import { OrdersService, ProductSalesDto, ProductSalesTimeDto } from '@proxy/orders';
 import { Subject, takeUntil } from 'rxjs';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ProductsService } from '@proxy/catalog/products';
-
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +14,7 @@ import { ProductsService } from '@proxy/catalog/products';
 export class HomeComponent implements OnInit, OnDestroy {
 
   private ngUnsubscribe = new Subject<void>();
-  public items: ProductSalesDto[] = [];
+  public items: ProductSalesTimeDto[] = [];
   public blockedPanel: boolean = false; // Để hiển thị trạng thái loading
 
   // Paging variables
@@ -135,7 +136,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       )
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: PagedResultDto<ProductSalesDto>) => {
+        next: (response: PagedResultDto<ProductSalesTimeDto>) => {
           this.items = response.items;
           this.totalCount = response.totalCount;
           this.items.forEach(product => {
@@ -202,6 +203,42 @@ export class HomeComponent implements OnInit, OnDestroy {
   calculateTotals() {
     this.totalQuantitySold = this.items.reduce((acc, item) => acc + item.quantitySold, 0);
     this.totalRevenue = this.items.reduce((acc, item) => acc + item.totalRevenue, 0);
+  }
+
+  exportToExcel() {
+    // Tạo dữ liệu từ các mục và thêm tổng doanh thu và tổng số lượng bán
+    const data = this.items.map(item => ({
+      'Tên sản phẩm': item.productName,
+      'Tên nhà sản xuất': item.manufacturerName,
+      'Số lượng bán': item.quantitySold,
+      'Số tiền Discount': item.discount,
+      'Tổng tiền chưa giảm': item.total,
+      'Tổng tiền': item.totalRevenue
+    }));
+  
+    // Thêm hàng tổng vào dữ liệu
+    data.push({
+      'Tên sản phẩm': 'Tổng',
+      'Tên nhà sản xuất': '',
+      'Số lượng bán': this.totalQuantitySold,
+      'Số tiền Discount': 0,
+      'Tổng tiền chưa giảm': 0,
+      'Tổng tiền': this.totalRevenue
+    });
+  
+    // Chuyển đổi dữ liệu thành bảng tính
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
+  
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'SalesData');
+  
+    // Tạo tệp Excel
+    const wbout: Blob = new Blob([XLSX.write(wb, { bookType: 'xlsx', type: 'array' })], {
+      type: 'application/octet-stream'
+    });
+  
+    // Tải tệp xuống
+    saveAs(wbout, 'SalesData.xlsx');
   }
 
 }

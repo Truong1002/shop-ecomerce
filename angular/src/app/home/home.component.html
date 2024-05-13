@@ -47,6 +47,7 @@
  
   <!--Table-->
   <p-table #pnl [value]="items" selectionMode="multiple">
+    
     <ng-template pTemplate="header">
       <tr>
         <th style="width: 10px">
@@ -85,6 +86,7 @@
       <div style="text-align: right; margin-right: 32px;">
         <b>Tổng tiền thu được: {{ totalRevenue | number: '1.0-0' }}</b>
       </div>
+      <button type="button" pButton (click)="exportToExcel()" label="Xuất Excel"></button>
     </ng-template>
 
   </p-table>

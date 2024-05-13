@@ -114,7 +114,9 @@ namespace ShopEcommerce.Public.Orders
                 CustomerPhoneNumber = order.CustomerPhoneNumber,
                 OrderDate = order.CreationTime,
                 Status = order.Status,
-                Total = order.Total
+                Total = order.Total,
+                Discount = order.Discount,
+                GrandTotal = order.GrandTotal,
             }).ToList();
         }
 

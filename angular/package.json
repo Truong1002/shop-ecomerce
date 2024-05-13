@@ -32,6 +32,7 @@
     "@angular/router": "~17.1.0",
     "@babel/runtime": "^7.24.4",
     "bootstrap-icons": "~1.8.0",
+    "file-saver": "^2.0.5",
     "primeflex": "^3.3.1",
     "primeicons": "6.0.1",
     "primeng": "^17.2.0",
@@ -39,6 +40,7 @@
     "quill": "^2.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.0.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.14.0"
   },
   "devDependencies": {

@@ -46,22 +46,35 @@
                             </div>
                             <div class="body-orders">
                                 <div class="list-orders">
-                                    @foreach (var item in Model.OrderItems[order.Id])
-                                    {
-                                        <div class="item-orders">
-                                            <div class="image-orders"><img src="@item.ProductImageUrlBase64" alt="Ecom"></div>
-                                            <div class="info-orders">
-                                                <h5>@item.ProductName</h5>
-                                                
-                                            </div>
-                                            <div class="quantity-orders">
-                                                <h5>Quantity: @item.Quantity</h5>
-                                            </div>
-                                            <div class="price-orders">
-                                                <h3>@item.Price.ToString("N0")</h3>
-                                            </div>
-                                        </div>
-                                    }
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Hình ảnh</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Số lượng</th>
+                                                <th>Đơn giá</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.OrderItems[order.Id])
+                                            {
+                                                <tr>
+                                                    <td class="image-orders">
+                                                        <img src="@item.ProductImageUrlBase64" alt="Ecom" style="width: 100px;">
+                                                    </td>
+                                                    <td class="info-orders">
+                                                        <h5>@item.ProductName</h5>
+                                                    </td>
+                                                    <td class="quantity-orders">
+                                                        <h5>@item.Quantity</h5>
+                                                    </td>
+                                                    <td class="price-orders">
+                                                        <h5>@item.Price.ToString("N0")</h5>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="footer-orders">
@@ -150,4 +163,20 @@
         .footer-orders span {
             font-weight: bold;
         }
+
+    .list-orders table {
+        width: 100%;
+        border-collapse: separate; /* Cho phép thêm khoảng cách giữa các ô */
+        border-spacing: 10px 5px; /* Khoảng cách ngang 10px, dọc 5px */
+    }
+
+    .list-orders td {
+        padding: 8px; /* Padding trong mỗi ô */
+        vertical-align: top; /* Căn lề trên cho nội dung trong ô */
+    }
+
+    .list-orders img {
+        width: 100px; /* Đặt lại chiều rộng của hình ảnh */
+        height: auto; /* Chiều cao tự động */
+    }
 </style>
