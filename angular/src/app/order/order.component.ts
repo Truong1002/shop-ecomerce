@@ -4,7 +4,7 @@ import { ConfirmationService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { NotificationService } from '../shared/services/notification.service';
-import { OrderDto, OrdersService } from '@proxy/orders';
+import { OrderDto, OrderItemDto, OrdersService } from '@proxy/orders';
 import { OrderStatus, PaymentMethod } from '@proxy/shop-ecommerce/orders';
 import { OrderDetailComponent } from './order-detail.component';
 
@@ -19,6 +19,8 @@ export class OrderComponent implements OnInit, OnDestroy {
   blockedPanel: boolean = false;
   items: OrderDto[] = [];
   public selectedItems: OrderDto[] = [];
+  selectedOrderItems: OrderItemDto[] = [];
+  dialogVisible: boolean = false;
 
   // Paging variables
   public skipCount: number = 0;
@@ -71,24 +73,8 @@ export class OrderComponent implements OnInit, OnDestroy {
     this.loadData();
   }
 
-  showAddModal() {
-    const ref = this.dialogService.open(OrderDetailComponent, {
-      header: 'Thêm mới đơn hàng',
-      width: '70%',
-    });
-
-    ref.onClose.subscribe((data: OrderDto) => {
-      if (data) {
-        this.loadData();
-        this.notificationService.showSuccess('Thêm thuộc tính thành công');
-        this.selectedItems = [];
-      }
-    });
-  }
-  showEditModal() {
-    // Logic for editing an order
-  }
-
+  
+  
   deleteItems(){
     if(this.selectedItems.length == 0){
       this.notificationService.showError("Phải chọn ít nhất một bản ghi");
@@ -138,6 +124,8 @@ export class OrderComponent implements OnInit, OnDestroy {
       }, 1000);
     }
   }
+
+  
   
   confirmOrder(order: any) {
     // Thực hiện gửi yêu cầu xác nhận đơn hàng đến API
@@ -155,6 +143,28 @@ export class OrderComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  showViewModal() {
+    if (this.selectedItems.length === 0) {
+      this.notificationService.showError('Bạn phải chọn một đơn hàng');
+      return;
+    }
+    const id = this.selectedItems[0].id; // Assuming `selectedItems` stores selected orders
+  
+    const ref = this.dialogService.open(OrderDetailComponent, { // Change to your component that shows order details
+      data: {
+        id: id,
+      },
+      header: 'Chi tiết đơn hàng',
+      width: '70%',
+    });
+  
+    ref.onClose.subscribe(() => {
+      // Actions on close, if necessary
+    });
+  }
+  
+  
   
 
 }

@@ -19,6 +19,7 @@ import { ShopSharedModule } from '../shared/modules/shop-shared.module';
 import {BadgeModule} from 'primeng/badge';
 import {ImageModule} from 'primeng/image';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ChartModule } from 'primeng/chart';
 @NgModule({
   declarations: [HomeComponent], 
   imports: [
@@ -40,7 +41,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     ShopSharedModule,
     BadgeModule,
     ImageModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ChartModule
   ],
 })
 export class HomeModule {}

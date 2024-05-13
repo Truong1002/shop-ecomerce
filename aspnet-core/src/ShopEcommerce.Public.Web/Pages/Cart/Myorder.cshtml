@@ -1,7 +1,9 @@
 ﻿@page "/my-order.html"
 @using ShopEcommerce.Orders
 @model ShopEcommerce.Public.Web.Pages.Cart.MyorderModel
-
+@{
+    ViewData["Title"] = "My Orders";
+}
 <section class="section-box shop-template mt-30">
     <div class="container box-account-template">
         <h3>Đơn hàng của bạn</h3>
@@ -29,6 +31,7 @@
                                     <span class="font-md color-brand-3 mr-20">
                                         Date: @order.OrderDate.ToString("dd/MM/yyyy HH:mm")
                                     </span>
+                                    
                                     <span class="@statusClass">@GetOrderStatusText(order.Status)</span>
                                 </div>
                                 <div class="head-right">
@@ -40,6 +43,31 @@
                                         </form>
                                     }
                                 </div>
+                            </div>
+                            <div class="body-orders">
+                                <div class="list-orders">
+                                    @foreach (var item in Model.OrderItems[order.Id])
+                                    {
+                                        <div class="item-orders">
+                                            <div class="image-orders"><img src="@item.ProductImageUrlBase64" alt="Ecom"></div>
+                                            <div class="info-orders">
+                                                <h5>@item.ProductName</h5>
+                                                
+                                            </div>
+                                            <div class="quantity-orders">
+                                                <h5>Quantity: @item.Quantity</h5>
+                                            </div>
+                                            <div class="price-orders">
+                                                <h3>@item.Price.ToString("N0")</h3>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="footer-orders">
+                                <span>Giảm giá: @order.Discount</span>
+                                <span>Tổng tiền: @order.Total</span>
+                                <span>Tiền phải trả: @order.GrandTotal</span>
                             </div>
                         </div>
                     }
@@ -81,4 +109,45 @@
     .status-unknown {
         color: gray;
     }
+
+    .box-orders {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .head-orders {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .body-orders {
+        margin-bottom: 20px;
+    }
+
+    .item-orders {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .image-orders img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .footer-orders {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+
+        .footer-orders span {
+            font-weight: bold;
+        }
 </style>

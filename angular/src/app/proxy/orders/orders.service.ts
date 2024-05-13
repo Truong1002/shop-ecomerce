@@ -1,4 +1,4 @@
-import type { CreateOrderDto, OrderDto, ProductSalesDto } from './models';
+import type { CreateOrderDto, OrderDto, OrderItemDto, ProductSalesDto, ProductSalesTimeDto } from './models';
 import { RestService, Rest } from '@abp/ng.core';
 import type { PagedResultDto, PagedResultRequestDto } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
@@ -79,11 +79,28 @@ export class OrdersService {
     { apiName: this.apiName,...config });
   
 
+  getOrderItems = (orderId: string, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, OrderItemDto[]>({
+      method: 'GET',
+      url: `/api/app/orders/order-items/${orderId}`,
+    },
+    { apiName: this.apiName,...config });
+  
+
   getProductSalesStatistics = (input: BaseListFilterDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, PagedResultDto<ProductSalesDto>>({
       method: 'GET',
       url: '/api/app/orders/product-sales-statistics',
       params: { keyword: input.keyword, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
+    },
+    { apiName: this.apiName,...config });
+  
+
+  getProductSalesStatisticsByTime = (input: BaseListFilterDto, startDate: string, endDate: string, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, PagedResultDto<ProductSalesTimeDto>>({
+      method: 'GET',
+      url: '/api/app/orders/product-sales-statistics-by-time',
+      params: { keyword: input.keyword, skipCount: input.skipCount, maxResultCount: input.maxResultCount, startDate, endDate },
     },
     { apiName: this.apiName,...config });
   

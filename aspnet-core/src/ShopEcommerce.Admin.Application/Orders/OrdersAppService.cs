@@ -30,6 +30,7 @@ namespace ShopEcommerce.Admin.Orders
         private readonly IRepository<Manufacturer, Guid> _manufacturerRepository;
         
         private readonly OrderCodeGenerator _orderCodeGenerator;
+        private readonly IRepository<Order, Guid> _orderRepository;
 
         public OrdersAppService(IRepository<Order, Guid> repository,
             IRepository<OrderItem> orderItemRepository,
@@ -43,6 +44,7 @@ namespace ShopEcommerce.Admin.Orders
             _productRepository = productRepository;
             _manufacturerRepository = manufacturerRepository;
             _orderCodeGenerator = orderCodeGenerator;
+            _orderRepository = repository;
 
             GetPolicyName = ShopEcommercePermissions.Order.Default;
             GetListPolicyName = ShopEcommercePermissions.Order.Default;
@@ -122,9 +124,9 @@ namespace ShopEcommerce.Admin.Orders
             }
         }
 
-
-        [Authorize(ShopEcommercePermissions.Order.Default)]
-        public async Task<PagedResultDto<ProductSalesDto>> GetProductSalesStatisticsAsync(BaseListFilterDto input)
+/*
+        [Authorize(ShopEcommercePermissions.Order.Default)]*/
+        /*public async Task<PagedResultDto<ProductSalesDto>> GetProductSalesStatisticsAsync(BaseListFilterDto input)
         {
             var orderItems = await _orderItemRepository.GetListAsync();
             var allProducts = await _productRepository.GetListAsync();
@@ -150,7 +152,8 @@ namespace ShopEcommerce.Admin.Orders
                         ManufacturerName = productInfo != null && manufacturerDictionary.TryGetValue(productInfo.ManufacturerId, out var name) ? name : "Unknown Manufacturer",
                         QuantitySold = group.Sum(item => item.Quantity),
                         TotalRevenue = group.Sum(item => item.Price * item.Quantity),
-                        ThumbnailPicture = productInfo?.ThumbnailPicture ?? "default-thumbnail.jpg" // Include the thumbnail URL
+                        ThumbnailPicture = productInfo?.ThumbnailPicture ?? "default-thumbnail.jpg", // Include the thumbnail URL
+                        
                     };
                 }).ToList();
 
@@ -166,10 +169,138 @@ namespace ShopEcommerce.Admin.Orders
                 .ToList();
 
             return new PagedResultDto<ProductSalesDto>(totalCount, productSales);
+        }*/
+        public async Task<PagedResultDto<ProductSalesDto>> GetProductSalesStatisticsAsync(BaseListFilterDto input)
+        {
+            // Fetch all necessary data
+            var orderItems = await _orderItemRepository.GetListAsync();
+            var orders = await Repository.GetListAsync(); // Assuming Repository is for Orders
+            var allProducts = await _productRepository.GetListAsync();
+            var allManufacturers = await _manufacturerRepository.GetListAsync();
+
+            // Build dictionaries for quick lookup
+            var orderDictionary = orders.ToDictionary(order => order.Id, order => order.CreationTime);
+            var productDictionary = allProducts.ToDictionary(
+                product => product.Id,
+                product => new { product.Name, product.ManufacturerId, product.ThumbnailPicture });
+            var manufacturerDictionary = allManufacturers.ToDictionary(
+                manufacturer => manufacturer.Id,
+                manufacturer => manufacturer.Name);
+
+            // Create the sales data query
+            var productSalesQuery = orderItems
+                .GroupBy(item => item.ProductId)
+                .Select(group =>
+                {
+                    var productInfo = productDictionary.TryGetValue(group.Key, out var info) ? info : null;
+                    var sampleOrderItem = group.FirstOrDefault();
+                    DateTime saleDate = sampleOrderItem != null && orderDictionary.TryGetValue(sampleOrderItem.OrderId, out var creationTime) ? creationTime : DateTime.MinValue;
+
+                    return new ProductSalesDto
+                    {
+                        ProductId = group.Key,
+                        ProductName = productInfo?.Name ?? "Unknown Product",
+                        ManufacturerName = productInfo != null && manufacturerDictionary.TryGetValue(productInfo.ManufacturerId, out var name) ? name : "Unknown Manufacturer",
+                        QuantitySold = group.Sum(item => item.Quantity),
+                        TotalRevenue = group.Sum(item => item.Price * item.Quantity),
+                        ThumbnailPicture = productInfo?.ThumbnailPicture ?? "default-thumbnail.jpg",
+                        SaleDate = saleDate
+                    };
+                }).ToList();
+
+            // Apply keyword filtering if necessary
+            if (!string.IsNullOrWhiteSpace(input.Keyword))
+            {
+                productSalesQuery = productSalesQuery.Where(sales => sales.ProductName.Contains(input.Keyword, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            var totalCount = productSalesQuery.Count;
+            var productSales = productSalesQuery
+                .Skip(input.SkipCount)
+                .Take(input.MaxResultCount)
+                .ToList();
+
+            return new PagedResultDto<ProductSalesDto>(totalCount, productSales);
         }
 
 
-       
+
+        [Authorize(ShopEcommercePermissions.Order.Default)]
+        public async Task<List<OrderItemDto>> GetOrderItemsAsync(Guid orderId)
+        {
+            var orderItems = await _orderItemRepository.GetListAsync(item => item.OrderId == orderId);
+            return ObjectMapper.Map<List<OrderItem>, List<OrderItemDto>>(orderItems);
+        }
+
+        [Authorize(ShopEcommercePermissions.Order.Default)]
+        public async Task<PagedResultDto<ProductSalesTimeDto>> GetProductSalesStatisticsByTimeAsync(BaseListFilterDto input, DateTime startDate, DateTime endDate)
+        {
+            var orderItems = await _orderItemRepository.GetListAsync();
+            var allProducts = await _productRepository.GetListAsync();
+            var allManufacturers = await _manufacturerRepository.GetListAsync();
+            var allOrders = await _orderRepository.GetListAsync();
+
+            var productDictionary = allProducts.ToDictionary(
+                product => product.Id,
+                product => new { product.Name, product.ManufacturerId, product.ThumbnailPicture }
+            );
+
+            var manufacturerDictionary = allManufacturers.ToDictionary(
+                manufacturer => manufacturer.Id,
+                manufacturer => manufacturer.Name
+            );
+
+            var orderDictionary = allOrders.ToDictionary(
+                order => order.Id,
+                order => new { order.CreationTime, order.Discount, order.Status }
+            );
+
+            var filteredOrderItems = orderItems.Where(item =>
+                orderDictionary.TryGetValue(item.OrderId, out var orderInfo) &&
+                orderInfo.CreationTime >= startDate && orderInfo.CreationTime <= endDate &&
+                orderInfo.Status == OrderStatus.Confirmed
+            ).ToList();
+
+            var productSalesQuery = filteredOrderItems
+                .GroupBy(item => item.ProductId)
+                .Select(group =>
+                {
+                    var productInfo = productDictionary.TryGetValue(group.Key, out var info) ? info : null;
+                    var sampleOrderItem = group.FirstOrDefault();
+                    DateTime saleDate = sampleOrderItem != null && orderDictionary.TryGetValue(sampleOrderItem.OrderId, out var orderInfo) ? orderInfo.CreationTime : DateTime.MinValue;
+                    double discount = sampleOrderItem != null && orderDictionary.TryGetValue(sampleOrderItem.OrderId, out orderInfo) ? orderInfo.Discount : 0;
+
+                    return new ProductSalesTimeDto
+                    {
+                        ProductId = group.Key,
+                        ProductName = productInfo?.Name ?? "Unknown Product",
+                        ManufacturerName = productInfo != null && manufacturerDictionary.TryGetValue(productInfo.ManufacturerId, out var name) ? name : "Unknown Manufacturer",
+                        QuantitySold = group.Sum(item => item.Quantity),
+                        Total = group.Sum(item => item.Price * item.Quantity),
+                        TotalRevenue = group.Sum(item => item.Price * item.Quantity) - discount,
+                        ThumbnailPicture = productInfo?.ThumbnailPicture ?? "default-thumbnail.jpg",
+                        SaleDate = saleDate,
+                        Discount = discount
+                    };
+                }).ToList();
+
+            if (!string.IsNullOrWhiteSpace(input.Keyword))
+            {
+                productSalesQuery = productSalesQuery.Where(sales => sales.ProductName.Contains(input.Keyword, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            var totalCount = productSalesQuery.Count;
+            var productSales = productSalesQuery
+                .Skip(input.SkipCount)
+                .Take(input.MaxResultCount)
+                .ToList();
+
+            return new PagedResultDto<ProductSalesTimeDto>(totalCount, productSales);
+        }
+
+
+
+
 
 
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ShopEcommerce.Orders;
 using ShopEcommerce.Products;
+using ShopEcommerce.Public.Products;
 using ShopEcommerce.Public.Promotions;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -22,17 +23,22 @@ namespace ShopEcommerce.Public.Orders
         private readonly OrderCodeGenerator _orderCodeGenerator;
         private readonly IRepository<Product, Guid> _productRepository;
         private readonly IPromotionAppService _promotionAppService;
+        private readonly IProductsAppService _productsAppService;
+
+
         public OrdersAppService(IRepository<Order, Guid> repository,
             OrderCodeGenerator orderCodeGenerator,
             IRepository<OrderItem> orderItemRepository,
             IRepository<Product, Guid> productRepository,
-            IPromotionAppService promotionAppService)
+            IPromotionAppService promotionAppService,
+            IProductsAppService productsAppService)
             : base(repository)
         {
             _orderItemRepository = orderItemRepository;
             _orderCodeGenerator = orderCodeGenerator;
             _productRepository = productRepository;
             _promotionAppService = promotionAppService;
+            _productsAppService = productsAppService;
             
         }
 
@@ -111,6 +117,46 @@ namespace ShopEcommerce.Public.Orders
                 Total = order.Total
             }).ToList();
         }
+
+        public async Task<List<OrderItemDto>> GetOrderItemsAsync(Guid orderId)
+        {
+            var orderItems = await _orderItemRepository.GetListAsync(item => item.OrderId == orderId);
+            var productIds = orderItems.Select(i => i.ProductId).Distinct().ToList();
+            var products = await _productRepository.GetListAsync(p => productIds.Contains(p.Id));
+
+            var productDictionary = products.ToDictionary(p => p.Id, p => p);
+
+            var orderItemDtos = new List<OrderItemDto>();
+
+            foreach (var item in orderItems)
+            {
+                var orderItemDto = new OrderItemDto
+                {
+                    OrderId = item.OrderId,
+                    ProductId = item.ProductId,
+                    SKU = item.SKU,
+                    Quantity = item.Quantity,
+                    Price = item.Price,
+                    ProductName = productDictionary[item.ProductId].Name,
+                    ProductImageUrl = productDictionary[item.ProductId].ThumbnailPicture
+                };
+
+                if (!string.IsNullOrEmpty(orderItemDto.ProductImageUrl))
+                {
+                    var base64Image = await _productsAppService.GetThumbnailImageAsync(orderItemDto.ProductImageUrl);
+                    if (!string.IsNullOrEmpty(base64Image))
+                    {
+                        // Đảm bảo rằng chuỗi base64 được định dạng đúng cho việc sử dụng trong thẻ img
+                        orderItemDto.ProductImageUrlBase64 = $"data:image/jpeg;base64,{base64Image}";
+                    }
+                }
+
+                orderItemDtos.Add(orderItemDto);
+            }
+
+            return orderItemDtos;
+        }
+
 
         public async Task<OrderDto> UpdateAsync(Guid id, OrderDto input)
         {

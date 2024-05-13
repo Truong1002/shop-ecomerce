@@ -14,5 +14,6 @@ namespace ShopEcommerce.Public.Orders
     {
         Task<List<OrderDto>> GetCustomerOrdersAsync(Guid customerUserId);
         Task<OrderDto> UpdateAsync(Guid id, OrderDto input);
+        Task<List<OrderItemDto>> GetOrderItemsAsync(Guid orderId);
     }
 }

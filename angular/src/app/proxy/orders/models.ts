@@ -41,5 +41,19 @@ export interface ProductSalesDto extends EntityDto<string> {
   totalRevenue: number;
   manufacturerName?: string;
   thumbnailPicture?: string;
+  saleDate?: string;
+  safeThumbnailUrl?:SafeUrl;
+}
+
+export interface ProductSalesTimeDto {
+  productId?: string;
+  productName?: string;
+  quantitySold: number;
+  totalRevenue: number;
+  total: number;
+  manufacturerName?: string;
+  thumbnailPicture?: string;
+  discount: number;
+  saleDate?: string;
   safeThumbnailUrl?:SafeUrl;
 }

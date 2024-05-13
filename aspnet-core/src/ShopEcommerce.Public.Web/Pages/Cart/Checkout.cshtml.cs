@@ -80,7 +80,7 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
                     TempData["CouponError"] = "Mã giảm giá không hợp lệ hoặc đã hết hạn.";
                 }
                 CartItems = GetCartItems();
-                if (promotion != null && promotion.IsActive && (!promotion.ExpiredDate.HasValue || promotion.ExpiredDate.Value >= DateTime.Now))
+                if (promotion != null && promotion.IsActive && promotion.ValidDate <= DateTime.Now && (!promotion.ExpiredDate.HasValue || promotion.ExpiredDate.Value >= DateTime.Now))
                 {
                     double total = CartItems.Sum(item => item.Product.SellPrice * item.Quantity);
                     double discount = total * (promotion.DiscountAmount); // Giả sử DiscountAmount là phần trăm
@@ -249,6 +249,12 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
 
                 }*/
                 CreateStatus = true;
+                if (CreateStatus == true)
+                {
+                    HttpContext.Session.Remove(ShopEcommerceConsts.Cart);
+                    HttpContext.Session.Remove("TotalAfterDiscount");
+                    HttpContext.Session.Remove("CouponCode");
+                }
             }
 
             else

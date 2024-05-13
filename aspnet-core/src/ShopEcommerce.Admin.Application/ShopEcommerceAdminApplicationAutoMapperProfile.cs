@@ -65,6 +65,7 @@ public class ShopEcommerceAdminApplicationAutoMapperProfile : Profile
 
         //Order
         CreateMap<Order, OrderDto>();
+        CreateMap<OrderItem, OrderItemDto>();
 
         //Promotion
         CreateMap<Promotion, PromotionDto>();

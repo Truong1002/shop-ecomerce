@@ -19,6 +19,7 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
         }
 
         public List<OrderDto> Orders { get; set; }
+        public Dictionary<Guid, List<OrderItemDto>> OrderItems { get; set; } = new Dictionary<Guid, List<OrderItemDto>>();
 
         public async Task OnGetAsync()
         {
@@ -27,6 +28,11 @@ namespace ShopEcommerce.Public.Web.Pages.Cart
             if (currentUserId.HasValue)
             {
                 Orders = await _ordersAppService.GetCustomerOrdersAsync(currentUserId.Value);
+                foreach (var order in Orders)
+                {
+                    var items = await _ordersAppService.GetOrderItemsAsync(order.Id);
+                    OrderItems[order.Id] = items;
+                }
             }
             else
             {

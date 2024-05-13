@@ -1,153 +1,118 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { attributeTypeOptions } from '@proxy/shop-ecommerce/product-attributes';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Subject, takeUntil } from 'rxjs';
-import { NotificationService } from '../shared/services/notification.service';
-import { UtilityService } from '../shared/services/utility.service';
-import { OrderDto, OrdersService } from '@proxy/orders';
-import { orderStatusOptions } from '@proxy/shop-ecommerce/orders';
+import { Component, OnInit } from "@angular/core";
+import { OrderItemDto, OrdersService } from "@proxy/orders";
+import { DynamicDialogConfig, DynamicDialogRef } from "primeng/dynamicdialog";
+import { NotificationService } from "../shared/services/notification.service";
+import { ProductInListDto, ProductsService } from "@proxy/catalog/products";
+import { Subject, takeUntil } from "rxjs";
+import { DomSanitizer } from "@angular/platform-browser";
+import { ManufacturersService } from "@proxy/catalog/manufacturers";
 
+// OrderDetailComponent or similar
 @Component({
-  selector: 'app-order-detail',
-  templateUrl: './order-detail.component.html',
-})
-export class OrderDetailComponent implements OnInit, OnDestroy {
-  private ngUnsubscribe = new Subject<void>();
-  blockedPanel: boolean = false;
-  btnDisabled = false;
-  public form: FormGroup;
-
-  //Dropdown
-  dataTypes: any[] = [];
-  selectedEntity = {} as OrderDto;
-
-  constructor(
-    private orderService: OrdersService,
-    private fb: FormBuilder,
-    private config: DynamicDialogConfig,
-    private ref: DynamicDialogRef,
-    private utilService: UtilityService,
-    private notificationSerivce: NotificationService
-  ) {}
-
-  validationMessages = {
-    code: [{ type: 'required', message: 'Bạn phải nhập mã duy nhất' }],
-    label: [
-      { type: 'required', message: 'Bạn phải nhập nhãn hiển thị' },
-      { type: 'maxlength', message: 'Bạn không được nhập quá 255 kí tự' },
-    ],
-    dataType: [{ type: 'required', message: 'Bạn phải chọn kiểu dữ liệu' }],
-    sortOrder: [{ type: 'required', message: 'Bạn phải nhập thứ tự' }],
-  };
-
-  ngOnDestroy(): void {
-    if (this.ref) {
-      this.ref.close();
+    selector: 'app-order-detail',
+    templateUrl: './order-detail.component.html'
+  })
+  export class OrderDetailComponent implements OnInit {
+    private ngUnsubscribe = new Subject<void>();
+    items: OrderItemDto[] = [];
+    products: ProductInListDto[] = [];
+    dialogVisible: boolean = true;
+    manufacturers: { [key: string]: string } = {};
+  
+    constructor(
+      private productService: ProductsService,
+      private orderService: OrdersService,
+      public ref: DynamicDialogRef,
+      public config: DynamicDialogConfig,
+      private notificationService: NotificationService,
+      private sanitizer: DomSanitizer,
+      private manufacturerService: ManufacturersService
+    ) {}
+  
+    ngOnInit(): void {
+      if (this.config.data.id) {
+        this.loadOrderItems(this.config.data.id);
+      }
     }
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
-  }
-
-  ngOnInit(): void {
-    this.buildForm();
-    this.loadStatusTypes();
-    this.initFormData();
-  }
-
-
-  initFormData() {
-    //Load edit data to form
-    if (this.utilService.isEmpty(this.config.data?.id) == true) {
-      this.toggleBlockUI(false);
-    } else {
-      this.loadFormDetails(this.config.data?.id);
-    }
-  }
-
-  loadFormDetails(id: string) {
-    this.toggleBlockUI(true);
-    this.orderService
-      .get(id)
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe({
-        next: (response: OrderDto) => {
-          this.selectedEntity = response;
-          this.buildForm();
-          this.toggleBlockUI(false);
+  
+    // loadOrderItems(orderId: string) {
+    //   this.orderService.getOrderItems(orderId).subscribe({
+    //     next: (items: OrderItemDto[]) => {
+    //       this.items = items;
+    //     },
+    //     error: () => {
+    //       this.notificationService.showError('Failed to load order items.');
+    //     }
+    //   });
+    // }
+    loadOrderItems(orderId: string) {
+      this.orderService.getOrderItems(orderId).subscribe({
+        next: (items: OrderItemDto[]) => {
+          this.items = items;
+          this.fetchProductDetails();
         },
         error: () => {
-          this.toggleBlockUI(false);
-        },
+          this.notificationService.showError('Failed to load order items.');
+        }
       });
-  }
+    }
 
-  saveChange() {
-    this.toggleBlockUI(true);
+    fetchProductDetails() {
+      const productIds = this.items.map(item => item.productId).filter((value, index, self) => self.indexOf(value) === index);
+      productIds.forEach(id => {
+        this.productService.get(id).subscribe({
+          next: (productDetail: ProductInListDto) => {
+            this.products.push(productDetail);
+            this.loadThumbnail(productDetail);
+            this.fetchManufacturerDetails(productDetail.manufacturerId);
+          },
+          error: () => {
+            this.notificationService.showError('Failed to load product details.');
+          }
+        });
+      });
+    }
+    getProductDetail(productId: string): ProductInListDto | undefined {
+      return this.products.find(p => p.id === productId);
+    }
 
-    if (this.utilService.isEmpty(this.config.data?.id) == true) {
-      this.orderService
-        .create(this.form.value)
+    loadThumbnail(product: ProductInListDto) {
+      if (!product.thumbnailPicture) {
+        console.log('No thumbnail available for this product.');
+        return;
+      }
+    
+      this.productService.getThumbnailImage(product.thumbnailPicture)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-
-            this.ref.close(this.form.value);
+          next: (response: string) => {
+            const fileExt = product.thumbnailPicture.split('.').pop();
+            product.safeThumbnailUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+              `data:image/${fileExt};base64,${response}`
+            );
           },
-          error: err => {
-            this.notificationSerivce.showError(err.error.error.message);
-
-            this.toggleBlockUI(false);
-          },
-        });
-    } else {
-      this.orderService
-        .update(this.config.data?.id, this.form.value)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe({
-          next: () => {
-            this.toggleBlockUI(false);
-            this.ref.close(this.form.value);
-          },
-          error: err => {
-            this.notificationSerivce.showError(err.error.error.message);
-            this.toggleBlockUI(false);
-          },
+          error: () => {
+            console.error(`Failed to load thumbnail for ${product.thumbnailPicture}`);
+            product.safeThumbnailUrl = undefined; // Optionally set a default image in case of error
+          }
         });
     }
-  }
 
-  loadStatusTypes() {
-    orderStatusOptions.forEach(element => {
-      this.dataTypes.push({
-        value: element.value,
-        label: element.key,
-      });
-    });
-  }
+    fetchManufacturerDetails(manufacturerId: string) {
+      if (!this.manufacturers[manufacturerId]) {
+        this.manufacturerService.get(manufacturerId).subscribe({
+          next: (manufacturer) => {
+            this.manufacturers[manufacturerId] = manufacturer.name; // Store manufacturer name
+          },
+          error: () => {
+            this.notificationService.showError('Failed to load manufacturer details.');
+          }
+        });
+      }
+    }
 
-  private buildForm() {
-    this.form = this.fb.group({
-      code: new FormControl(this.selectedEntity.code || null, Validators.required),
-      status: new FormControl(this.selectedEntity.status || null, Validators.required),
-      customerName: new FormControl(this.selectedEntity.customerName || null),
-      customerPhoneNumber: new FormControl(this.selectedEntity.customerPhoneNumber || null),
-      customerAddress: new FormControl(this.selectedEntity.customerAddress || false),
-    });
-  }
-
-  private toggleBlockUI(enabled: boolean) {
-    if (enabled == true) {
-      this.blockedPanel = true;
-      this.btnDisabled = true;
-    } else {
-      setTimeout(() => {
-        this.blockedPanel = false;
-        this.btnDisabled = false;
-      }, 1000);
+    getManufacturerName(manufacturerId: string): string | undefined {
+      return this.manufacturers[manufacturerId];
     }
   }
-
-}
+  

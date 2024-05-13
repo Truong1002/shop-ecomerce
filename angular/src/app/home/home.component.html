@@ -1,35 +1,17 @@
-<p-panel header="Danh sách thống kê sản phẩm theo đơn">
+<p-panel header="Danh sách thống kê">
   <!--Filter (search panel)-->
   <div class="grid">
     <div class="col-4">
-      <!-- <button
-        pButton
-        type="button"
-        (click)="showAddModal()"
-        icon="fa fa-plus"
-        iconPos="left"
-        label="Thêm"
-      ></button>
-      <button
-        pButton
-        type="button"
-        (click)="showEditModal()"
-        *ngIf="selectedItems.length == 1"
-        class="ml-1 p-button-help"
-        icon="fa fa-minus"
-        iconPos="left"
-        label="Sửa"
-      ></button> -->
-      <!-- <button
-      pButton
-      type="button"
-      (click)="deleteItems()"
-      *ngIf="selectedItems.length > 0"
-      class="ml-1 p-button-danger"
-      icon="fa fa-minus"
-      iconPos="left"
-      label="xóa"
-    ></button> -->
+      <div class="formgroup-inline">
+        <div class="field">
+          <label for="start-date" class="p-sr-only">Ngày bắt đầu</label>
+          <input [(ngModel)]="startDate" id="start-date" pInputText type="date" placeholder="Chọn ngày bắt đầu" />
+        </div>
+        <div class="field">
+          <label for="end-date" class="p-sr-only">Ngày kết thúc</label>
+          <input [(ngModel)]="endDate" id="end-date" pInputText type="date" placeholder="Chọn ngày kết thúc" />
+        </div>
+      </div>
     </div>
     <div class="col-8">
       <div class="formgroup-inline">
@@ -47,23 +29,22 @@
         ></button>
         <div style="margin-left: 16px;">
           <button
-          pButton
-          type="button"
-          (click)="resetForm()"
-          icon="fa fa-refresh"
-          iconPos="left"
-          label="Reset"
-        ></button>
+            pButton
+            type="button"
+            (click)="resetForm()"
+            icon="fa fa-refresh"
+            iconPos="left"
+            label="Reset"
+          ></button>
         </div>
-       
       </div>
     </div>
   </div>
-  <div class="summary" style="margin-bottom: 20px;">
-    <h2>Thông Tin Tổng Quát</h2>
-    <p><b>Tổng số lượng đã được đặt: {{ totalQuantitySold | number }}</b></p>
-    <p><b>Tổng tiền thu được: {{ totalRevenue | number:'1.0-0' }}</b></p>
-  </div>
+ 
+    
+ 
+    <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
+ 
   <!--Table-->
   <p-table #pnl [value]="items" selectionMode="multiple">
     <ng-template pTemplate="header">
@@ -75,9 +56,9 @@
         <th>Tên nhà sản xuất</th>
         <th>Hình Ảnh</th>
         <th>Số lượng bán</th>
+        <th>Số tiền Discount</th>
+        <th>Tổng tiền chưa giảm</th>
         <th>Tổng tiền</th>
-
-        
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-row>
@@ -87,20 +68,25 @@
           <p-tableCheckbox [value]="row"></p-tableCheckbox>
         </td>
         <td>{{ row.productName }}</td>
-        <td>{{ row.manufacturerName}}</td>
+        <td>{{ row.manufacturerName }}</td>
         <td>
-          <p-image [src]="row.safeThumbnailUrl" [alt]="row.thumbnailPicture" width="100" ></p-image>
+          <p-image [src]="row.safeThumbnailUrl" [alt]="row.thumbnailPicture" width="100"></p-image>
         </td>
-        <td>{{ row.quantitySold}}</td>
-        <td>{{ row.totalRevenue | number: '1.0-0'}}</td>
         
-       
-        
+        <td>{{ row.quantitySold }}</td>
+        <td>{{row.discount| number: '1.0-0'}}</td>
+        <td>{{ row.total| number: '1.0-0' }}</td>
+        <td>{{ row.totalRevenue | number: '1.0-0' }}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="summary">
       <div style="text-align: left">Tổng số bản ghi: {{ totalCount | number }}</div>
+      <div  style="text-align: left"><b>Tổng số lượng đã được đặt: {{ totalQuantitySold | number }}</b></div>
+      <div style="text-align: right; margin-right: 32px;">
+        <b>Tổng tiền thu được: {{ totalRevenue | number: '1.0-0' }}</b>
+      </div>
     </ng-template>
+
   </p-table>
   <!--Paginator-->
   <p-paginator
@@ -114,6 +100,3 @@
     <p-progressSpinner></p-progressSpinner>
   </p-blockUI>
 </p-panel>
-
-
-

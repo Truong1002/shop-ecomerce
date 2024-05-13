@@ -126,7 +126,7 @@ export class PromotionComponent implements OnInit, OnDestroy {
       width: '70%',
     });
 
-    ref.onClose.subscribe((data: ProductCategoryDto) => {
+    ref.onClose.subscribe((data: PromotionDto) => {
       if (data) {
         this.loadData();
         this.selectedItems = [];

@@ -12,5 +12,9 @@ namespace ShopEcommerce.Public.Orders
         public string? SKU { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
+
+        public string? ProductName { get; set; }
+        public string? ProductImageUrl { get; set; }
+        public string? ProductImageUrlBase64 { get; set; }  // Thêm thuộc tính nà
     }
 }

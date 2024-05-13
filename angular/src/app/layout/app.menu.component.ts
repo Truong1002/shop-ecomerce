@@ -85,7 +85,7 @@ export class AppMenuComponent implements OnInit {
         label: 'Phiếu giảm giá',
         items: [
           { 
-            label: 'Danh sách đơn hàng',
+            label: 'Danh sách phiếu giảm giá',
             icon: 'pi pi-fw pi-circle',
             routerLink: ['/promotion'], 
            

@@ -35,7 +35,7 @@
       <div class="formgroup-inline">
         <div class="field">
           <label for="txt-keyword" class="p-sr-only">Từ khóa</label>
-          <input id="txt-keyword" [(ngModel)]="keyword" pInputText type="text" placeholder="Gõ từ khóa" />
+          <input id="txt-keyword" [(ngModel)]="keyword" pInputText type="text" placeholder="Gõ từ khóa" (keyup.enter)="loadData()"/>
         </div>
         <button
           type="button"

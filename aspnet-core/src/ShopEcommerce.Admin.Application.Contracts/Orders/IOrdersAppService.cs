@@ -24,5 +24,7 @@ namespace ShopEcommerce.Admin.Orders
         Task DeleteMultipleAsync(IEnumerable<Guid> ids);
 
         Task<PagedResultDto<ProductSalesDto>> GetProductSalesStatisticsAsync(BaseListFilterDto input);
+
+        Task<List<OrderItemDto>> GetOrderItemsAsync(Guid orderId);
     }
 }
