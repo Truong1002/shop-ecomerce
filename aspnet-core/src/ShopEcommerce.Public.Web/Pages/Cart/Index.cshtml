@@ -87,8 +87,8 @@
                         </div>
 
                         <div class="row mb-40">
-                            <div class="col-lg-6 col-md-6 col-sm-6-col-6"><a class="btn btn-buy w-auto arrow-back mb-10" href="/">Continue shopping</a></div>
-                            <div class="col-lg-6 col-md-6 col-sm-6-col-6 text-md-end"><button class="btn btn-buy w-auto update-cart mb-10" type="submit">Update cart</button></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6-col-6"><a class="btn btn-buy w-auto arrow-back mb-10" href="/">Tiếp tục mua hàng</a></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6-col-6 text-md-end"><button class="btn btn-buy w-auto update-cart mb-10" type="submit">Cập nhật giỏ hàng</button></div>
                         </div>
                     </form>
                     <div class="row mb-50">
@@ -109,7 +109,7 @@
                 <div class="summary-cart">
                     <div class="border-bottom mb-10">
                         <div class="row">
-                            <div class="col-6"><span class="font-md-bold color-gray-500">Subtotal</span></div>
+                            <div class="col-6"><span class="font-md-bold color-gray-500">Tổng tiền</span></div>
                             <div class="col-6 text-end">
                                 <h4>@Model.CartItems.Sum(x=>x.Product.SellPrice * x.Quantity)</h4>
                             </div>
@@ -126,13 +126,13 @@
                     
                     <div class="mb-10">
                         <div class="row">
-                            <div class="col-6"><span class="font-md-bold color-gray-500">Total</span></div>
+                            <div class="col-6"><span class="font-md-bold color-gray-500">Tổng cộng</span></div>
                             <div class="col-6 text-end">
                                 <h4>	@Model.CartItems.Sum(x=>x.Product.SellPrice * x.Quantity)</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="box-button"><a class="btn btn-buy" href="/checkout.html">Proceed To CheckOut</a></div>
+                    <div class="box-button"><a class="btn btn-buy" href="/checkout.html">Thanh toán</a></div>
                 </div>
             </div>
         </div>

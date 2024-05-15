@@ -31,6 +31,7 @@ namespace ShopEcommerce.Public.Products
         private readonly IRepository<Manufacturer, Guid> _manufacturerRepository;
         private readonly IRepository<Product, Guid> _productRepository;
         private readonly IRepository<OrderItem> _orderItemRepository;
+        private readonly IRepository<Order> _orderRepository;
 
 
         public ProductsAppService(IRepository<Product, Guid> repository,
@@ -44,7 +45,8 @@ namespace ShopEcommerce.Public.Products
               IRepository<ProductAttributeText> productAttributeTextRepository,
               IRepository<Manufacturer, Guid> manufacturerRepository,
               IRepository<Product, Guid> productRepository,
-              IRepository<OrderItem> orderItemRepository
+              IRepository<OrderItem> orderItemRepository,
+              IRepository<Order> orderRepository
               )
             : base(repository)
         {
@@ -58,6 +60,7 @@ namespace ShopEcommerce.Public.Products
             _productRepository = productRepository;
             _manufacturerRepository = manufacturerRepository;
             _orderItemRepository = orderItemRepository;
+            _orderRepository = orderRepository;
         }
 
         public async Task<List<ProductInListDto>> GetListAllAsync()
@@ -289,27 +292,65 @@ namespace ShopEcommerce.Public.Products
              var data = await AsyncExecuter.ToListAsync(query.Take(numberOfRecords));
              return data;
          }*/
+        /* public async Task<List<ProductInListDto>> GetListTopSellerAsync(int numberOfRecords)
+         {
+             var products = await _productRepository.GetQueryableAsync();
+             var manufacturers = await _manufacturerRepository.GetQueryableAsync();
+             var orderItems = await _orderItemRepository.GetQueryableAsync(); // Giả định rằng bạn đã có _orderItemRepository
+
+             // Truy vấn để lấy thông tin sản phẩm, nhà sản xuất và tổng số lượng bán
+             var query = from product in products
+                         join manufacturer in manufacturers
+                         on product.ManufacturerId equals manufacturer.Id
+                         join orderItem in orderItems
+                         on product.Id equals orderItem.ProductId into productOrders
+                         from order in productOrders.DefaultIfEmpty()
+                         where product.IsActive
+                         group new { product, manufacturer, order } by new { product.Id, product.Name, ManufacturerName = manufacturer.Name, product.Code, product.Slug, product.SKU, product.ThumbnailPicture, product.SellPrice, product.CategoryName, product.CategorySlug, product.ProductType, ManufacturerCode=manufacturer.Code } into grouped
+                         orderby grouped.Sum(x => x.order != null ? x.order.Quantity : 0) descending
+                         select new ProductInListDto
+                         {
+                             Id = grouped.Key.Id,
+                             Name = grouped.Key.Name,
+                             ManufacturerName = grouped.Key.ManufacturerName, // Sửa ở đây
+                             Code = grouped.Key.Code,
+                             Slug = grouped.Key.Slug,
+                             SKU = grouped.Key.SKU,
+                             ThumbnailPicture = grouped.Key.ThumbnailPicture,
+                             SellPrice = grouped.Key.SellPrice,
+                             CategoryName = grouped.Key.CategoryName,
+                             CategorySlug = grouped.Key.CategorySlug,
+                             ProductType = grouped.Key.ProductType,
+                             ManufacturerCode = grouped.Key.ManufacturerCode,
+
+                         };
+
+             var data = await AsyncExecuter.ToListAsync(query.Take(numberOfRecords));
+             return data;
+         }*/
         public async Task<List<ProductInListDto>> GetListTopSellerAsync(int numberOfRecords)
         {
             var products = await _productRepository.GetQueryableAsync();
             var manufacturers = await _manufacturerRepository.GetQueryableAsync();
-            var orderItems = await _orderItemRepository.GetQueryableAsync(); // Giả định rằng bạn đã có _orderItemRepository
+            var orderItems = await _orderItemRepository.GetQueryableAsync();
+            var orders = await _orderRepository.GetQueryableAsync(); // Assuming _orderRepository exists and orders have a property to check if they're confirmed
 
-            // Truy vấn để lấy thông tin sản phẩm, nhà sản xuất và tổng số lượng bán
+            // Query to get product info, manufacturer info, and total quantity sold of confirmed orders
             var query = from product in products
                         join manufacturer in manufacturers
                         on product.ManufacturerId equals manufacturer.Id
                         join orderItem in orderItems
-                        on product.Id equals orderItem.ProductId into productOrders
-                        from order in productOrders.DefaultIfEmpty()
-                        where product.IsActive
-                        group new { product, manufacturer, order } by new { product.Id, product.Name, ManufacturerName = manufacturer.Name, product.Code, product.Slug, product.SKU, product.ThumbnailPicture, product.SellPrice, product.CategoryName, product.CategorySlug, product.ProductType, ManufacturerCode=manufacturer.Code } into grouped
-                        orderby grouped.Sum(x => x.order != null ? x.order.Quantity : 0) descending
+                        on product.Id equals orderItem.ProductId
+                        join order in orders
+                        on orderItem.OrderId equals order.Id
+                        where product.IsActive && order.Status ==OrderStatus.Confirmed // Assuming IsConfirmed is a boolean property indicating the order's confirmation status
+                        group new { product, manufacturer, orderItem } by new { product.Id, product.Name, ManufacturerName = manufacturer.Name, product.Code, product.Slug, product.SKU, product.ThumbnailPicture, product.SellPrice, product.CategoryName, product.CategorySlug, product.ProductType, ManufacturerCode = manufacturer.Code } into grouped
+                        orderby grouped.Sum(x => x.orderItem.Quantity) descending
                         select new ProductInListDto
                         {
                             Id = grouped.Key.Id,
-                            Name = grouped.Key.Name,
-                            ManufacturerName = grouped.Key.ManufacturerName, // Sửa ở đây
+                            Name = grouped.Key.Name, 
+                            ManufacturerName = grouped.Key.ManufacturerName,
                             Code = grouped.Key.Code,
                             Slug = grouped.Key.Slug,
                             SKU = grouped.Key.SKU,
@@ -319,7 +360,6 @@ namespace ShopEcommerce.Public.Products
                             CategorySlug = grouped.Key.CategorySlug,
                             ProductType = grouped.Key.ProductType,
                             ManufacturerCode = grouped.Key.ManufacturerCode,
-                            
                         };
 
             var data = await AsyncExecuter.ToListAsync(query.Take(numberOfRecords));

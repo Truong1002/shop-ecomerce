@@ -17,7 +17,7 @@
       <div class="formgroup-inline">
         <div class="field">
           <label for="txt-keyword" class="p-sr-only">Từ khóa</label>
-          <input [(ngModel)]="keyword" id="txt-keyword" pInputText type="text" placeholder="Gõ từ khóa" />
+          <input (keyup.enter)="loadData()"  [(ngModel)]="keyword" id="txt-keyword" pInputText type="text" placeholder="Gõ từ khóa" />
         </div>
         <button
           type="button"
@@ -27,16 +27,7 @@
           iconPos="left"
           label="Tìm"
         ></button>
-        <div style="margin-left: 16px;">
-          <button
-            pButton
-            type="button"
-            (click)="resetForm()"
-            icon="fa fa-refresh"
-            iconPos="left"
-            label="Reset"
-          ></button>
-        </div>
+       
       </div>
     </div>
   </div>

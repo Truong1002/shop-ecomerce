@@ -16,7 +16,7 @@ namespace ShopEcommerce.Public.Web.Pages.Products
             _productAppService = productAppService;
         }
 
-        public async Task OnGetAsync([FromQuery] string keyword, [FromQuery] Guid? categoryId, [FromQuery] int page = 1, [FromQuery] int pageSize = 2)
+        public async Task OnGetAsync([FromQuery] string keyword, [FromQuery] Guid? categoryId, [FromQuery] int page = 1, [FromQuery] int pageSize = 8)
         {
             var input = new ProductListFilterDto
             {

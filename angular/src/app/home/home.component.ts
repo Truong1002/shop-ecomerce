@@ -6,6 +6,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ProductsService } from '@proxy/catalog/products';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
+import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -51,6 +52,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.setCurrentMonthDates();
     this.loadData();
   }
 
@@ -63,14 +65,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       labels: labels,
       datasets: [
         {
-          label: 'Total Revenue',
+          label: 'Tổng tiền',
           data: revenues,
           backgroundColor: '#42A5F5',
           yAxisID: 'y-axis-revenue',
           type: 'bar'
         },
         {
-          label: 'Quantity Sold',
+          label: 'Số lượng bán được',
           data: quantities,
           borderColor: '#FFA726',
           backgroundColor: '#FFA726',
@@ -239,6 +241,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   
     // Tải tệp xuống
     saveAs(wbout, 'SalesData.xlsx');
+  }
+  private setCurrentMonthDates(): void {
+    const now = new Date();
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0); // Set day to 0 to get last day of current month
+  
+    // Format dates to 'YYYY-MM-DD' if your backend requires this format
+    this.startDate = formatDate(startOfMonth, 'yyyy-MM-dd', 'en-US');
+    this.endDate = formatDate(endOfMonth, 'yyyy-MM-dd', 'en-US');
   }
 
 }

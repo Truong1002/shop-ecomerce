@@ -99,14 +99,14 @@ export class ManufacturerComponent implements OnInit, OnDestroy {
   }
   showAddModal() {
     const ref = this.dialogService.open(ManufacturerDetailComponent, {
-      header: 'Thêm mới loại sản phẩm',
+      header: 'Thêm mới nhà sản xuất',
       width: '70%',
     });
 
     ref.onClose.subscribe((data: ProductDto) => {
       if (data) {
         this.loadData();
-        this.notificationService.showSuccess('Thêm loại sản phẩm thành công');
+        this.notificationService.showSuccess('Thêm nhà sản xuất thành công');
         this.selectedItems = [];
       }
     });
@@ -122,7 +122,7 @@ export class ManufacturerComponent implements OnInit, OnDestroy {
       data: {
         id: id,
       },
-      header: 'Cập nhật loại sản phẩm',
+      header: 'Cập nhật nhà sản xuất',
       width: '70%',
     });
 
@@ -130,7 +130,7 @@ export class ManufacturerComponent implements OnInit, OnDestroy {
       if (data) {
         this.loadData();
         this.selectedItems = [];
-        this.notificationService.showSuccess('Cập nhật loại sản phẩm thành công');
+        this.notificationService.showSuccess('Cập nhật nhà sản xuất thành công');
       }
     });
   }
